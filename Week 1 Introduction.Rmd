@@ -1,0 +1,237 @@
+---
+title: "A GUIDED TUTORIAL TO R FOR CRIMINOLOGY STUDENTS"
+output: html_document
+---
+##WEEK 1: INTRODUCTION TO R AND BASIC DESCRIPTION OF DATA##
+
+###Section 1.1: Objects in R (in particular vectors, factors and data frames)###
+
+This course provides an introduction to data analysis using R, a programming language. In this session we are going to learn some of the basic grammar elements in R. If you have never learnt a programming language, it is likely that this may feel a bit intimidating and arcane at first. But as with the learning of anything else, practice will increase your confidence, understanding, and skills. And if you practice a lot, speaking R will feel as natural to you as speaking your mother tongue.
+
+R is what we call an *object-oriented language*. Everything that exists in R is an object. The most basic object in R is a **vector**. A vector is simple a set of elements *of the same class* (typically character, numeric, integer, or logical -as in True/False). The one exception to this rule is the **list**. The list is a vector that can contain elements of different classes.
+
+At the R prompt we can type **expressions**. The <- symbol is the **assignment operator**. It is what assigns value to a symbol. So, for example, if we type the following expression in the prompt:
+
+```{r}
+X <- 5
+```
+
+We are simply creating a *numeric object*, called X, with one element (5) or of lenght 1.
+
+When a complete expression is entered at the prompt and we press return, this expression is then evaluated by the R engine and the result is returned. This result may be auto-printed or not (and the latter may take some get used to!). If you press return after entering the previous expression you won't see much happening in the main console (although you may have noticed that a new object, X, appears in the global environement window in RStudio).
+
+However, you can see the content of the object X either by auto-printing:
+
+```{r}
+X
+```
+
+Or alternatively, you can use the **print()** function. 
+
+```{r}
+print(X)
+```
+
+Let’s look at another example. We are going to create another object Y containing a sequence of integer values from 1 to 20.
+
+```{r}
+Y <- 1:20 # The : operator is used to create integer sequences
+Y #Auto printing of Y
+```
+
+So here we now have an integer object with a length of 20, much longer than the one we created above. The first line has a 1 because that’s the first element.
+
+You must have noticed in the code that there was a number sign (#) followed by some text. Whenever the R engine sees the number sign it knows that what follows is not code to be executed. You can use this sign to include *annotations* when you are coding. These annotations are a helpful reminder to yourself (and others reading your code) of **what** the code is doing and (even more important) **why** you are doing it. It is good practice to often use annotations.
+
+Most commonly, when you use variables, you create **vectors** (a set of values of the same class). Typically you will use the **c()** function (c stands for concatenate) to do this. The code below exemplifies how to create vectors of different classes (numeric, logical, etc.). Notice how the listed elements (to simplify there are two elements in each vector below) are separated by commas:
+
+
+```{r}
+xN <- c(0.5, 0.6) #creates a numeric vector with two elements
+xI <- c(1L, 2L) #creates an integer vector
+xL.1 <- c(TRUE, FALSE) #creates a logical vector
+xL.2 <- c(T,F) #creates a logical vector using abbreviations of True and False
+xC <- c("a", "b", "c") #creates a character vector
+xCO <- c(1+0i, 2+4i) #creates a complex vector
+
+```
+
+When you create objects you are placing them in your global environment, in your working memory. Think of it as a warehouse where you are placing a bunch of boxes (your objects). R works using your RAM and placing the objects there (which means you need good RAM for very large datasets). In RStudio you can visualise the objects you have created during a session in the Global Environment screen. But if you want to produce a list of what's there you can use the **ls()** function.
+
+```{r}
+ls()
+```
+
+If you want to delete a particular object you can do so using the **rm()** function.
+
+```{r}
+
+rm(X)
+```
+
+If you mix in a vector elements that are of a different class (for example numerical and logical) R will **coerce** to the minimum common denominator, so that every element in the vector is of the same class. So for example if you input a number and a character, it will coerce the vector to be a character vector -see the example below and notice the use of the **class()** function to identify the class of an object. 
+
+```{r}
+z <- c(0.5, "a")
+class(z) #The class() function will tell us the class of the vector
+
+```
+
+An important thing to understand in R is that categorical (ordered or unordered) data are represented as **factors**. Factors are qualitative variables. Using factors with labels is better than using integers to represent categories because factors are self-describing (having a variable that has values Male and Female is better than a variable that has values 1 and 2). Factors are treated specially by many data analytic and visualisation functions.
+
+Factors can be created with the **factor()** function concatenating a series of character elements. You will notice that is printed differently from a simply character vector and that it tells us the levels of the factor.
+
+```{r}
+TheSmiths <- factor(c("Morrisey", "Marr", "Rourke", "Joyce"))
+TheSmiths
+#Alternatively for similar result using the as.factor() function
+TheSmiths.bis <- c("Morrisey", "Marr", "Rourke", "Joyce")
+TheSmithsF <- as.factor(TheSmiths.bis)
+TheSmithsF
+
+```
+
+You may have noticed te various names I have used here for these objects (TheSmiths, TheSmiths.bis, TheSmithsF). Objects in R can have names of any length consisting of letters, numbers, underscores ("_") or the period (".") and should begin with a letter. the important thing to know is that case matters: **R is case sensitive**. And this can also drive you insane if you are not careful. The first thing you need to do when your code is not working is to ensure you are using lower and upper case appropriately. This not only applies to the names of objects you have created but to everything else (functions, etc.).
+
+One of the most common objects you will work with are **data frames**. Data frames can be created with the **data.frame()** function. Data frames are multiple vectors of possibly different classes, but of the same length (e.g., all vectors, or variables, have the same number of rows). This is what in other programmes for data analysis are represented as data sets.
+
+```{r}
+#We create a dataframe called mydata.1 with two variables, an integer vector called foo and a logical vector called bar
+mydata.1 <- data.frame(foo = 1:4, bar = c(T,T,F,F))
+mydata.1
+
+```
+
+Or alternatively for the same result:
+```{r}
+x <- 1:4
+y <- c(T,T,F,F)
+mydata.2 <- data.frame (foo=x, bar=y)
+mydata.2
+
+```
+
+As you can see in R, as in any other language, there are multiple ways of saying the same thing. Programers aim to produce code that has been optimised: it is short and quick. It is likely that as you develop your R skills you find increasingly more efficient ways of asking R how to do things.
+
+Every object in R can have **attributes**. These are names, dimensions (for matrices and arrays: number of rows and columns) and dimensions names, class of object (numeric, character, etc.), length (for a vector this will be the number of elements in the vector) and other user-defined. You can access the attributes of an object using the **attributes()** function.
+
+```{r}
+attributes(mydata.1)
+
+```
+
+By now you must have also noticed the common structured of **functions** in R. You can think of functions as executable commands that R will evaluate. You will have notice they have a name followed by a bracket and that you can pass *arguments* to the function by including them within the brackets. In the previous example we were using a funciton called *attributes* and we passed the argument *mydata.1*. 
+
+You can obtain help about functions in R by using the **help()** function. This will give you access to the help files as a html file. These help files may look cryptic at first, but the more you use R the easier it gets to understand how they work. Don't underestimate the examples at the end of these files. As a beginner they may not mean much to you, but when you get more fluency with R executing those examples will help you in terms of understanding what the functions do.
+
+```{r}
+help(attributes)
+
+```
+
+
+###Section 1.2: Data Manipulation: Subsetting and Selection of Rows and Columns
+
+R capabilities for data manipulation are ridiculously rich. We could devote entire sessions just to discuss those. Here I am just going to introduce some very basic ones. Going through this will help you to understand a bit better some of the code that we will be using during the course. Let’s start by creating a small data frame:
+
+```{r}
+y <- c(89, 78, 75, 73, 72)
+x <- factor(c("Man City", "Liverpool", "Chelsea", "Arsenal", "Everton"))
+Premiership13_14 <-data.frame(teams= x, points=y)
+Premiership13_14
+
+```
+
+While we are doing our data analysis we will often only want to work with part of a vector or data frame. We can do **subsetting** in a variety of ways. If I just want to access the first element in the x vector I could ask for:
+
+```{r}
+x[1]
+
+```
+
+Similarly we can use the concatenate function with the square brackets if we want indices of particular values:
+
+```{r}
+y[c(1,2,4)] #For the 1st, 2nd and 4th elements of the y vector
+
+```
+
+We can also look at specific rows and columns in a data frame:
+
+```{r}
+#This will return the first row and columns 1 to 2 of the named data frame (anything to the left refers to rows and to the right to the columns)
+Premiership13_14[1, 1:2]
+
+```
+
+We can access a particular column in the data frame using the **dollar sign operator**:
+
+```{r}
+#This will return all the values in the “teams” column that exist in the Premiership13_14 data frame
+Premiership13_14$teams
+
+```
+
+We can also subset by particular logic operations. Here it is an example. Suppose I want to identify all rows with a team name that equals to “Man City”. In that case we can use the variable name “team” and check using the equal equal (which in R means equal) operator if the row equals to “Man City”. This particular vector will return true only when “Man City” appears:
+
+```{r}
+Premiership13_14[Premiership13_14$teams == "Man City", ]
+
+```
+
+You can also perform other type of operations regarding numerical vectors. Say we want to subset the rows with less than 75 points gained through the footballing season last year (remember we only included the first 5 top teams!). Then you would write:
+
+```{r}
+
+Premiership13_14[Premiership13_14$points < 75, ]
+```
+
+The number 4 and 5 that you see indicate that those are the respective row numbers for those two cases. You will have noticed a comma within those square brackets, whatever you put after the comma deals with columns rather than rows. If you are familiar with SPSS you will notice this way of operating gives you much more flexibility than the logical operators in that program (see Muenchen, 2009 for details of why this is so). Click [here for Roger Peng's video on subsetting](http://tinyurl.com/ot8cq96).
+
+###Section 1.3: Loading Data into R and Setting Up the Working Directory###
+
+You can then, as we have seen, input data into R in a variety of ways. In data analysis, however, it is very common that you will work with data already formatted (and collected by somebody else: government, a professional survey organisation you may have contracted for fieldwork, other researchers, etc.). We live in a time where data are everywhere; some people call it the "data revolution". And there are, indeed, a variety of places where you can obtain datasets for secondary analysis such as the UK Data Archive or the ICPSR website (feel free to google these, they may give you ideas for your MA dissertation or future PhD research). 
+
+To keep things simple, in this course, however, we will be using for the most part a small number of datasets that you will use as data frames in R. Every time we introduce one of these datasets you will be provided with some background information about the dataset in question: a short **codebook** telling you how the data was collated and some information about the variables included. 
+
+For the most part the data we use in the course have already being formatted and cleaned to make your life easier. But in real life data, even pre-processed data, tends to be messy. The day to day of data analysis implies spending the bulk of the time (up to 90%) in what some informally call **data munging** before you can start exploring your data for interesting patterns. This involves: fixing variable names, creating new variables, merging data sets, reshaping data sets, dealing with missing data, transforming variables, checking on and removing inconsistent values, etc. Using R means that you will be induced to have a much better (and essential) record of all these operations.
+
+The “sanitised” datasets we use will be provided from **Blackboard**. In the *Study Materials* section you will find a folder called *Datasets*. There you will find subfolders for each of the datasets. You should made copy of these files to either your P: drive, a USB memory stick, whichever you prefer to work from. I advise that you create a folder in either your P: drive, the hard drive of your home computer, or a USB drive for these datasets and the exercises that you will be performing for this course. You may call this folder "R Exercises"or something like that. 
+
+Whatever folder or location you use, it is convenient you set this folder as your **working directory** whenever you start your session (see Field et al., pp. 77-78), otherwise every time you need to use a data frame you will have to explain R where to find it. This is how I set the working directory for my R related teaching materials for this course:
+
+```{r}
+#setwd("C:/Users/jjmedina/Dropbox/Teaching/1 Manchester courses/70821 Intro to Statistics/R Materials/RStudio/Course1415")
+
+```
+
+**setwd()** is the function that commands R to set a working directory and what you find between parentheses is simply the particular location that *in my case* I want to use as such. You will have to adapt this to whatever location you want to work from. In order for R to find and save in the right place your data and any programs ("scripts"), or graphics that you produce *it is important that you start any R session setting up this working directory*.
+
+Data may come in a variety of formats (Excel files, comma separated, tab separated, SPSS, STATA, JSON, etc.). There are packages and functions that help **importing** into R files in these various formats. But to keep things simple we will be working with files that you will only need to **load** rather than import.
+
+Get from Blackboard the data frame called *OCJS2006STOP.RData* and place it in the folder you have created. Once you have done that, to load the R dataset that we are working with in this first session all you need to do is to execute the following command:
+
+```{r}
+load("OCJS2006STOP.Rdata")
+
+```
+
+**load()** is a function that will load (open) the data frame into R and between parenthesis and double-quotes you find the name of the file. If you have not set up the working directory, R won't know where to find this file (at least you write the full extension name)!
+
+##Section 1.4: A First Look at the Data##
+
+Data are often too big to look at the whole thing. It is almost always impossible to eyeball the entire dataset and see what you have in terms of interesting patterns or potential problems. It is often a case of information overload and we want to be able to extract what is relevant and important about it. Summarising the data is the first step in any analysis and it is also used for finding out potential problems with the data. Regarding the latter you want to look out for missing values, values outside the expected range, values that seem to be in the wrong units, mislabelled variables, or variables that seem to be the wrong class.
+
+If you simply type the name of the new dataset OCJS2006STOP and press return for auto-printing, you will see why we need data summaries. It is hard to eyeball large datasets like this trying to see the whole thing. So let’s start by the basic things you always look first in a datasets. First you ask for the dimensions, the number of rows and columns, using the **dim()** function:
+
+```{r}
+dim(OCJS2006STOP)
+
+```
+
+We can see that the dataset has 4951 observations or rows and 23 columns or variables. Looking at this information will help you to diagnose whether there was any trouble getting your data into R (e.g., imagine you know there should be more cases). You may also want to have a look at the names of the columns using the **names()** function:
+
+```{r}
+names(OCJS2006STOP)
+```
+
