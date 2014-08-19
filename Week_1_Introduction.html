@@ -61,14 +61,14 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <p><strong>Table of Contents</strong> <a href="#introduction">Section 1.1: Introduction</a>. <a href="#interacting-with-r-and-creating-objects">Section 1.2: Interacting with R and creating objects</a>. <a href="#vectors-factors-and-data-frames">Section 1.2: Vectors, factors and data frames</a>. <a href="#data-manipulation-subsetting-and-selection-of-rows-and-columns">Section 1.3: Data manipulation</a>. <a href="#loading-data-and-packages">Section 1.4: Loading data and packages</a>. <a href="#a-first-look-at-the-data">Section 1.5: A first look at the data</a>. <a href="#numerical-summaries-of-central-tendency-and-variability">Section 1.6: Numerical summaries of central tendency and variability</a>. <a href="#summarising-categorical-variables">Section 1.7: Summarising categorical variables</a>. <a href="#saving-your-work">Section 1.8: Saving your work</a>.</p>
 <div id="introduction" class="section level1">
 <h1>1.1 Introduction</h1>
-<p>This course provides an introduction to data analysis using R, a programming language and environment -or as some argue the <a href="http://vimeo.com/52999628">lingua franca of statistics</a>. You can learn more about the history of R clicking <a href="https://www.youtube.com/watch?v=kzxHxFHW6hs&amp;list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ">here</a>.</p>
+<p>This course provides an introduction to data analysis using R, a programming language and environment -or as some argue the <a href="http://vimeo.com/52999628">lingua franca of statistics</a>. You can learn more about the history of R clicking <a href="https://www.youtube.com/watch?v=kzxHxFHW6hs&amp;list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ">here</a> and if you google “why r” you will find many answers to the question -such as <a href="http://www.econometricsbysimulation.com/2014/03/why-use-r-five-reasons.html">this</a>.</p>
 <p>This handout contains various hyperlinks to videos that explain or expand some of the ideas and concepts introduced. It will be handy if you have speakers or headphones to listen to the videos.</p>
 <p>In order to follow this handout at home you would need to install both R and RStudio in your local machine -click <a href="https://www.youtube.com/watch?v=eD07NznguA4">here</a> for instructions using Windows or <a href="https://www.youtube.com/watch?v=cX532N_XLIs&amp;list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S">here</a> for instructions using a Mac. Alternatively, you could use a PC in one of the University computer clusters.</p>
 <p>In this session we are going to learn some of the basic grammar elements in R. Before we start there are four thoughts I want to share:</p>
 <ul>
-<li><p>If you have never learnt a programming language, it is likely that this may feel a bit intimidating and arcane at first. But as with the learning of anything else, <strong>practice will increase your confidence, understanding, and skills</strong>. And if you practice a lot, speaking R will feel as natural to you as speaking your mother tongue.</p></li>
+<li><p>If you have never learnt a programming language, it is likely that this may feel a bit intimidating and arcane at first. But as with the learning of anything else, <strong>practice will increase your confidence, understanding, and skills</strong>. And if you practice a lot, speaking R will feel as natural to you as speaking your mother tongue. It is paramout that you ignore your fear. As Roosevelt once said: “the only thing we have to fear is…fear itself — nameless, unreasoning, unjustified terror which paralyzes needed efforts to convert retreat into advance.”</p></li>
 <li><p>It is important that you <strong>moderate your expectations</strong>. You would not expect to be the main act at Glastonbury after just a few guitar lessons. Bu even if you never sell a million records, you can get pretty good at guitar playing by practicing. Or going back to the language methaphor, you may not be able to write like Shakespeare, but as long as you can communicate with others in a functional way that’s what really matters.</p></li>
-<li><p><strong>Get used to making mistakes!</strong> You will make loads of them and there’s absolutely no shame on that. It’s normal and an essential part of the learning process. We learnt by receiving good feedback whem making mistakes. My job is to give you that feedback and yours to ask me for help.</p></li>
+<li><p><strong>Get used to making mistakes!</strong> You will make loads of them and there’s absolutely no shame on that. It’s normal and an essential part of the learning process. We learnt by receiving good feedback whem making mistakes. My job is to give you that feedback and yours to ask me for help.Patrick Burns, author of the helpful <a href="http://www.burns-stat.com/documents/books/the-r-inferno/">R Inferno</a> (an advanced guide for issues you may encounter with R) and <a href="http://www.burns-stat.com/documents/tutorials/impatient-r/">Impatient R</a> (a introductory guide to R you may want to have a look at), also offers this piece of advice: “An important tool to get around in R is to have a hacking attitude — to try things with the idea that they probably wont work”</p></li>
 <li><p><strong>Don’t aim to memorise everything.</strong> There are over 5000 <strong>packages</strong> in R (modules that expand the functionality of R). Each of them create additional <strong>functions</strong> that allow you to do new cool stuff with your data. Nobody expects you to know by heart all of these functions and what they do. Memorising them would be as useless as memorising a dictionary. Instead, as you use R more and more your memory of basic functions (those you use the most) will improve. But in the day of searchable help files, google, and resources such as <a href="http://www.statmethods.net/">Quick-R</a> or the <a href="http://www.cookbook-r.com/">R-Codebook</a> (providing quick “cheatsheets” for common commands), the need to fill your memory with these functions is considerably reduced.</p></li>
 </ul>
 </div>
@@ -85,7 +85,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <p>We can create objetcs in R by asking R to put things inside of named objects. For that we use the <strong>assingment operator</strong>. In R the <code>&lt;-</code> symbol is the assignment operator (you could also use the <code>=</code> sign as an assignment operator, <em>but don’t</em>). This operator is what assigns value to a symbol. So, for example, if we type the following expression in the prompt:</p>
 <pre class="r"><code>x &lt;- 5</code></pre>
 <p>We are simply telling R to create a <em>numeric object</em>, called <code>x</code>, with one element (5) or of lenght 1. It is numeric because we are putting a number inside this object. It may help you at this stage to think of objects as boxes, things where you store stuff and the assignment operator as the tool you use to tell R what goes inside.</p>
-<p>When a complete expression is entered at the prompt in the main consele and we press <em>return</em>, this expression is then evaluated by the R engine and the result is returned. This result may be auto-printed in the main console or not (and the latter may take some get used to if you’ve used before something like SPSS). If you press return after entering the previous expression you won’t see much happening in the main console (although if you are using RStudio you may have noticed that a new object, X, appears in the global environement window in RStudio).</p>
+<p>When a complete expression is entered at the prompt in the main console and we press <em>return</em>, this expression is then evaluated by the R engine and the result is returned. This result may be auto-printed in the main console or not (and the latter may take some get used to if you’ve used before something like SPSS). If you press return after entering the previous expression you won’t see much happening in the main console (although if you are using RStudio you may have noticed that a new object, X, appears in the global environement window in RStudio).</p>
 <p>However, you can see the content of the object <code>x</code> either by auto-printing by typing the following:</p>
 <pre class="r"><code>x</code></pre>
 <pre><code>## [1] 5</code></pre>
@@ -124,7 +124,7 @@ my_6th_vector &lt;- c(1+0i, 2+4i) #creates a complex vector (we won't really use
 <pre class="r"><code>my_7th_vector &lt;- my_1st_vector + 1 #Create a new vector that contains the elements of my1stvector plus a constant of 1
 my_1st_vector + my_7th_vector #Adds the two vectors and auto-print the results (note how the sum was done)</code></pre>
 <pre><code>## [1] 2.0 2.2</code></pre>
-<p>When you create objects you will place them in your working memory or workspace. Think of it as a warehouse where you are placing a bunch of boxes (your objects). R works using your RAM. That’s where all these objects get stored, which means you need good RAM for very large datasets. In RStudio you can visualise the objects you have created during a session in the <strong>Global Environment</strong> screen. But if you want to produce a list of what’s there you can use the <code>ls()</code> function (the results you get my differ from the ones below depending on what you actually have in your global environment).</p>
+<p>When you create objects you will place them in your working memory or workspace. Each R session will be associated to a workspace (curiously called “global environment”). Think of it as a warehouse where you are placing a bunch of boxes (your objects). R works using your RAM. That’s where all these objects get stored, which means you need good RAM for very large datasets. In RStudio you can visualise the objects you have created during a session in the <strong>Global Environment</strong> screen. But if you want to produce a list of what’s there you can use the <code>ls()</code> function (the results you get my differ from the ones below depending on what you actually have in your global environment).</p>
 <pre class="r"><code>ls()</code></pre>
 <pre><code>##  [1] &quot;metadata&quot;      &quot;my_1st_vector&quot; &quot;my_2nd_vector&quot; &quot;my_3rd_vector&quot;
 ##  [5] &quot;my_4th_vector&quot; &quot;my_5th_vector&quot; &quot;my_6th_vector&quot; &quot;my_7th_vector&quot;
@@ -372,7 +372,7 @@ data(Boston)</code></pre>
 </div>
 <div id="numerical-summaries-of-central-tendency-and-variability" class="section level1">
 <h1>1.7 Numerical summaries of central tendency and variability</h1>
-<p>In this section we start exploring some statistical summaries for our data. If you have not watched the required video for this week explaining these measures, it is convenient you watch it now -just click <a href="https://www.youtube.com/watch?v=5vnxBDau6PU&amp;list=PLX2_QrT3VKR9I8nwfv95Rdqc1_HVU8wMg">here</a>.</p>
+<p>In this section we start exploring some statistical summaries for our data. If you have not watched the required video for this week explaining these measures, it is convenient you watch it now -just click <a href="https://www.youtube.com/watch?v=5vnxBDau6PU&amp;list=PLX2_QrT3VKR9I8nwfv95Rdqc1_HVU8wMg">here</a>. You may also find these other videos on <a href="http://www.learner.org/courses/againstallodds/unitpages/unit04.html">measures of central tendency</a> and the <a href="http://www.learner.org/courses/againstallodds/unitpages/unit06.html">standard deviation</a> useful.</p>
 <p>Let’s start with the <em>mean</em>. If you want to obtain the mean of a quantitative variable you can use the following expression:</p>
 <pre class="r"><code>mean(BCS0708$age)</code></pre>
 <pre><code>## [1] NA</code></pre>
@@ -386,12 +386,13 @@ data(Boston)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 ##    16.0    36.0    49.0    50.4    65.0   101.0      15</code></pre>
 <p>This gives you the five number summary (minimum, first quartile, median, third quartile, and maximum, plus the mean and the count of NA values). Notice how when using this function you did not need to change any default settings to remove NA values.</p>
-<p>There are multiple ways of getting results in R. Particularly for basic and intermediate-level statistical analysis many core functions and packages can give you the answer that you are looking for. For example, there are a variety of packages that allow you to look at summary statistics using functions defined within those packages. You could use <code>favstats()</code> function from the <a href="http://cran.r-project.org/web/packages/mosaic/index.html">mosaic</a> package:</p>
-<pre class="r"><code>require(mosaic)</code></pre>
-<pre><code>## Loading required package: mosaic</code></pre>
+<p>There are multiple ways of getting results in R. Particularly for basic and intermediate-level statistical analysis many core functions and packages can give you the answer that you are looking for. For example, there are a variety of packages that allow you to look at summary statistics using functions defined within those packages. You will need to install this packages before you can use them.</p>
+<p>You could use <code>favstats()</code> function from the <a href="http://cran.r-project.org/web/packages/mosaic/index.html">mosaic</a> package:</p>
+<pre class="r"><code>library(mosaic)</code></pre>
 <pre><code>## Warning: package 'mosaic' was built under R version 3.1.1</code></pre>
-<pre><code>## Loading required package: car
-## Loading required package: dplyr
+<pre><code>## Loading required package: car</code></pre>
+<pre><code>## Warning: package 'car' was built under R version 3.1.1</code></pre>
+<pre><code>## Loading required package: dplyr
 ## 
 ## Attaching package: 'dplyr'
 ## 
@@ -432,9 +433,8 @@ data(Boston)</code></pre>
 <pre><code>##  min Q1 median Q3 max  mean    sd     n missing
 ##   16 36     49 65 101 50.42 18.54 11661      15</code></pre>
 <p>The <code>describe()</code> function from the <a href="http://cran.r-project.org/web/packages/Hmisc/index.html">Hmisc</a> package:</p>
-<pre class="r"><code>require(Hmisc)</code></pre>
-<pre><code>## Loading required package: Hmisc
-## Loading required package: grid
+<pre class="r"><code>library(Hmisc)</code></pre>
+<pre><code>## Loading required package: grid
 ## Loading required package: survival
 ## Loading required package: splines
 ## Loading required package: Formula</code></pre>
@@ -458,9 +458,8 @@ data(Boston)</code></pre>
 ## 
 ## lowest :  16  17  18  19  20, highest:  95  97  98  99 101</code></pre>
 <p>The <code>stat.desc()</code> function from the <a href="http://cran.r-project.org/web/packages/pastecs/index.html">pastecs</a> package:</p>
-<pre class="r"><code>require(pastecs)</code></pre>
-<pre><code>## Loading required package: pastecs
-## Loading required package: boot
+<pre class="r"><code>library(pastecs)</code></pre>
+<pre><code>## Loading required package: boot
 ## 
 ## Attaching package: 'boot'
 ## 
@@ -494,9 +493,9 @@ data(Boston)</code></pre>
 ## CI.mean.0.95          var      std.dev     coef.var 
 ##    3.365e-01    3.437e+02    1.854e+01    3.677e-01</code></pre>
 <p>Or the <code>describe()</code> function from the <a href="http://cran.r-project.org/web/packages/psych/index.html">psych</a> package:</p>
-<pre class="r"><code>require(psych)</code></pre>
-<pre><code>## Loading required package: psych
-## 
+<pre class="r"><code>library(psych)</code></pre>
+<pre><code>## Warning: package 'psych' was built under R version 3.1.1</code></pre>
+<pre><code>## 
 ## Attaching package: 'psych'
 ## 
 ## The following object is masked from 'package:boot':
@@ -630,7 +629,7 @@ round(100*.Table/sum(.Table), 2)  ##percentages for ethnic4 created using the ob
 ##        22.40        40.58        25.82        11.19</code></pre>
 <pre class="r"><code>remove(.Table) ##removes this object from working memory</code></pre>
 <p>When producing frequency distribution tbales, it is particularly useful (if you want to save yourself the work of formatting the tables in a nice way) to use the <a href="http://cran.r-project.org/web/packages/sjPlot/index.html">sjPlot</a> package. You can use the <code>sjt.frq()</code> function for this. This <a href="http://rpubs.com/sjPlot/sjtfrq">online tutorial</a> explains some of the features of this function in greater detail.</p>
-<pre class="r"><code>require(sjPlot)
+<pre class="r"><code>library(sjPlot)
 sjt.frq(BCS0708$walkdark, variableLabels = c(&quot;How safe you feel walking alone at dark?&quot;))</code></pre>
 <table style="border-collapse:collapse; border:none;">
    <caption style="font-weight: bold; text-align:left;">
@@ -794,22 +793,25 @@ total N=11676 · valid N=11625 · x̄=2.26 · σ=0.93
 ## [8] methods   base     
 ## 
 ## other attached packages:
-##  [1] sjPlot_1.4.2    psych_1.4.5     pastecs_1.3-18  boot_1.3-11    
+##  [1] sjPlot_1.4.3    psych_1.4.8.11  pastecs_1.3-18  boot_1.3-11    
 ##  [5] Hmisc_3.14-4    Formula_1.1-2   survival_2.37-7 mosaic_0.9-0   
-##  [9] ggplot2_1.0.0   lattice_0.20-29 dplyr_0.2       car_2.0-20     
+##  [9] ggplot2_1.0.0   lattice_0.20-29 dplyr_0.2       car_2.0-21     
 ## [13] MASS_7.3-31    
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] assertthat_0.1      cluster_1.15.2      colorspace_1.2-4   
-##  [4] digest_0.6.4        evaluate_0.5.5      foreign_0.8-61     
-##  [7] formatR_0.10        ggdendro_0.1-14     gridExtra_0.9.1    
-## [10] gtable_0.1.2        htmltools_0.2.4     knitr_1.6          
-## [13] latticeExtra_0.6-26 lmtest_0.9-33       munsell_0.4.2      
-## [16] nnet_7.3-8          parallel_3.1.0      plyr_1.8.1         
-## [19] proto_0.3-10        RColorBrewer_1.0-5  Rcpp_0.11.2        
-## [22] reshape2_1.4        rmarkdown_0.2.46    scales_0.2.4       
-## [25] stringr_0.6.2       tools_3.1.0         yaml_2.1.13        
-## [28] zoo_1.7-11</code></pre>
+##  [1] assertthat_0.1      cluster_1.15.2      coin_1.0-23        
+##  [4] colorspace_1.2-4    digest_0.6.4        evaluate_0.5.5     
+##  [7] foreign_0.8-61      formatR_0.10        ggdendro_0.1-14    
+## [10] gridExtra_0.9.1     gtable_0.1.2        htmltools_0.2.4    
+## [13] knitr_1.6           latticeExtra_0.6-26 lmtest_0.9-33      
+## [16] lsmeans_2.11        Matrix_1.1-3        modeltools_0.2-21  
+## [19] multcomp_1.3-5      munsell_0.4.2       mvtnorm_1.0-0      
+## [22] nnet_7.3-8          parallel_3.1.0      plyr_1.8.1         
+## [25] proto_0.3-10        RColorBrewer_1.0-5  Rcpp_0.11.2        
+## [28] reshape2_1.4        rmarkdown_0.2.46    sandwich_2.3-1     
+## [31] scales_0.2.4        stats4_3.1.0        stringr_0.6.2      
+## [34] TH.data_1.0-3       tools_3.1.0         yaml_2.1.13        
+## [37] zoo_1.7-11</code></pre>
 </div>
 <div class="footnotes">
 <hr />
