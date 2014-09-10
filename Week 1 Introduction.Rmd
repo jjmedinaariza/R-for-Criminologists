@@ -1,7 +1,10 @@
 ---
 title: "WEEK 1: INTRODUCTION TO R AND BASIC DESCRIPTION OF DATA"
 author: "Juanjo Medina"
-output: html_document 
+output: 
+  html_document:
+    theme: cosmo
+    highlight: haddock
 ---
 **Table of Contents**
 [Section 1.1: Introduction](#introduction).
