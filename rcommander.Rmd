@@ -1,0 +1,56 @@
+---
+title: "Teaching UG students with R Commander"
+author: "Juanjo Medina"
+output: 
+  html_document:
+    theme: cosmo
+    highlight: haddock
+---
+
+[1. What you will find here](#what-you-will-find-here)
+[2. Motivation](#motivation)
+[3. Notes for teachers](#notes-for-teachers)
+
+##1 What you will find here
+
+In due time (January 2015), I will post here the most recent version of a set of tutorials for teaching/learning data analysis using the R Commander (and Deducer). This document amounts to over a 100 pages of guided tutorials and explanations not too dissimilar from what is already available here. but geared to a more basic level (undergraduate audience) and using these two graphical user interfaces that allow for point-and-click kind of analysis.
+
+The tutorials are linked to 9 two-hour computer lab sessions in which students are expected to read these tutorials, follow up the demonstration exercises, and then complete a set of homework activities. We provide constant individual feedback during these lab sessions.
+
+These materials started to be developed in 2013 and saw their first full implementation during the 2013-2014 academic year. Feedback from students was generally positive, except from students more comfortable with a more passive lecture-based model of teaching.
+
+Unlike the sessions in the other sections of this website, these materials do not use (for the most part) the unrestricted teaching dataset version of the BCS. Instead, we rely on a subset of variables from the [2006 Offending Crime and Justice Survey](http://discover.ukdataservice.ac.uk/catalogue?sn=6000). Although getting increasingly old, this dataset offers a wider range of variables of interest to criminology students (e.g., stop and search, drug use, offending, fear, victimisation, etc.) that makes it in some ways more interesting than the BCS (where in the teaching versions one is almost always restricted to modelling fear of crime or percetions of disorder). The OCJS can be easily accesible from the UK Data website and it is possible to distribute to students for teaching purposes. However, I cannot make that data available here.
+
+Although these materials are designed for a [particular course unit I teach](http://courses.humanities.manchester.ac.uk/undergraduate/module.html?code=LAWS20452), they can be easily adaptable for other courses.
+
+At the moment I am introducing a number of minor ammendments and doing further proof reading for the 2014-2015 academic year. If you want to obtain the Beta version that run last year, please get in touch via email. But I do plan to post here the improved version in January 2015.
+
+##2 Motivation
+
+It is simple. I was sick to the bone of teaching with SPSS. Why should I bother to be a publicist for IBM? 
+
+When I moved to the UK, I spent two years trying to teach our PG Data Analysis course using the software I used back in the US (SAS). Soon I have to give up for three reasons: the level of quantitative/IT literacy that I encountered here was not comparable to the US standards; the level of IT support for SAS in the university was not comparable either; and most of my colleagues were using SPSS at the UG level (a pain when it comes to sabbaticals).
+
+But I never quite fell in love with SPSS, its ugly graphic system, its patched up inconsistent menu design, etc. Its whole architecture, easy in the eye for casual users, seem designed to encourage bad habits among future analysts. In the meantime I continue using a variety of tools for my own research (STATA, MPlus, etc) until I met R and fell in love with it. A seminar I took with [one of my colleagues](http://www.manchester.ac.uk/research/graeme.d.hutcheson/personaldetails) at Manchester on the R Commander (that he uses for his PG teaching) then led me to ponder whether I could shift our entire UG course to R.
+
+I knew I could not teach R code to our UG students[^1]. Teaching our main data analysis course in one semester is hard enough. You have ten 2-hour weekly slots plus an additional 10 hours of seminar time. To fit an entire intro to stats module in this period is hard enough as it is. Trying to include coding into it, particularly to students with a very wide variety of IT and numeracy skill (that tends to be low) and all the usual fears/concerns about stats is, as far as I am concerned, a bit much. I rather spend more time teaching basic ideas about how to reason with data than getting into the quirks (hell) of the R language. Perhaps the time will come when this is possible. Or perhaps there are disciplines or degrees in which the characteristics of the students and/or the whole curriculum make this easier. But our course is a compulsory 2nd year UG unit. There is so much you can do there.
+
+On the other hand, I was familiar with the R Commander, which had been a helpful friend at times when learning R code. I asked myself the question. Is it possible to do everything we do in our UG course with SPSS with the R Commander? The question was only partially positive. The one area where R Commander lets you down a bit is regarding cross tabs. In an intro level course for social sciences you are bound to use them heavily. R Commander functionality here is somehow limited. So the solution I relied upon was to also introduce students to Deducer for a limited set of functions. Ideally one may want to develop a package to add some extra functionality to R Commander to deal with this. I still have not found the time for doing so. Recoding is also not great with either of these two interfaces, but it can be done.
+
+What has been the student response? We have not noticed any substantial difference in terms of their experience as compared to the cohorts using SPSS. We had a bit of a glitch with Deducer in the early days, but that was to do with the particular implementation of R in the University computer clusters. In 2012-2013 we taught the module using both SPSS and R Commander (which we introduced for fitting and interpreting regression models). Surprisingly, the focus group I run with students after the course ended suggested that students found the more Spartan R Commander design more likeable and easier to navigate. Although one should not read too much into it. 
+
+The bottom line message I get from our experience is that **teaching with R Commander won't make things more difficult for you as a teacher**. And there are some advantages of doing so.
+
++ One, you are introducing students to the R ecosystem, which hopefully can make it easier to move them more fully into R at a later stage. You could have a more advanced course in your third year, for example. Indeed, we are now developing a series of additional tutorials for the UG dissertation to facilitate this. Or you could refer your better more motivated students to the many open resources to learn R. 
+
++ Second, if you are an R user (and frankly you should) it will make your life easier, less schizophrenic, and help you to have a more integrated workflow. 
+
++ Third, you are empowering your students to use something they won't have to pay a licence for. Although some of my colleagues were reluctant for me to introduce these changes (thinking that I would put our students at disadvantage in a market where SPSS still flourishes), they have come around to see that actually by training them in R we are putting them in a better position in the labour market.
+
++ Fourth, there are some things that are simply easier for students to deal with when using R Commander as opposed to SPSS. One of the big bonuses is the `effects` package which is linked to the R Commander and which makes interpreting regression models very intuitive to students. Particularly when interpreting general linear models. 
+
+##3 Notes for teachers
+
+[Under construction: the pedagogical philosopy inspiring these materials]
+
+[^1]: For similar thoughts you can read [this](http://jeromyanglim.blogspot.co.uk/2013/07/evaluating-potential-incorporation-of-r.html). If you still think this is the way to go I suggest you look at the [Mosaic project](http://mosaic-web.org/) and [lessR](http://www.lessrstats.com/) and the associated textbooks.
