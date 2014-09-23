@@ -1,0 +1,27 @@
+---
+title: "HOMEWORK ACTIVITIES"
+output: html_document
+---
+
+##General instructions
+
+For all activities you are expected to produce Word document files with the discussed answers and the relevant code. You need to generate a markdown document and use `knitr` to generate the html file with your answer. Create one html file for each weekly submission. [This video](https://www.youtube.com/watch?v=-apyD5f9nwg) explains how to do this. The video uses an earlier version of `rmarkdown`, so you will notice that when you create a new markdown file instead a dialog box open (select html) and you won't see in the working directory any reference to a .md file. Everything else pretty much remains the same. In any case, you can find further details about `rmarkdown` [here](http://rmarkdown.rstudio.com/). Althouhg it may take you a while to get used to produce your homework in this way, in the long run you will see the benefits.
+
+Then you need to upload the file to Turnit In through Blackboard.
+
+##Week 1
+
+###Part 1:
+Create a data frame with the points achieved by all the Premiership teams in the 2013-2014 season. You can find the relevant information [here](http://en.wikipedia.org/wiki/2013%E2%80%9314_Premier_League).
+1) What was the mean value of points for all the teams?
+2) Using the filtering methods describe compute the mean (and standard deviation) for the 4 top teams and compare it with the mean (and the standard deviation) of the remainder teams.
+
+###Part 2:
+Load the `Arrests` data available from the `effects` package.
+
+1) How many variables and cases does this dataset have? Tip: `dim()`
+2) What are the names of the variables? Tip: `names()`
+3) What does the variable `checks` measures? Tip: `help()`
+4) Produce a simple histogram of the `checks` variable. Any discernible patterns? *Discuss*.
+5) Produce summary statistics of the `checks` variable by `colour`. Any discernible patterns? *Discuss*.
+
