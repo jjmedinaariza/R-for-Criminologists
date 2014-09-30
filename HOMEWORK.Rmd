@@ -1,6 +1,9 @@
 ---
 title: "HOMEWORK ACTIVITIES"
-output: html_document
+output: 
+  html_document:
+    theme: cosmo
+    highlight: haddock
 ---
 
 ##General instructions
@@ -9,7 +12,7 @@ For all activities you are expected to produce Word document files with the disc
 
 Then you need to upload the file to Turnit In through Blackboard.
 
-##Week 1
+##Week 1: Basic Data Exploration and Filtering
 
 ###Part 1:
 Create a data frame with the points achieved by all the Premiership teams in the 2013-2014 season. You can find the relevant information [here](http://en.wikipedia.org/wiki/2013%E2%80%9314_Premier_League).
@@ -25,3 +28,11 @@ Load the `Arrests` data available from the `effects` package.
 4) Produce a simple histogram of the `checks` variable. Any discernible patterns? *Discuss*.
 5) Produce summary statistics of the `checks` variable by `colour`. Any discernible patterns? *Discuss*.
 
+##Week 2: Basic visualisations
+
+Download from the GitHub repository the following dataset `crossnat`. This file contains a number of variables about 194 countries. I put together this file for teaching purposes in January 2014. The information comes from a variety of sources (World Bank, United Nations, OCDE, etc) and it relates to the more recent year for which data was available then.
+
+1) Display a histogram for the homicide rate per 100,000 population (`homicide`). Discuss. Try to identify the identify of any outliers and discuss. Are these errors? Are there plausible explanations for the extreme values in these countries? 
+2) Produce density estimates and boxplots to compare the homicide rate according to various categories of the level of [human development](http://hdr.undp.org/en/content/human-development-index-hdi) per country. Discuss. 
+3) Produce a scatterplot with a smoothed line to examine the relationship between `homicide` and `gdppercapita`. Discuss. 
+4) Produce a scatterplot matrix to examine the relationship between `homicide`, `gdppercapita`, `urbanpop` (proportion of the population that lives in urban areas) and `prisonrate`(prison rate per 100,000). Discuss. 

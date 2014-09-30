@@ -1,0 +1,195 @@
+"","country","infantmortality","gdppercapita","hdinxe","medianage","urbanpop","immigrantpop","youthunemp","homicide","trust","democracys","prisonrate","cathdi","giniocde","ocde","giniwbmr","welfreg","tradsecww4","surselfww4","tradsecww5","surselfww5","corrupt10"
+"1","Afghanistan                              ",10,1083,0.368,16.6,23.2,0.3,NA,2.4,25,NA,76,"Low HDI",NA,"No OCDE member",27.8,NA,NA,NA,NA,NA,1.4
+"2","Albania                                  ",16,7660,0.746,30,52.3,2.8,NA,4,7,9,158,"High HDI",NA,"No OCDE member",34.5,NA,0.07,-1.14,NA,NA,3.3
+"3","Algeria                                  ",31,7564,0.71,26.2,72,0.7,37.5,1.5,16,2,162,"High HDI",NA,"No OCDE member",35.3,NA,-1.48,-0.74,NA,NA,2.9
+"4","Andorra                                  ",3,NA,0.846,NA,87.8,64.4,NA,1.3,NA,NA,38,"Very high HDI",NA,"No OCDE member",NA,NA,NA,NA,0.8,1.62,NA
+"5","Angola                                   ",98,5172,0.502,16.6,58.4,0.3,NA,19,NA,-2,105,"Medium HDI",NA,"No OCDE member",58.6,NA,NA,NA,NA,NA,1.9
+"6","Antigua and Barbuda                      ",7,14904,0.761,NA,29.9,23.6,NA,6.8,NA,NA,403,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"7","Argentina                                ",12,14363,0.805,30.4,92.3,3.6,23.6,3.4,23,8,147,"Very high HDI",NA,"No OCDE member",36.4,NA,-0.95,0.36,-0.66,0.38,2.9
+"8","Armenia                                  ",18,4900,0.722,32.1,64.1,10.5,NA,1.4,15,5,164,"High HDI",NA,"No OCDE member",30.9,NA,NA,NA,NA,NA,2.6
+"9","Australia                                ",4,34409,0.935,36.9,89,25.7,11.9,1,NA,10,130,"Very high HDI",0.34,"OCDE member",30.5,"Liberal",NA,NA,0.21,1.75,8.7
+"10","Austria                                  ",4,35380,0.892,41.8,67.5,15.6,8.9,0.6,29,10,98,"Very high HDI",0.26,"OCDE member",26,NA,0.25,1.43,NA,NA,7.9
+"11","Azerbaijan                               ",39,8912,0.734,29.5,53.4,3,17.3,2.2,27,-7,413,"High HDI",NA,"No OCDE member",33.7,NA,NA,NA,NA,NA,2.5
+"12","Bahamas                                  ",14,28135,0.791,30.9,84.1,9.7,NA,27.4,NA,NA,444,"Very high HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"13","Bahrain                                  ",9,21345,0.794,30.1,88.6,39.1,NA,0.6,11,-8,275,"Very high HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,4.9
+"14","Bangladesh                               ",38,1488,0.508,24.2,27.9,0.7,NA,2.7,15,5,42,"Medium HDI",NA,"No OCDE member",32.1,NA,-1.21,-0.93,NA,NA,2.4
+"15","Barbados                                 ",17,NA,0.823,37.5,43.9,10.9,NA,11.3,NA,NA,521,"Very high HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,7.8
+"16","Belarus                                  ",4,12505,0.785,38.3,74.6,11.4,NA,4.9,34,-7,335,"High HDI",NA,"No OCDE member",27.2,NA,0.89,-1.12,NA,NA,2.5
+"17","Belgium                                  ",4,32837,0.896,41.2,97.5,13.7,22.4,1.7,30,8,108,"Very high HDI",0.26,"OCDE member",33,"Continental",0.5,1.13,NA,NA,7.1
+"18","Belize                                   ",14,5980,0.7,21.8,45,15,NA,41.4,NA,NA,476,"High HDI",NA,"No OCDE member",53.1,NA,NA,NA,NA,NA,NA
+"19","Benin                                    ",73,1424,0.432,17.9,44.3,2.5,NA,15.1,NA,7,75,"Low HDI",NA,"No OCDE member",38.6,NA,NA,NA,NA,NA,2.8
+"20","Bhutan                                   ",44,4780,0.525,24.6,34.8,5.7,11,1,NA,3,135,"Medium HDI",NA,"No OCDE member",38.1,NA,NA,NA,NA,NA,5.7
+"21","Bolivia (Plurinational State of)         ",42,4350,0.668,21.7,66.4,1.5,NA,8.9,10,7,140,"Medium HDI",NA,"No OCDE member",56.3,NA,NA,NA,NA,NA,2.8
+"22","Bosnia and Herzegovina                   ",8,7464,0.733,39.4,47.7,0.7,62.3,1.5,18,NA,80,"High HDI",NA,"No OCDE member",36.2,NA,0.34,-0.65,NA,NA,3.2
+"23","Botswana                                 ",36,12463,0.633,22.9,61,5.8,NA,14.5,9,8,205,"Medium HDI",NA,"No OCDE member",61,NA,NA,NA,NA,NA,5.8
+"24","Brazil                                   ",17,10093,0.726,29.1,84.3,0.4,NA,21,15,8,274,"High HDI",0.55,"No OCDE member",54.7,NA,NA,NA,-0.98,0.61,3.7
+"25","Brunei Darussalam                        ",6,45507,0.854,28.9,75.6,36.4,NA,0.5,NA,NA,122,"Very high HDI",NA,"No OCDE member",NA,NA,0.29,1.31,0.06,1.68,5.5
+"26","Bulgaria                                 ",11,11512,0.778,41.6,72.5,1.4,24.1,2,20,9,151,"High HDI",NA,"No OCDE member",28.2,NA,1.15,-1.52,1.13,-1.01,3.6
+"27","Burkina Faso                             ",93,1136,0.334,17.1,25.7,6.4,NA,18,26,0,28,"Low HDI",NA,"No OCDE member",39.8,NA,NA,NA,-1.31,-0.49,3.1
+"28","Burundi                                  ",88,524,0.348,20.2,10.6,0.7,NA,21.7,38,6,72,"Low HDI",NA,"No OCDE member",33.3,NA,NA,NA,NA,NA,1.8
+"29","Cambodia                                 ",43,1968,0.532,22.9,19.8,2.2,NA,3.4,9,2,106,"Medium HDI",NA,"No OCDE member",37.9,NA,NA,NA,NA,NA,2.1
+"30","Cameroon                                 ",84,2058,0.488,19.3,51.5,1,NA,19.7,13,-4,119,"Medium HDI",NA,"No OCDE member",38.9,NA,NA,NA,NA,NA,2.2
+"31","Canada                                   ",5,35223,0.909,39.9,80.6,21.3,17.1,1.6,42,10,118,"Very high HDI",0.32,"OCDE member",32.6,"Liberal",-0.16,1.72,-0.26,1.91,8.9
+"32","Cape Verde                               ",29,3474,0.581,22.8,61.8,2.4,NA,11.6,NA,10,267,"Medium HDI",NA,"No OCDE member",50.5,NA,NA,NA,NA,NA,5.1
+"33","Central African Republic                 ",10,708,0.344,19.4,38.8,1.8,NA,29.3,37,-1,19,"Low HDI",NA,"No OCDE member",56.3,NA,NA,NA,NA,NA,2.1
+"34","Chad                                     ",99,1337,0.336,17.1,21.7,3.4,NA,15.8,21,-2,41,"Low HDI",NA,"No OCDE member",39.8,NA,NA,NA,NA,NA,1.7
+"35","Chile                                    ",8,14540,0.813,32.1,88.9,1.9,21.7,3.2,15,10,266,"Very high HDI",0.49,"OCDE member",52.1,NA,-0.87,0.12,-0.87,0,7.2
+"36","China                                    ",16,6819,0.689,34.5,49.2,0.1,NA,1.1,57,-7,121,"High HDI",0.41,"No OCDE member",47,NA,1.2,-0.93,0.8,-1.16,3.5
+"37","Colombia                                 ",17,8479,0.714,26.8,75,0.2,NA,33.4,14,7,245,"High HDI",NA,"No OCDE member",55.9,NA,-1.67,0.68,-1.87,0.6,3.5
+"38","Comoros                                  ",63,984,0.426,18.9,28,2,NA,12.2,35,9,NA,"Low HDI",NA,"No OCDE member",64.3,NA,NA,NA,NA,NA,2.1
+"39","Congo                                    ",61,3808,0.529,19.6,63.2,3.8,NA,30.8,NA,5,NA,"Medium HDI",NA,"No OCDE member",47.3,NA,NA,NA,NA,NA,2.1
+"40","Congo (Democratic Republic of the)       ",11,316,0.295,16.7,33.7,0.7,NA,21.7,39,-4,NA,"Low HDI",NA,"No OCDE member",44.4,NA,NA,NA,NA,NA,2
+"41","Costa Rica                               ",9,10453,0.768,28.4,64.2,10.5,20.9,11.3,14,10,314,"High HDI",NA,"No OCDE member",50.7,NA,NA,NA,NA,NA,5.3
+"42","Côte d'Ivoire                            ",86,1694,0.427,19.2,50.6,11.2,NA,56.9,13,0,34,"Low HDI",NA,"No OCDE member",41.5,NA,NA,NA,NA,NA,2.2
+"43","Croatia                                  ",5,16128,0.804,41.5,57.5,15.9,35,1.4,16,9,108,"Very high HDI",NA,"No OCDE member",33.7,NA,0.08,0.31,NA,NA,4.1
+"44","Cuba                                     ",5,NA,0.775,38.4,75.2,0.1,NA,5,NA,-7,510,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,3.7
+"45","Cyprus                                   ",3,25961,0.849,34.2,70.3,17.5,17,1.7,11,10,106,"Very high HDI",NA,"No OCDE member",NA,NA,NA,NA,-0.56,0.13,6.3
+"46","Czech Republic                           ",3,23635,0.871,39.4,73.5,4.4,18.5,1.7,24,8,154,"Very high HDI",0.26,"OCDE member",26,"Continental",1.23,0.38,NA,NA,4.6
+"47","Denmark                                  ",3,32232,0.899,40.6,86.8,8.8,16.1,0.9,60,10,73,"Very high HDI",0.25,"OCDE member",24,"Social democratic",1.16,1.87,NA,NA,9.3
+"48","Djibouti                                 ",73,NA,0.431,21.4,77,13,NA,3.4,55,2,83,"Low HDI",NA,"No OCDE member",40,NA,NA,NA,NA,NA,3.2
+"49","Dominica                                 ",11,10989,0.743,NA,67.1,8.3,NA,22.1,NA,NA,391,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,5.2
+"50","Dominican Republic                       ",22,8387,0.697,25.1,69.1,4.2,NA,25,15,8,240,"High HDI",NA,"No OCDE member",47.2,NA,NA,NA,NA,NA,3
+"51","Ecuador                                  ",18,7201,0.719,25.5,66.9,2.9,NA,18.2,9,5,149,"High HDI",NA,"No OCDE member",49.3,NA,NA,NA,NA,NA,2.5
+"52","Egypt                                    ",19,5544,0.661,24.4,43.4,0.3,54.1,1.2,22,-2,NA,"Medium HDI",NA,"No OCDE member",30.8,NA,-1.69,-1.61,NA,NA,3.1
+"53","El Salvador                              ",14,5978,0.678,23.2,64.3,0.7,NA,69.2,18,8,422,"High HDI",NA,"No OCDE member",48.3,NA,-2.06,0.53,NA,NA,3.6
+"54","Equatorial Guinea                        ",81,30750,0.547,20.3,39.3,1.1,NA,20.7,NA,-5,NA,"Medium HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,1.9
+"55","Eritrea                                  ",42,490,0.342,19,20.9,0.3,NA,17.8,NA,-7,NA,"Low HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,2.6
+"56","Estonia                                  ",4,16615,0.839,39.7,69.5,13.6,35.4,5.2,33,9,238,"Very high HDI",0.32,"OCDE member",36,"Central Eastern",1.27,-1.19,NA,NA,6.5
+"57","Ethiopia                                 ",68,932,0.387,18.7,16.8,0.6,NA,25.5,NA,1,136,"Low HDI",NA,"No OCDE member",29.8,NA,NA,NA,-0.65,-0.36,2.7
+"58","Fiji                                     ",15,4154,0.699,26.4,51.8,2.2,NA,2.8,NA,-4,174,"High HDI",NA,"No OCDE member",42.8,NA,NA,NA,NA,NA,NA
+"59","Finland                                  ",2,31497,0.89,42,83.6,4.2,21.6,2.2,58,10,58,"Very high HDI",0.26,"OCDE member",26.9,"Social democratic",0.84,0.94,0.82,1.12,9.2
+"60","France                                   ",3,29484,0.891,39.9,85.2,10.7,23.7,1.1,20,9,101,"Very high HDI",0.29,"OCDE member",32.7,"Continental",0.52,0.94,0.63,1.13,6.9
+"61","Gabon                                    ",54,13611,0.676,21.6,85.8,18.9,NA,13.8,NA,3,196,"High HDI",NA,"No OCDE member",41.5,NA,NA,NA,NA,NA,2.8
+"62","Gambia                                   ",57,1833,0.437,17.8,56.7,16.6,NA,10.8,NA,-5,NA,"Low HDI",NA,"No OCDE member",47.3,NA,NA,NA,NA,NA,3.2
+"63","Georgia                                  ",20,4546,0.735,37.3,52.7,4,36.3,4.3,16,6,225,"High HDI",NA,"No OCDE member",41.3,NA,NA,NA,NA,NA,3.8
+"64","Germany                                  ",3,33414,0.916,44.3,73.8,13.1,10.4,0.8,31,10,79,"Very high HDI",0.3,"OCDE member",28.3,"Continental",NA,NA,NA,NA,7.9
+"65","Ghana                                    ",50,1478,0.54,20.5,51.2,7.6,NA,15.7,19,8,54,"Medium HDI",NA,"No OCDE member",42.8,NA,NA,NA,-1.94,-0.29,4.1
+"66","Greece                                   ",3,24207,0.866,41.4,61.2,10.1,40.6,1.5,16,10,111,"Very high HDI",0.31,"OCDE member",34.3,"Continental",0.77,0.55,NA,NA,3.5
+"67","Grenada                                  ",9,9735,0.768,25,38.8,12.1,NA,11.5,NA,NA,424,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"68","Guatemala                                ",25,4297,0.579,18.9,49.3,0.4,NA,38.5,15,8,105,"Medium HDI",NA,"No OCDE member",55.9,NA,-1.7,-0.17,NA,NA,3.2
+"69","Guinea                                   ",81,978,0.349,18.3,35,3.8,NA,22.5,NA,5,NA,"Low HDI",NA,"No OCDE member",39.4,NA,NA,NA,NA,NA,2
+"70","Guinea-Bissau                            ",92,1064,0.361,19,43.2,1.2,NA,20.2,NA,6,NA,"Low HDI",NA,"No OCDE member",35.5,NA,NA,NA,NA,NA,2.1
+"71","Guyana                                   ",25,3104,0.628,23.8,28.3,1.5,48.8,18.6,NA,6,260,"Medium HDI",NA,"No OCDE member",44.5,NA,NA,NA,NA,NA,2.7
+"72","Haiti                                    ",70,992,0.45,21.5,52,0.3,NA,6.9,30,0,96,"Low HDI",NA,"No OCDE member",59.2,NA,NA,NA,NA,NA,2.2
+"73","Honduras                                 ",20,3519,0.629,21,51.6,0.3,NA,91.6,13,7,153,"Medium HDI",NA,"No OCDE member",57,NA,NA,NA,NA,NA,2.4
+"74","Hong Kong, China (SAR)                   ",NA,41714,0.9,41.8,100,38.8,14.1,0.2,29,NA,128,"Very high HDI",NA,"No OCDE member",53.3,NA,NA,NA,1.2,-0.98,NA
+"75","Hungary                                  ",5,16958,0.829,39.8,69,3.7,27.9,1.3,13,10,186,"Very high HDI",0.27,"OCDE member",31.2,"Central Eastern",0.4,-1.22,NA,NA,4.7
+"76","Iceland                                  ",2,32721,0.901,34.8,93.6,11.3,18.3,0.3,NA,NA,47,"Very high HDI",0.3,"OCDE member",NA,"Liberal",0.44,1.63,NA,NA,8.5
+"77","India                                    ",48,3039,0.547,25.1,30.9,0.4,11.5,3.4,20,9,30,"Medium HDI",0.38,"No OCDE member",33.4,NA,-0.52,-0.6,-0.36,-0.21,3.3
+"78","Indonesia                                ",27,3885,0.62,27.8,49.9,0.1,NA,8.1,21,8,59,"Medium HDI",0.37,"No OCDE member",34,NA,-1.07,-0.5,-0.47,-0.8,2.8
+"79","Iran (Islamic Republic of)               ",22,NA,0.74,27.1,68.9,2.8,NA,3,NA,-7,284,"High HDI",NA,"No OCDE member",38.3,NA,-1.22,-0.45,NA,NA,2.2
+"80","Iraq                                     ",31,3195,0.578,18.3,66.5,0.3,NA,2,15,3,110,"Medium HDI",NA,"No OCDE member",30.9,NA,NA,NA,-0.4,-1.68,1.5
+"81","Ireland                                  ",3,35993,0.916,34.7,61.9,19.6,34,1.2,30,10,88,"Very high HDI",0.29,"OCDE member",34.3,"Liberal",-0.91,1.18,NA,NA,8.4
+"82","Israel                                   ",4,25995,0.896,30.1,91.8,40.4,14.5,2.1,26,10,223,"Very high HDI",0.37,"OCDE member",39.2,NA,0.26,0.36,NA,NA,6.1
+"83","Italy                                    ",3,27081,0.881,43.2,68.2,7.4,29.4,0.9,20,10,106,"Very high HDI",0.34,"OCDE member",36,"Continental",0.19,0.85,0.13,0.6,3.9
+"84","Jamaica                                  ",20,7001,0.727,27,52,1.1,37.8,52.2,NA,9,152,"High HDI",NA,"No OCDE member",45.5,NA,NA,NA,NA,NA,3.3
+"85","Japan                                    ",2,30965,0.909,44.7,90.5,1.7,10.4,0.4,33,10,51,"Very high HDI",0.33,"OCDE member",38.1,"Liberal",1.91,0.54,1.96,-0.05,7.8
+"86","Jordan                                   ",18,5249,0.699,20.7,82.5,45.9,47.1,1.8,9,-3,95,"High HDI",NA,"No OCDE member",35.4,NA,-1.61,-1.05,NA,NA,4.7
+"87","Kazakhstan                               ",29,10916,0.744,29,53.7,19.5,5.7,8.8,33,-6,295,"High HDI",NA,"No OCDE member",29,NA,NA,NA,NA,NA,2.9
+"88","Kenya                                    ",55,1481,0.511,18.5,23.6,2,NA,20.1,10,8,121,"Medium HDI",NA,"No OCDE member",47.7,NA,NA,NA,NA,NA,2.1
+"89","Kiribati                                 ",39,2214,0.628,NA,43.8,2,NA,7.3,NA,NA,114,"Medium HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,3.2
+"90","Korea (Democratic People's Rep. of)      ",26,NA,NA,32.9,60.2,0.2,NA,15.2,NA,-10,NA,NA,NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"91","Korea (Republic of)                      ",4,26774,0.905,37.9,82.9,1.1,11.2,2.6,26,8,NA,"Very high HDI",0.31,"OCDE member",31.3,NA,NA,NA,0.61,-1.37,5.4
+"92","Kuwait                                   ",10,45623,0.786,28.2,98.2,68.8,NA,2.2,11,-7,137,"Very high HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,4.5
+"93","Kyrgyzstan                               ",33,2008,0.615,23.8,35.3,4,NA,20.1,34,7,181,"Medium HDI",NA,"No OCDE member",36.2,NA,-0.15,-0.91,NA,NA,2
+"94","Lao People's Democratic Republic         ",42,2313,0.534,21.5,33.1,0.3,NA,4.6,NA,-7,69,"Medium HDI",NA,"No OCDE member",36.7,NA,NA,NA,NA,NA,2.1
+"95","Latvia                                   ",8,12948,0.805,40.2,67.7,15,35.4,3.1,13,8,304,"Very high HDI",NA,"No OCDE member",36.6,"Central Eastern",0.72,-1.27,NA,NA,4.3
+"96","Lebanon                                  ",19,12619,0.743,29.1,87.1,17.8,NA,2.2,7,7,118,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,2.5
+"97","Lesotho                                  ",65,1436,0.452,20.3,26.8,0.3,NA,35.2,NA,8,121,"Low HDI",NA,"No OCDE member",52.5,NA,NA,NA,NA,NA,3.5
+"98","Liberia                                  ",74,482,0.367,18.2,47.8,2.3,6.6,10.1,12,6,46,"Low HDI",NA,"No OCDE member",38.2,NA,NA,NA,NA,NA,3.3
+"99","Libya                                    ",13,NA,0.773,25.9,77.6,10.4,NA,2.9,NA,0,81,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,2.2
+"100","Liechtenstein                            ",2,NA,0.882,NA,14.4,34.6,NA,2.8,NA,NA,24,"Very high HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"101","Lithuania                                ",5,15534,0.81,39.3,67,4,38.4,6.6,25,10,329,"Very high HDI",NA,"No OCDE member",37.6,"Central Eastern",0.98,-1,NA,NA,5
+"102","Luxembourg                               ",2,68748,0.875,38.9,85.2,35.2,17.7,2.5,26,NA,122,"Very high HDI",0.29,"OCDE member",30.8,NA,0.42,1.13,NA,NA,8.5
+"103","The former Yugoslav Republic of Macedonia",10,9187,0.736,35.9,59.2,6.3,53.8,1.9,11,9,122,"High HDI",NA,"No OCDE member",43.2,NA,0.12,-0.72,NA,NA,4.1
+"104","Madagascar                               ",43,869,0.484,18.2,31.9,0.2,NA,8.1,NA,0,87,"Medium HDI",NA,"No OCDE member",44.1,NA,NA,NA,NA,NA,2.6
+"105","Malawi                                   ",58,795,0.413,16.9,15.5,1.8,NA,36,33,6,73,"Low HDI",NA,"No OCDE member",39,NA,NA,NA,NA,NA,3.4
+"106","Malaysia                                 ",5,13214,0.763,26,72,8.4,11.3,2.3,14,6,132,"High HDI",NA,"No OCDE member",46.2,NA,NA,NA,-0.73,0.09,4.4
+"107","Maldives                                 ",14,7387,0.683,24.6,40,1,NA,1.6,NA,NA,307,"High HDI",NA,"No OCDE member",37.4,NA,NA,NA,NA,NA,2.3
+"108","Mali                                     ",99,967,0.344,16.3,34.3,1.2,NA,8,45,7,36,"Low HDI",NA,"No OCDE member",33,NA,NA,NA,-1.25,-0.08,2.7
+"109","Malta                                    ",5,22697,0.844,39.5,94.7,3.8,13.9,1,16,NA,145,"Very high HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,5.6
+"110","Marshall Islands                         ",22,NA,NA,NA,71.5,2.7,NA,NA,NA,NA,NA,NA,NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"111","Mauritania                               ",75,2204,0.464,19.8,41.2,2.9,NA,14.7,30,-2,45,"Low HDI",NA,"No OCDE member",40.5,NA,NA,NA,NA,NA,2.3
+"112","Mauritius                                ",13,12283,0.732,32.4,41.8,3.3,29,2.5,NA,10,202,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,5.4
+"113","Mexico                                   ",14,12441,0.77,26.6,77.8,0.7,10.1,22.7,29,8,210,"High HDI",0.48,"OCDE member",48.3,NA,-1.47,0.53,-1.47,1.03,3.1
+"114","Micronesia (Federated States of)         ",34,2988,0.639,20.8,22.5,2.4,NA,0.9,NA,NA,80,"Medium HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"115","Moldova (Republic of)                    ",16,2794,0.652,35.2,46.9,11.4,20.1,7.5,12,8,188,"Medium HDI",NA,"No OCDE member",33,NA,0.46,-1.69,0.47,-1.28,2.9
+"116","Monaco                                   ",3,NA,NA,NA,100,71.6,NA,0,NA,NA,73,NA,NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"117","Mongolia                                 ",26,3620,0.657,25.4,67.6,0.4,NA,8.7,14,10,287,"Medium HDI",NA,"No OCDE member",36.5,NA,NA,NA,NA,NA,2.7
+"118","Montenegro                               ",7,10157,0.787,35.9,63.1,6.8,46.9,3.5,21,9,208,"Very high HDI",NA,"No OCDE member",30,NA,0.86,-1.24,NA,NA,NA
+"119","Morocco                                  ",30,4227,0.586,26.3,56.7,0.2,18.1,1.4,58,-4,220,"Medium HDI",NA,"No OCDE member",40.9,NA,-1.64,-1.09,-1.32,-1.04,3.4
+"120","Mozambique                               ",92,823,0.318,17.8,31,1.9,NA,8.8,NA,5,64,"Low HDI",NA,"No OCDE member",45.7,NA,NA,NA,NA,NA,2.7
+"121","Myanmar                                  ",50,NA,0.49,28.2,32.1,0.2,NA,10.2,NA,-3,120,"Medium HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,1.4
+"122","Namibia                                  ",29,5870,0.604,21.2,37.8,6.3,NA,17.2,NA,6,191,"Medium HDI",NA,"No OCDE member",63.9,NA,NA,NA,NA,NA,4.4
+"123","Nauru                                    ",32,NA,NA,NA,100,NA,NA,9.8,NA,NA,277,NA,NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"124","Nepal                                    ",41,1079,0.458,21.4,16.7,3.2,NA,2.8,17,6,48,"Low HDI",NA,"No OCDE member",32.8,NA,NA,NA,NA,NA,2.2
+"125","Netherlands                              ",4,36997,0.919,40.7,82.7,10.5,8.8,1.1,46,10,82,"Very high HDI",0.29,"OCDE member",30.9,"Social democratic",0.84,1.94,0.71,1.39,8.8
+"126","New Zealand                              ",5,24818,0.917,36.6,86.2,22.4,17.4,0.9,NA,10,192,"Very high HDI",0.33,"OCDE member",36.2,"Liberal",NA,NA,0,1.86,9.3
+"127","Nicaragua                                ",23,2499,0.593,22.1,57.3,0.7,NA,13.6,11,9,153,"Medium HDI",NA,"No OCDE member",40.5,NA,NA,NA,NA,NA,2.5
+"128","Niger                                    ",73,650,0.298,15.5,17.6,1.3,NA,3.8,40,6,42,"Low HDI",NA,"No OCDE member",34.6,NA,NA,NA,NA,NA,2.6
+"129","Nigeria                                  ",88,2135,0.462,18.5,49,0.7,NA,12.2,13,4,32,"Low HDI",NA,"No OCDE member",48.8,NA,-1.53,0.28,NA,NA,2.4
+"130","Norway                                   ",3,46906,0.952,38.7,79.1,10,10.9,0.6,NA,10,72,"Very high HDI",0.25,"OCDE member",25.8,"Social democratic",NA,NA,1.39,2.17,8.6
+"131","Palestine, State of                      ",20,NA,0.662,18.1,74.1,43.6,49.6,4.1,9,-8,NA,"Medium HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"132","Oman                                     ",8,24559,0.728,25.3,73.2,28.4,NA,0.7,NA,6,61,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,5.3
+"133","Pakistan                                 ",70,2411,0.512,21.7,35.9,2.3,NA,7.8,20,NA,39,"Medium HDI",NA,"No OCDE member",30,NA,-1.42,-1.25,NA,NA,2.3
+"134","Palau                                    ",15,12537,0.779,NA,83.4,28.1,NA,0,NA,NA,295,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"135","Panama                                   ",17,12639,0.77,27.3,74.6,3.4,20.8,21.6,21,9,411,"High HDI",NA,"No OCDE member",51.9,NA,NA,NA,NA,NA,3.6
+"136","Papua New Guinea                         ",47,2217,0.458,20.4,12.4,0.4,NA,13,NA,4,48,"Low HDI",NA,"No OCDE member",50.9,NA,NA,NA,NA,NA,2.1
+"137","Paraguay                                 ",21,4648,0.668,23.1,61.4,2.5,22.6,11.5,12,8,118,"Medium HDI",NA,"No OCDE member",52.4,NA,NA,NA,NA,NA,2.2
+"138","Peru                                     ",15,8558,0.733,25.6,76.9,0.1,15.7,10.3,12,9,202,"High HDI",NA,"No OCDE member",48.1,NA,-1.36,0.03,NA,NA,3.5
+"139","Philippines                              ",23,3560,0.649,22.2,48.6,0.5,NA,5.4,14,8,111,"Medium HDI",NA,"No OCDE member",43,NA,-1.21,-0.11,NA,NA,2.4
+"140","Poland                                   ",5,17348,0.817,38,60.9,2.2,25.4,1.1,25,10,217,"Very high HDI",0.31,"OCDE member",34.1,"Central Eastern",-0.43,-0.6,-0.78,-0.14,5.3
+"141","Portugal                                 ",3,21665,0.817,41,60.5,8.6,23.7,1.2,27,10,136,"Very high HDI",0.35,"OCDE member",38.5,"Continental",-0.9,0.49,NA,NA,6
+"142","Qatar                                    ",7,69798,0.827,31.6,98.7,86.5,NA,0.9,23,-10,NA,"Very high HDI",NA,"No OCDE member",41.1,NA,NA,NA,NA,NA,7.7
+"143","Romania                                  ",11,10921,0.783,38.5,52.8,0.6,22.3,2,15,9,155,"High HDI",NA,"No OCDE member",30,NA,-0.28,-1.6,-0.39,-1.55,NA
+"144","Russian Federation                       ",9,14199,0.782,37.9,73.7,8.7,17.5,10.2,24,4,475,"High HDI",0.42,"No OCDE member",40.1,NA,1.09,-1.88,0.49,-1.42,2.1
+"145","Rwanda                                   ",59,1041,0.425,18.7,18.8,4.5,NA,17.1,30,-4,492,"Low HDI",NA,"No OCDE member",50.8,NA,NA,NA,-1.57,-0.62,4
+"146","Saint Kitts and Nevis                    ",7,13468,0.745,NA,31.9,9.6,NA,38.2,NA,NA,714,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"147","Saint Lucia                              ",14,8268,0.723,27.4,18.3,5.9,NA,25.2,NA,NA,317,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"148","Saint Vincent and the Grenadines         ",19,9482,0.731,27.9,48.9,7.9,NA,22.9,NA,NA,376,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"149","Samoa                                    ",17,3943,0.699,20.9,20.1,5,NA,1.1,NA,NA,228,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,4.1
+"150","San Marino                               ",2,NA,NA,NA,94.1,37,NA,NA,NA,NA,NA,NA,NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"151","Sao Tome and Principe                    ",53,1753,0.52,19.3,62,3.2,NA,1.9,NA,NA,128,"Medium HDI",NA,"No OCDE member",50.8,NA,NA,NA,NA,NA,3
+"152","Saudi Arabia                             ",15,20534,0.777,25.9,82.1,27.8,NA,1,36,-10,162,"High HDI",NA,"No OCDE member",NA,NA,-1.31,0.15,NA,NA,4.7
+"153","Senegal                                  ",50,1738,0.47,17.8,42.3,1.6,NA,8.7,28,7,64,"Low HDI",NA,"No OCDE member",39.2,NA,NA,NA,NA,NA,2.9
+"154","Serbia                                   ",6,9597,0.767,37.6,56,5.3,46.1,1.2,17,8,142,"High HDI",NA,"No OCDE member",27.8,NA,0.65,-1.03,0.35,-0.62,3.5
+"155","Seychelles                               ",12,21945,0.799,NA,53.2,12.8,NA,8.3,NA,NA,709,"Very high HDI",NA,"No OCDE member",65.8,NA,NA,NA,NA,NA,4.8
+"156","Sierra Leone                             ",11,742,0.346,18.4,38.9,1.8,NA,14.9,16,7,52,"Low HDI",NA,"No OCDE member",42.5,NA,NA,NA,NA,NA,2.4
+"157","Singapore                                ",2,52170,0.892,37.6,100,40.7,7.4,0.3,33,-2,230,"Very high HDI",NA,"No OCDE member",48.1,NA,NA,NA,NA,NA,9.3
+"158","Slovakia                                 ",7,20121,0.836,36.9,54.8,2.4,34.7,1.5,21,10,187,"Very high HDI",0.24,"OCDE member",26,"Central Eastern",0.67,-0.43,NA,NA,4.3
+"159","Slovenia                                 ",2,25053,0.892,41.7,50,8.1,15.2,0.7,15,10,66,"Very high HDI",NA,"No OCDE member",31.2,"Central Eastern",0.95,0.38,0.73,0.36,6.4
+"160","Solomon Islands                          ",23,2430,0.522,19.9,20,1.3,NA,3.7,NA,8,54,"Medium HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,2.8
+"161","Somalia                                  ",10,NA,NA,17.5,37.3,0.2,NA,1.5,NA,0,NA,NA,NA,"No OCDE member",NA,NA,NA,NA,NA,NA,1.1
+"162","South Africa                             ",41,9497,0.621,24.9,61.5,3.7,54.6,31.8,17,9,294,"Medium HDI",0.7,"No OCDE member",63.1,NA,NA,NA,-1.09,-0.1,4.5
+"163","Spain                                    ",4,26968,0.884,40.1,77.3,15.2,43.2,0.8,22,10,147,"Very high HDI",0.32,"OCDE member",34.7,"Continental",0.12,0.51,0.09,0.54,6.1
+"164","Sri Lanka                                ",14,4601,0.705,30.7,15,1.7,24.7,3.6,17,4,132,"High HDI",NA,"No OCDE member",40.3,NA,NA,NA,NA,NA,3.2
+"165","Sudan                                    ",66,2023,0.411,19.7,33.1,1.7,NA,24.2,31,-2,56,"Low HDI",NA,"No OCDE member",35.3,NA,NA,NA,NA,NA,1.6
+"166","Suriname                                 ",27,7110,0.679,27.6,69.3,7.5,NA,4.6,NA,5,186,"High HDI",NA,"No OCDE member",52.9,NA,NA,NA,NA,NA,NA
+"167","Swaziland                                ",55,5342,0.532,19.5,21.3,3.4,NA,12.9,NA,-9,284,"Medium HDI",NA,"No OCDE member",51.5,NA,NA,NA,NA,NA,3.2
+"168","Sweden                                   ",2,33996,0.913,40.7,85.1,14.1,26.7,1,55,10,67,"Very high HDI",0.26,"OCDE member",25,"Social democratic",1.67,2.09,1.86,2.35,9.2
+"169","Switzerland                              ",4,37582,0.912,41.4,73.6,23.2,8.4,0.7,44,10,82,"Very high HDI",0.3,"OCDE member",33.7,"Liberal",NA,NA,0.74,1.9,8.7
+"170","Syrian Arab Republic                     ",14,4741,0.646,21.1,55.7,9.8,40.2,2.3,9,-7,58,"Medium HDI",NA,"No OCDE member",35.8,NA,NA,NA,NA,NA,2.5
+"171","Tajikistan                               ",52,1938,0.612,20.4,26.5,4,NA,2.1,31,-3,130,"Medium HDI",NA,"No OCDE member",30.8,NA,NA,NA,NA,NA,2.1
+"172","Tanzania (United Republic of)            ",50,1293,0.466,17.5,26.3,1.5,NA,24.5,26,-1,78,"Low HDI",NA,"No OCDE member",37.6,NA,-1.84,-0.15,NA,NA,2.7
+"173","Thailand                                 ",11,7673,0.686,34.2,33.7,1.7,4.2,4.8,27,7,398,"High HDI",NA,"No OCDE member",40,NA,NA,NA,-0.64,0.01,3.5
+"174","Timor-Leste                              ",46,1296,0.565,16.6,28,1.2,NA,6.9,NA,7,25,"Medium HDI",NA,"No OCDE member",31.9,NA,NA,NA,NA,NA,2.5
+"175","Togo                                     ",66,898,0.452,19.7,37.5,2.7,NA,10.9,NA,-2,64,"Low HDI",NA,"No OCDE member",34.4,NA,NA,NA,NA,NA,2.4
+"176","Tonga                                    ",13,4063,0.709,21.3,23.4,0.8,NA,1,NA,NA,150,"High HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,3
+"177","Trinidad and Tobago                      ",24,23168,0.758,30.8,13.4,2.6,NA,35.2,NA,10,281,"High HDI",NA,"No OCDE member",40.3,NA,NA,NA,-1.83,-0.26,3.6
+"178","Tunisia                                  ",14,8508,0.71,28.9,66.1,0.3,NA,1.1,15,NA,199,"High HDI",NA,"No OCDE member",41.4,NA,NA,NA,NA,NA,4.3
+"179","Turkey                                   ",14,12564,0.715,28.3,70.5,1.9,23.1,3.3,8,9,179,"High HDI",0.41,"OCDE member",39,NA,-0.86,-0.34,-0.89,-0.33,4.4
+"180","Turkmenistan                             ",47,7422,0.688,24.5,48.4,4,NA,4.2,27,-9,224,"High HDI",NA,"No OCDE member",40.8,NA,NA,NA,NA,NA,1.6
+"181","Tuvalu                                   ",27,NA,NA,NA,50.1,NA,NA,NA,NA,NA,120,NA,NA,"No OCDE member",NA,NA,NA,NA,NA,NA,NA
+"182","Uganda                                   ",63,1149,0.45,15.7,15.2,1.9,NA,36.3,17,-1,97,"Low HDI",NA,"No OCDE member",44.3,NA,NA,NA,NA,NA,2.5
+"183","Ukraine                                  ",11,6023,0.733,39.3,68.7,11.6,NA,5.2,29,6,305,"High HDI",NA,"No OCDE member",26.4,NA,0.9,-1.72,0.3,-0.83,2.4
+"184","United Arab Emirates                     ",6,42353,0.816,30.1,84,70,NA,0.8,18,-8,238,"Very high HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,6.3
+"185","United Kingdom                           ",5,32475,0.874,39.8,79.5,11.2,21.3,1.2,35,10,147,"Very high HDI",0.34,"OCDE member",34,"Liberal",NA,NA,NA,NA,7.6
+"186","United States                            ",7,42079,0.934,36.9,82.1,13.5,20.8,4.2,37,10,716,"Very high HDI",0.38,"OCDE member",45,"Liberal",-0.52,1.59,-0.81,1.76,7.1
+"187","Uruguay                                  ",9,12642,0.785,33.7,92.5,2.4,25.3,5.9,27,10,281,"High HDI",NA,"No OCDE member",45.3,NA,NA,NA,-0.37,0.99,6.9
+"188","Uzbekistan                               ",44,2754,0.644,24.2,36.2,4.2,NA,3.1,26,-9,152,"Medium HDI",NA,"No OCDE member",36.7,NA,NA,NA,NA,NA,1.6
+"189","Vanuatu                                  ",12,3991,0.623,20.6,24.6,0.3,NA,0.9,NA,NA,76,"Medium HDI",NA,"No OCDE member",NA,NA,NA,NA,NA,NA,3.6
+"190","Venezuela (Bolivarian Republic of)       ",16,10973,0.744,26.1,93.3,3.5,21.6,45.1,13,-3,161,"High HDI",NA,"No OCDE member",44.8,NA,-1.6,0.43,NA,NA,2
+"191","Viet Nam                                 ",19,2875,0.611,28.2,30.4,0.1,NA,1.6,26,-7,145,"Medium HDI",NA,"No OCDE member",35.6,NA,NA,NA,NA,NA,2.7
+"192","Yemen                                    ",57,2373,0.466,17.4,31.7,2.1,NA,4.2,27,-2,55,"Low HDI",NA,"No OCDE member",37.7,NA,NA,NA,NA,NA,2.2
+"193","Zambia                                   ",69,1401,0.438,16.7,38.7,1.8,NA,38,31,7,119,"Low HDI",NA,"No OCDE member",54.6,NA,NA,NA,-0.77,-0.62,3
+"194","Zimbabwe                                 ",51,NA,0.374,19.3,38.1,2.9,NA,14.3,15,1,129,"Low HDI",NA,"No OCDE member",50.1,NA,-1.5,-1.36,NA,NA,2.4
