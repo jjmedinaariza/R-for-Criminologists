@@ -1,0 +1,1582 @@
+                                                       (15-OCT-93)
+                            CODEBOOK FOR THE
+                KINGSWOOD CONTROLLED TRIAL OF RESIDENTIAL
+                        TREATMENT FOR DELINQUENTS
+
+      [Original researchers: Ronald V. Clarke and Derek B. Cornish]
+      [Codebook prepared by: Derek B. Cornish and Martha J. Smith]
+
+[NOTE: No missing values have been declared in the data file.]
+
+Variable   Variable   Variable
+ Number      Name      Length           Description
+
+                     I. BACKGROUND DATA ON SUBJECTS
+      [These data were extracted from information in the Kingswood 
+                      Classifying School records.]
+
+    1      SUBNO         4       Subject number
+                                   Sequential number assigned to
+                                   each subject (i.e. individual)
+                                   for coding purposes 
+
+    2      HOME          1       Home conditions
+                                   Rated on a 4-point scale, where
+                                   1 = Best, and 4 = Worst.
+                                 1  [N = 157]
+                                 2  [N = 60]
+                                 3  [N = 55]
+                                 4  [N = 8]
+
+NOTE: All descriptions of home conditions present in the Classifying 
+School records for each case were noted down and rated on a 4-point 
+scale. In Cornish and Clarke (1974), this variable is referred to as 
+"home circumstances". 
+
+    3      NUMSIB        2       Number of siblings
+                                   [Range: 0 - 14; Mean = 4.0]
+                                 0 = None 
+
+    4      CRIMPAR       1       Criminal record of parents           
+                                 1 = Yes  [N = 84]
+                                 2 = No  [N = 196]
+
+    5      CRIMSIB       1       Criminal record of siblings
+                                 1 = Yes  [N = 120]
+                                 2 = No  [N = 143]
+                                 8 = Not applicable, no siblings
+                                     [N = 17]
+
+    6      MENTILL       1       Mental illness in family
+                                 1 = Yes  [N = 67]
+                                 2 = No  [N = 213]
+
+
+    7      PSYCHIAT      1       Earliest known referral to a
+                                   psychiatrist
+                                 1 = Before first court appearance
+                                     [N = 84]
+                                 2 = Since first court appearance, but
+                                     but before admission to Kingswood
+                                     Classifying School  [N = 71]
+                                 3 = At Kingswood Classifying School
+                                     [N = 92]
+                                 4 = No known referral to a psychiatrist
+                                     [N = 33]
+
+NOTE:  Referrals to a psychiatrist, prior to referral at Kingswood 
+Classifying School, were usually made via Child Guidance Clinic. In 
+Cornish and Clarke (1975), this variable is referred to as "previous 
+psychiatric investigation". 
+
+    8      BCARE         1       Boy ever in care
+                                 1 = Yes  [N = 64]
+                                 2 = No  [N = 216]
+
+    9      SIBCARE       1       Sibling ever in care
+                                 1 = Yes  [N = 61]
+                                 2 = No  [N = 202]
+                                 8 = Not applicable, no siblings
+                                     [N = 17]
+
+    10     PRECAP1       1       Number of prior court appearances 
+                                   [Variable distribution in Appendix A]
+                                   [Range: 1 - 8; Mean = 3.1]
+
+NOTE: In almost all cases, the court appearance was in connection with 
+an offence (but see Variable 12: CT1AGE). Only those court appearances 
+at which an adjudication was made (e.g. a finding of guilt) are counted. 
+Remands, postponements, etc. are not counted.
+
+PRECAP1 is based primarily on a count of previous court appearances 
+recorded in boys' assessment files, and collected at the same time as 
+the other background data. No details of the offences were recorded. 
+Further information from the Criminal Records used in the two-year 
+outcome study was later added. PRECAP1 includes the "committal offence", 
+if applicable i.e. the offence which directly led to the imposition of 
+an Approved School Order to Kingswood Training School. 
+
+   *11     PRECAP2       4       Number of prior court appearances 
+                    [e.g. 7.00]    [Variable distribution in Appendix A]
+                                   [Range: 0 - 7; Mean = 2.8]
+          
+NOTE: PRECAP2 is a new variable, based on information about prior court 
+appearances collected from the ten-year Criminal Records, and from 
+selected two-year Criminal Records (i.e. those retained because they 
+held additional information). Like PRECAP1, PRECAP2 counts the 
+
+"committal offence", where applicable. Details of offences are only 
+available for those recorded in PRECAP2, which will therefore be used in 
+later analyses of offending patterns. The best data on numbers of prior 
+court appearances are likely to be those in PRECAP1, since minor 
+offences are often not recorded (or recorded without dates of court 
+appearances) in Criminal Records. Data from the two variables are not 
+directly comparable, however. For although, overall, PRECAP1 records a 
+higher number of priors than PRECAP2, there are exceptions to this trend 
+in a number of individual cases. Since the information on which PRECAP1 
+was based is no longer available, there is no way of resolving these 
+discrepancies. There is therefore no way of reliably combining data from 
+PRECAP1 and PRECAP2 in order to maximize the capture of prior 
+convictions. Only one or the other should be used in any analysis.   
+
+    12     CT1AGE        2       Age at first court appearance 
+                                   (in years) - The first court
+                                   appearance was counted irre-
+                                   spective of the reason for the
+                                   appearance or its outcome
+                                   [Variable distribution in Appendix A]
+                                   [Range: 3 - 14; Mean = 11.5]
+
+NOTE: In almost all cases, the reason for the first court appearance was 
+in connection with an offence, even in those cases (N = 5) whose first 
+court appearance took place before the age of criminal responsibility 
+(i.e. at 8 or, later, 10 years).  
+                                    
+    13     CTLAG         3       Shortest period between court
+                                   appearances (in months)
+                                   [Variable distribution in Appendix A]
+                                   [Range: 0 - 97; Mean = 7.0;
+                                   for N = 257]
+                                 888 = Not applicable - Only one
+                                   appearance prior to admission
+                                   to the school  [N = 23] 
+ 
+    14     NUMAPP        1       Number of approved schools
+                                   previously attended
+                                   [Variable distribution in Appendix A]
+                                   [Range: 0 - 3; Mean = 0.2]
+                                 0 = None  
+
+    15     HISTABSC      1       History of absconding
+                                 1 = Yes  [N = 130]
+                                 2 = No  [N = 150]
+
+    16     IQ            3       IQ
+                                   [Variable distribution in Appendix A]
+                                   [Range: 62 - 148; Mean = 99.4]
+
+
+
+    17     HT            2       Height (in inches)
+                                   [Variable distribution in Appendix A]
+                                   [Range: 56 - 72; Mean = 63.0]
+
+    18     WT            3       Weight (in pounds)
+                                   [Variable distribution in Appendix A]
+                                   [Range: 75 - 168; Mean = 109.8]
+
+    19     READAGE       3       Reading age (in months)
+                                   [Variable distribution in Appendix A]
+                                   [Range: 42 - 157; Mean = 120.0]
+
+    20     SES           1       Social class - Registrar General's 
+                                   definition - see General Register 
+                                   Office, Classification of 
+                                   Occupations 1960, HMSO, for a full
+                                   listing of occupations. Temporarily 
+                                   unemployed and "retired" classified 
+                                   under usual occupation
+                                 1 = Professional, etc  [N = 0]
+                                 2 = Intermediate  [N = 9]
+                                 3 = Skilled  [N = 110]
+                                 4 = Partly skilled  [N = 53]
+                                 5 = Unskilled  [N = 28]
+                                 6 = NAB - Chronic and heavy 
+                                     reliance on S.S. benefit
+                                     [N = 50]
+                                 7 = U/C - Services, "unemployed"
+                                     with no additional information,
+                                     "pensioner" with no further
+                                     information  [N = 30]
+
+
+                     II. SCHOOL DATA ON SUBJECTS 
+[Collected from Kingswood Training School records and Criminal Records.] 
+
+    21     ADMITCON      4       Admission condition, i.e. grounds
+                    [e.g. 2.00]    on which admitted to Kingswood
+                                   Training School
+                                 1 = Committed to Kingswood  [N = 238]
+                                 2 = Transferred to Kingswood  [N = 22]
+                                 9 = No information available  [N = 20]
+
+NOTES: As will be seen by cross-tabulating ADMITCON with PRECAP1 or 
+PRECAP2, in a few cases there is no indication that a committal offence 
+existed. Evidence may be absent for a number of reasons: (a) no offence 
+may have been committed (in a very few cases, boys may have been 
+transferred from children's homes to approved schools for being 
+disruptive); (b) an offence may have been committed, but not recorded 
+(one route to approved school was by breach of probation order, but the 
+breach proceedings, and the offence upon which they were based, may not 
+always have been recorded); (c) an unrecorded offence may have brought 
+
+about committal to a previous approved school, so that admission to KTS 
+was by way of transfer. 
+
+    22     ENTAGE        3       Age at admission to school (in
+                                   months)
+                                   [Variable distribution in Appendix A]
+                                   [Range: 152 - 208; Mean = 172.7]
+
+    23     HOUSE         1       House subject assigned to
+                                 1 = Byron (Third)  [N = 107]
+                                 2 = Carpenter (Control)  [N = 87]
+                                 3 = Wesley (Experimental)  [N = 86]
+
+    24     TOTLV         2       Total number of leave periods 
+                                   [Variable distribution in Appendix A]
+                                   [Range: 0 - 94; Mean = 8.8]
+                                 0 = None 
+
+    25     DAYSLV        3       Number of days on leave from
+                                   school 
+                                   [Variable distribution in Appendix A]
+                                   [Range: 0 - 235; Mean = 48.8]
+                                 0 = None
+
+NOTE: Includes absence on holiday with leave, absence on home leave 
+under medical certification, extension of leave for reasons other than 
+medical ones, and privilege leave. 
+
+    26     TOTABSC       2       Total number of abscondings 
+                                   [Variable distribution in Appendix A]
+                                   [Range: 0 - 24; Mean = 2.7]
+                                 0 = None
+
+    27     SCHOFF        1       Number of offences committed 
+                                   while at school
+                                   [Variable distribution in Appendix A]
+                                   [Range: 0 - 4; Mean = 0.4]
+                                 0 = None
+
+    28     REL1LAG       2       Time to first release from 
+                                   school (in months) 
+                                   [Variable distribution in Appendix A]
+                                   [Range: 1 - 29; Mean = 12.9]
+
+    29     RELLAST       2       Time to last release from
+                                   school (in months) 
+                                   [Variable distribution in Appendix A]
+                                   [Range: 1 - 36; Mean = 13.6]
+
+NOTE: Includes time spent in Kingswood until first release and, for 
+those recalled to Kingswood after first release, any time spent out of 
+
+Kingswood, together with time spent inside Kingswood, after recall, 
+until final release. 
+
+    30     RELCON        1       Release condition
+                                 1 = Released - training 
+                                     completed  [N = 216]
+                                 2 = Recommitted to another
+                                     institution  [N = 35]
+                                 3 = Transferred to another
+                                     institution  [N = 25]
+                                 4 = Recommitted to probation
+                                     order [N = 4]
+
+NOTE: Minor coding errors have been corrected in relation to the number 
+of Transfers and Recommittals. 
+
+    31     NUMREL        1       Number of releases while at
+                                   school 
+                                   [Variable distribution in Appendix A]
+                                   [Range: 1 - 3: Mean = 1.1]
+
+    32     AFCARE        1       Type of after-care
+                                 1 = Probation officer  [N = 112]
+                                 2 = Child-care officer  [N = 98]
+                                 8 = Not applicable - subject 
+                                     was not released - RELCON =
+                                     2, 3 or 4  [N = 64]
+                                 9 = No information available on 
+                                     after-care agent  [N = 6]
+
+    33     SCHTIME       2       Time in the school (in months)
+                                   [Variable distribution in Appendix A]
+                                   [Range: 1 - 31; Mean = 13.2]
+
+NOTE: If the subject (i) spent time in another institution while still 
+remaining under the jurisdiction of the school; (ii) was returned to the 
+school for further treatment; and (iii) was then released on licence 
+from the school, then time in school does not include the time in the 
+other institution. [3 cases, flagged in SCHCUST]. SCHTIME includes 
+recall time. 
+
+   *34     SCHCUST       4       Received a custodial sentence
+                    [e.g. 1.00]    while at KTS
+                                 1 = Yes  [N = 38]
+                                 2 = No  [N = 242]                                 
+
+NOTE: Includes those recommitted to another institution (RELCON = 2); 
+and 3 cases who received a detention centre disposition while at KTS, 
+were returned to KTS, and later released on licence. Many offences 
+committed during training resulted in a boy's being transferred to 
+another custodial institution or given a further custodial sentence. 
+Where a boy is transferred to another institution, this is not regarded as a 
+
+further custodial sentence, since no fresh approved school order has 
+been made (the latter procedure has the effect of extending the original 
+sentence). Where a boy is recommitted to another institution (e.g., 
+approved school, special hospital, borstal, prison), this is treated as 
+a custodial sentence during treatment (even though it ends the treatment 
+at KTS). Where a boy is given a detention centre order but returned to 
+Kingswood at the end of it, this is also counted as a custodial sentence 
+during treatment. 
+
+   *35     RECALL        4       Subject recalled to KTS
+                    [e.g. 1.00]  1 = Yes  [N = 23]
+                                 2 = No  [N = 257]
+
+NOTE: Where boys (N = 23) were released two (or more) times, the first 
+release is taken as the release date for the purposes of calculating 
+reconviction data such as: reconvicted within two years; time to first 
+offence; number of offences, etc. The first date represents staff 
+decisions about release readiness, and is uncontaminated either by court 
+pressures to recall, by social work reasons for recall, or by periods 
+spent outside the school. The effect of counting the second release 
+(i.e. after recall) as the final release would be to overestimate the 
+success of treatment, since offences committed during the recall period 
+would become "within-treatment" offences and not reconvictions. The 
+purpose and significance of the recall was often unclear. Sometimes the 
+recall was merely a formality, sometimes it was immediately followed by 
+recommittal proceedings, and sometimes it was not recorded accurately, 
+or at all. For all these reasons, the recall period is omitted from the 
+reconviction analysis, although information is retained in RECALL, 
+RELLAST and SCHTIME. 
+
+                   III. TWO-YEAR FOLLOW-UP INFORMATION
+            [Based on data from the Criminal Records Office.]
+
+    36     RECON2        1       Subject reconvicted in two 
+                                   years following date of first 
+                                   release [Includes transfers and 
+                                   recommittals]
+                                 1 = No reconvictions  [N = 83]
+                                 2 = Reconvicted  [N = 197]
+
+NOTE: Boys who were transferred or recommitted (RELCON = 2, 3 or 4) were 
+regarded as "failures during training" (see Cornish and Clarke, 1975).  
+Their reconvictions were, however, counted for the purposes of 
+calculating RECON2, with the following proviso: that if they were 
+removed from Kingswood as the result of an offence, the offence for 
+which they were recommitted or transferred was not itself counted as a 
+reconviction (the offence was committed during, and not after, 
+training). Only subsequent offences in the two year period after 
+recommittal or transfer were treated as relevant to the analysis. 
+
+Only those released "on licence", having completed their training at 
+Kingswood, (RELCON = 1) were used for the detailed reconviction analysis 
+
+at two-year follow-up (see below). 
+
+    37     CTAPP2        2       Number of court appearances in
+                                   the two years following first
+                                   release
+                                   [Variable distribution in Appendix A]
+                                   [Range: 1 - 6; Mean = 2.0, for 
+                                   N = 148]
+                                 97 = Not applicable - no court
+                                      appearances following 
+                                      release  [N = 68]
+                                 98 = Not applicable - subject 
+                                      was not released - RELCON
+                                      = 2, 3 or 4  [N = 64]  
+
+NOTE: As recorded by the Criminal Records Office. Breach of probation was 
+counted as a court appearance, as was defaulting on a fine.
+
+    38     OFFLAG2       2       Time to first offence (in months) 
+                                   from date of first release  
+                                   [Variable distribution in Appendix A]
+                                   [Range: 1 - 23; Mean = 11.2, for 
+                                   N = 148]
+                                 97 = Not applicable - no court
+                                      appearances following
+                                      release  [N = 68]
+                                 98 = Not applicable - subject 
+                                      was not released - RELCON
+                                      = 2, 3 or 4  [N = 64]
+
+NOTE: As measured by date of first appearance in court. (Where the first 
+court appearance was less than one month after release from KTS, this 
+variable has been coded as 1). 
+
+    39     CUST2         1       Custodial sentence
+                                 1 = No custodial treatment  [N = 65]
+                                 2 = Custodial treatment  [N = 83]
+                                 7 = Not applicable - no court
+                                     appearances after release  [N = 68]
+                                 8 = Not applicable - subject 
+                                     was not released - RELCON
+                                     = 2, 3 or 4  [N = 64]
+
+
+    40     SER1ST        4       Seriousness score of offence (or
+                    [e.g. 99.0]    offences) for which first
+                                   convicted within two years 
+                                   after release
+                                   [Variable distribution in Appendix A]
+                                   [Range: 1.2 - 5.0; Mean = 2.9, for 
+                                   N = 139]
+                                 97 = Not applicable - no court
+                                      appearances after release  
+                                      [N = 68]
+                                 98 = Not applicable - subject 
+                                      was not released - RELCON
+                                      = 2, 3 or 4  [N = 64]
+                                 99 = No information available  [N = 9]
+
+NOTE: Five approved school staff members rated each "anonymised" first 
+offence (or "cluster" of offences, if they featured as part of the same 
+charge) on a five-point scale. Ratings were then averaged to provide the 
+final score for each first offence(s) for each offender. (See Cornish 
+and Clarke, 1975: 18). Hence, values for this variable range from 1.2 to 
+5.0. The higher the score the more seriously the offence "event" was 
+rated. 
+
+    41     SERALL        4       Seriousness score of all offences
+                    [e.g. 99.0]    for which convicted within two 
+                                   years after release
+                                   [Variable distribution in Appendix A]
+                                   [Range: 1.4 - 17.2; Mean = 5.5, for 
+                                   N = 133]
+                                 97 = Not applicable - no court
+                                      appearances after release
+                                      [N = 68]
+                                 98 = Not applicable - subject 
+                                      was not released - RELCON
+                                      = 2, 3 or 4  [N = 64]
+                                 99 = No information available  [N = 15]
+
+NOTE: Court appearances for breach of probation or fine defaulting were 
+not included for the purposes of this variable. 
+
+Five approved school staff members rated all offences on a five-
+point scale. Ratings were then averaged to provide the final scores for 
+each offence. Scores of all offences committed by each offender were 
+then summed to provide a total score (SERALL) for that subject. Hence, 
+values for this variable range from 1.4 to 17.2. The higher the score 
+the higher the rating of overall "seriousness". (As constructed, the 
+variable does not discriminate between amount and seriousness of 
+criminal activity). 
+
+
+
+                              GENERAL NOTES
+
+1. This listing of variables covers all those for which case-by-case 
+information is available, and coded. It contains all the input (social 
+background variables) and output (follow-up data) data reported in the 
+original study (Cornish and Clarke, 1975). In addition, it contains some 
+information (school data) relating to the approach of each regime, and 
+the behaviour of boys during treatment. No case-by-case information is 
+now available, however, in relation to questionnaires given to a 
+subsample of staff and boys of the three regimes at one point in the 
+study. Only the published summary results exist for these data. Most of 
+the other data relating to comparisons between the regimes during 
+treatment (See Appendix 2: Cornish and Clarke, 1975), consist of 
+frequency counts of incidents by house in question for a selected and 
+standardised time period (6 months), and these have aleady been 
+reported.  
+
+2. Variables marked (*) were constructed later. 
+
+3. Revisions to original 2-year KTS data: some minor coding errors and 
+inconsistencies in coding data for the original study were picked up as 
+the result of entering the original data into a computerized database, 
+and of preparing a proper codebook. In addition, in a few cases, new or 
+fuller information about the boys' early offending careers was gained 
+from the 10-year Criminal Records. Although the revisions are of no 
+practical significance in terms of their impact on the original findings 
+(see Cornish and Smith, In preparation), it was felt that the original 
+data should be updated to reflect these considerations. Consequential 
+amendments have also been made.
+
+4. Further analysis of longer-term follow-up periods is being conducted. 
+This will also involve more detailed analysis of earlier criminal 
+histories by type of offence, date of court appearance, etc. These data 
+will be lodged with the Archive in due course. 
+
+
+
+                   PUBLICATIONS FROM THE KINGSWOOD STUDY
+
+Cornish, D.B. and Smith, M.J. (In preparation) "Conserving and 
+developing criminological databases: a research note." 
+
+Cornish, D.B. (1987) "Evaluating residential treatments for delinquents: 
+A cautionary tale." In, Klaus Hurrelmann, Franz-Xaver Kaufmann and 
+Friedrich Losel (eds.),  Social Intervention: Potential and Constraints. 
+Berlin/New York: de Gruyter/Aldine. 
+
+Clarke, R.V.G. and Cornish, D.B. (1978) "The effectiveness of 
+residential treatment for delinquents." In, Hersov, L.A. and Berger, M. 
+(eds.), Aggression and Anti-Social Conduct in Childhood and Adolescence. 
+Oxford: Pergamon. 
+
+Cornish, D.B. and Clarke, R.V.G. (1975) Residential Treatment and Its 
+Effects on Delinquency. Home Office Research Studies No. 32. London:  
+H.M.S.O. 
+
+Clarke, R.V.G. and Cornish, D.B. (1972): The Controlled Trial in 
+Institutional Research: Paradigm or Pitfall for Penal Evaluators? Home 
+Office Research Studies No. 15.  London:  H.M.S.O. (reprinted in: 
+Clarke, R.V.G. and Cornish, D.B. (eds.) (1984) Crime Control in Britain. 
+New York:  State University of New York Press.) 
+
+
+                               APPENDIX A
+                   FREQUENCIES FOR SELECTED VARIABLES
+
+
+NUMSIB    Number of siblings
+(Variable 3) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         0        17      6.1      6.1      6.1
+                         1        30     10.7     10.7     16.8
+                         2        40     14.3     14.3     31.1
+                         3        43     15.4     15.4     46.4
+                         4        49     17.5     17.5     63.9
+                         5        32     11.4     11.4     75.4
+                         6        23      8.2      8.2     83.6
+                         7        21      7.5      7.5     91.1
+                         8         6      2.1      2.1     93.2
+                         9         8      2.9      2.9     96.1
+                        10         5      1.8      1.8     97.9
+                        11         3      1.1      1.1     98.9
+                        12         2       .7       .7     99.6
+                        14         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+------------------------------------------------------------------------
+
+PRECAP1   No. of prior ct. apps. - original
+(Variable 10) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         1        23      8.2      8.2      8.2
+                         2        75     26.8     26.8     35.0
+                         3        88     31.4     31.4     66.4
+                         4        54     19.3     19.3     85.7
+                         5        20      7.1      7.1     92.9
+                         6        14      5.0      5.0     97.9
+                         7         4      1.4      1.4     99.3
+                         8         2       .7       .7    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+
+PRECAP2   No. of prior ct. apps. - CRO only
+(Variable 11) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                       .00        12      4.3      4.3      4.3
+                      1.00        41     14.6     14.6     18.9
+                      2.00        68     24.3     24.3     43.2
+                      3.00        76     27.1     27.1     70.4
+                      4.00        49     17.5     17.5     87.9
+                      5.00        22      7.9      7.9     95.7
+                      6.00         9      3.2      3.2     98.9
+                      7.00         3      1.1      1.1    100.0
+                             -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+------------------------------------------------------------------------
+
+CT1AGE    Age at 1st ct. appearance - in years
+(Variable 12) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         3         1       .4       .4       .4
+                         6         2       .7       .7      1.1
+                         7         2       .7       .7      1.8
+                         8        13      4.6      4.6      6.4
+                         9        15      5.4      5.4     11.8
+                        10        45     16.1     16.1     27.9
+                        11        46     16.4     16.4     44.3
+                        12        56     20.0     20.0     64.3
+                        13        64     22.9     22.9     87.1
+                        14        36     12.9     12.9    100.0
+                             -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+
+CTLAG     Shortest period between ct. appearances
+(Variable 13) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         0         2       .7       .7       .7
+                         1        35     12.5     12.5     13.2
+                         2        31     11.1     11.1     24.3
+                         3        47     16.8     16.8     41.1
+                         4        31     11.1     11.1     52.1
+                         5        19      6.8      6.8     58.9
+                         6        20      7.1      7.1     66.1
+                         7        10      3.6      3.6     69.6
+                         8        11      3.9      3.9     73.6
+                         9         4      1.4      1.4     75.0
+                        10         8      2.9      2.9     77.9
+                        11         5      1.8      1.8     79.6
+                        12         1       .4       .4     80.0
+                        13         5      1.8      1.8     81.8
+                        14         1       .4       .4     82.1
+                        15         1       .4       .4     82.5
+                        16         1       .4       .4     82.9
+                        17         1       .4       .4     83.2
+                        18         3      1.1      1.1     84.3
+                        19         1       .4       .4     84.6
+                        20         2       .7       .7     85.4
+                        21         1       .4       .4     85.7
+                        23         1       .4       .4     86.1
+                        24         3      1.1      1.1     87.1
+                        26         2       .7       .7     87.9
+                        27         1       .4       .4     88.2
+                        28         1       .4       .4     88.6
+                        29         1       .4       .4     88.9
+                        33         1       .4       .4     89.3
+                        34         1       .4       .4     89.6
+                        38         1       .4       .4     90.0
+                        44         1       .4       .4     90.4
+                        46         1       .4       .4     90.7
+                        48         1       .4       .4     91.1
+                        55         1       .4       .4     91.4
+                        97         1       .4       .4     91.8
+Not app, only one      888        23      8.2      8.2    100.0
+                             -------  -------  -------
+                    Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+
+NUMAPP    No. of previous approved schools
+(Variable 14) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         0       228     81.4     81.4     81.4
+                         1        44     15.7     15.7     97.1
+                         2         7      2.5      2.5     99.6
+                         3         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-----------------------------------------------------------------------
+
+IQ        IQ
+(Variable 16) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        62         1       .4       .4       .4
+                        63         1       .4       .4       .7
+                        68         1       .4       .4      1.1
+                        69         1       .4       .4      1.4
+                        70         2       .7       .7      2.1
+                        72         1       .4       .4      2.5
+                        74         1       .4       .4      2.9
+                        75         2       .7       .7      3.6
+                        76         1       .4       .4      3.9
+                        77         1       .4       .4      4.3
+                        78         1       .4       .4      4.6
+                        79         1       .4       .4      5.0
+                        80         2       .7       .7      5.7
+                        81         5      1.8      1.8      7.5
+                        82         4      1.4      1.4      8.9
+                        83         8      2.9      2.9     11.8
+                        84         2       .7       .7     12.5
+                        85         7      2.5      2.5     15.0
+                        86         6      2.1      2.1     17.1
+                        87         4      1.4      1.4     18.6
+                        88        12      4.3      4.3     22.9
+                        89         1       .4       .4     23.2
+                        90        10      3.6      3.6     26.8
+                        91        10      3.6      3.6     30.4
+                        92        11      3.9      3.9     34.3
+                        93        10      3.6      3.6     37.9
+                        94         8      2.9      2.9     40.7
+                        95         7      2.5      2.5     43.2
+                        96        10      3.6      3.6     46.8
+                        97        11      3.9      3.9     50.7
+                        98         6      2.1      2.1     52.9
+                        99         5      1.8      1.8     54.6
+
+IQ        IQ  (cont.)
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+ 
+                       100         6      2.1      2.1     56.8
+                       101        16      5.7      5.7     62.5
+                       102         4      1.4      1.4     63.9
+                       103         4      1.4      1.4     65.4
+                       104         5      1.8      1.8     67.1
+                       105         4      1.4      1.4     68.6
+                       106         4      1.4      1.4     70.0
+                       107         4      1.4      1.4     71.4
+                       108         5      1.8      1.8     73.2
+                       109         7      2.5      2.5     75.7
+                       110         2       .7       .7     76.4
+                       111         5      1.8      1.8     78.2
+                       112         9      3.2      3.2     81.4
+                       113         5      1.8      1.8     83.2
+                       114         5      1.8      1.8     85.0
+                       115         3      1.1      1.1     86.1
+                       116         4      1.4      1.4     87.5
+                       117         7      2.5      2.5     90.0
+                       120         3      1.1      1.1     91.1
+                       122         3      1.1      1.1     92.1
+                       123         6      2.1      2.1     94.3
+                       124         3      1.1      1.1     95.4
+                       125         3      1.1      1.1     96.4
+                       126         1       .4       .4     96.8
+                       127         1       .4       .4     97.1
+                       128         1       .4       .4     97.5
+                       130         2       .7       .7     98.2
+                       131         1       .4       .4     98.6
+                       137         1       .4       .4     98.9
+                       138         1       .4       .4     99.3
+                       146         1       .4       .4     99.6
+                       148         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+              
+Valid cases     280      Missing cases      0
+
+HT        Height - in inches
+(Variable 17) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        56         3      1.1      1.1      1.1
+                        57         3      1.1      1.1      2.1
+                        58        15      5.4      5.4      7.5
+                        59        24      8.6      8.6     16.1
+                        60        21      7.5      7.5     23.6
+                        61        34     12.1     12.1     35.7
+                        62        29     10.4     10.4     46.1
+                        63        34     12.1     12.1     58.2
+                        64        23      8.2      8.2     66.4
+                        65        28     10.0     10.0     76.4
+                        66        25      8.9      8.9     85.4
+                        67        19      6.8      6.8     92.1
+                        68        12      4.3      4.3     96.4
+                        69         5      1.8      1.8     98.2
+                        70         4      1.4      1.4     99.6
+                        72         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-----------------------------------------------------------------------
+
+WT        Weight - in pounds
+(Variable 18) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        75         1       .4       .4       .4
+                        76         1       .4       .4       .7
+                        79         3      1.1      1.1      1.8
+                        80         1       .4       .4      2.1
+                        81         1       .4       .4      2.5
+                        82         2       .7       .7      3.2
+                        83         2       .7       .7      3.9
+                        84         8      2.9      2.9      6.8
+                        85         3      1.1      1.1      7.9
+                        86         2       .7       .7      8.6
+                        87        11      3.9      3.9     12.5
+                        88         4      1.4      1.4     13.9
+                        89         4      1.4      1.4     15.4
+                        90        10      3.6      3.6     18.9
+                        91         6      2.1      2.1     21.1
+                        92         5      1.8      1.8     22.9
+                        93         4      1.4      1.4     24.3
+                        94         9      3.2      3.2     27.5
+                        95         2       .7       .7     28.2
+                        96         4      1.4      1.4     29.6
+
+WT        Weight - in pounds  (cont.)
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        97         5      1.8      1.8     31.4
+                        98         7      2.5      2.5     33.9
+                        99         5      1.8      1.8     35.7
+                       100         5      1.8      1.8     37.5
+                       101         2       .7       .7     38.2
+                       102         4      1.4      1.4     39.6
+                       103         3      1.1      1.1     40.7
+                       104         6      2.1      2.1     42.9
+                       105         3      1.1      1.1     43.9
+                       106         7      2.5      2.5     46.4
+                       107         3      1.1      1.1     47.5
+                       108         6      2.1      2.1     49.6
+                       109         4      1.4      1.4     51.1
+                       110        13      4.6      4.6     55.7
+                       111         2       .7       .7     56.4
+                       112         9      3.2      3.2     59.6
+                       113         6      2.1      2.1     61.8
+                       114         5      1.8      1.8     63.6
+                       115         6      2.1      2.1     65.7
+                       116         2       .7       .7     66.4
+                       117         1       .4       .4     66.8
+                       118         6      2.1      2.1     68.9
+                       119         4      1.4      1.4     70.4
+                       120         2       .7       .7     71.1
+                       121         5      1.8      1.8     72.9
+                       122         5      1.8      1.8     74.6
+                       123         2       .7       .7     75.4
+                       124         5      1.8      1.8     77.1
+                       125         3      1.1      1.1     78.2
+                       126         5      1.8      1.8     80.0
+                       127         2       .7       .7     80.7
+                       128         6      2.1      2.1     82.9
+                       129         2       .7       .7     83.6
+                       130         2       .7       .7     84.3
+                       131         2       .7       .7     85.0
+                       132         3      1.1      1.1     86.1
+                       133         2       .7       .7     86.8
+                       134         3      1.1      1.1     87.9
+                       135         2       .7       .7     88.6
+                       136         5      1.8      1.8     90.4
+                       137         2       .7       .7     91.1
+                       138         1       .4       .4     91.4
+                       139         1       .4       .4     91.8
+                       140         3      1.1      1.1     92.9
+                       141         1       .4       .4     93.2
+                       143         3      1.1      1.1     94.3
+                       144         2       .7       .7     95.0
+                       145         3      1.1      1.1     96.1
+
+WT        Weight - in pounds  (cont.)
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+                
+                       146         1       .4       .4     96.4
+                       147         2       .7       .7     97.1
+                       148         1       .4       .4     97.5
+                       149         1       .4       .4     97.9
+                       150         2       .7       .7     98.6
+                       153         1       .4       .4     98.9
+                       163         1       .4       .4     99.3
+                       167         1       .4       .4     99.6
+                       168         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-----------------------------------------------------------------------
+
+READAGE   Reading age - in months
+(Variable 19) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        42         2       .7       .7       .7
+                        45         1       .4       .4      1.1
+                        51         1       .4       .4      1.4
+                        53         1       .4       .4      1.8
+                        57         1       .4       .4      2.1
+                        58         1       .4       .4      2.5
+                        69         2       .7       .7      3.2
+                        70         1       .4       .4      3.6
+                        71         2       .7       .7      4.3
+                        72         1       .4       .4      4.6
+                        73         1       .4       .4      5.0
+                        74         2       .7       .7      5.7
+                        76         1       .4       .4      6.1
+                        77         1       .4       .4      6.4
+                        79         2       .7       .7      7.1
+                        80         2       .7       .7      7.9
+                        81         2       .7       .7      8.6
+                        82         1       .4       .4      8.9
+                        83         2       .7       .7      9.6
+                        84         1       .4       .4     10.0
+                        85         4      1.4      1.4     11.4
+                        86         1       .4       .4     11.8
+                        87         1       .4       .4     12.1
+                        88         2       .7       .7     12.9
+                        90         5      1.8      1.8     14.6
+                        92         3      1.1      1.1     15.7
+                        93         2       .7       .7     16.4
+                        94         1       .4       .4     16.8
+
+READAGE   Reading age - in months  (cont.)
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+ 
+                        95         1       .4       .4     17.1
+                        96         3      1.1      1.1     18.2
+                        97         1       .4       .4     18.6
+                        98         1       .4       .4     18.9
+                        99         2       .7       .7     19.6
+                       100         1       .4       .4     20.0
+                       101         1       .4       .4     20.4
+                       102         4      1.4      1.4     21.8
+                       103         2       .7       .7     22.5
+                       105         1       .4       .4     22.9
+                       106         2       .7       .7     23.6
+                       107         5      1.8      1.8     25.4
+                       108         4      1.4      1.4     26.8
+                       109         2       .7       .7     27.5
+                       110         1       .4       .4     27.9
+                       111         3      1.1      1.1     28.9
+                       112         1       .4       .4     29.3
+                       113         5      1.8      1.8     31.1
+                       114         5      1.8      1.8     32.9
+                       115         4      1.4      1.4     34.3
+                       116         4      1.4      1.4     35.7
+                       117         2       .7       .7     36.4
+                       119         3      1.1      1.1     37.5
+                       120         6      2.1      2.1     39.6
+                       121         5      1.8      1.8     41.4
+                       122         5      1.8      1.8     43.2
+                       123         7      2.5      2.5     45.7
+                       124         5      1.8      1.8     47.5
+                       125         2       .7       .7     48.2
+                       126         3      1.1      1.1     49.3
+                       127         5      1.8      1.8     51.1
+                       128         5      1.8      1.8     52.9
+                       129         7      2.5      2.5     55.4
+                       130         8      2.9      2.9     58.2
+                       131         6      2.1      2.1     60.4
+                       132         3      1.1      1.1     61.4
+                       133         7      2.5      2.5     63.9
+                       134         7      2.5      2.5     66.4
+                       135         2       .7       .7     67.1
+                       136         5      1.8      1.8     68.9
+                       137         2       .7       .7     69.6
+                       138         8      2.9      2.9     72.5
+                       139        10      3.6      3.6     76.1
+                       140        11      3.9      3.9     80.0
+                       141        10      3.6      3.6     83.6
+                       142         8      2.9      2.9     86.4
+                       143         6      2.1      2.1     88.6
+                       144         7      2.5      2.5     91.1
+
+READAGE   Reading age - in months  (cont.)
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                       145        10      3.6      3.6     94.6
+                       146         6      2.1      2.1     96.8
+                       147         5      1.8      1.8     98.6
+                       148         2       .7       .7     99.3
+                       149         1       .4       .4     99.6
+                       157         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+              
+Valid cases     280      Missing cases      0
+-----------------------------------------------------------------------
+
+ENTAGE    Age at KTS admission - in months
+(Variable 22) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                       152         1       .4       .4       .4
+                       156         1       .4       .4       .7
+                       157         5      1.8      1.8      2.5
+                       158         3      1.1      1.1      3.6
+                       159         8      2.9      2.9      6.4
+                       160         5      1.8      1.8      8.2
+                       161         3      1.1      1.1      9.3
+                       162         8      2.9      2.9     12.1
+                       163        12      4.3      4.3     16.4
+                       164         8      2.9      2.9     19.3
+                       165        10      3.6      3.6     22.9
+                       166         7      2.5      2.5     25.4
+                       167        11      3.9      3.9     29.3
+                       168         7      2.5      2.5     31.8
+                       169        12      4.3      4.3     36.1
+                       170        14      5.0      5.0     41.1
+                       171         7      2.5      2.5     43.6
+                       172        19      6.8      6.8     50.4
+                       173        10      3.6      3.6     53.9
+                       174        11      3.9      3.9     57.9
+                       175        11      3.9      3.9     61.8
+                       176        14      5.0      5.0     66.8
+                       177        13      4.6      4.6     71.4
+                       178        12      4.3      4.3     75.7
+                       179        12      4.3      4.3     80.0
+                       180        15      5.4      5.4     85.4
+                       181        10      3.6      3.6     88.9
+                       182         5      1.8      1.8     90.7
+                       183         2       .7       .7     91.4
+                       184         3      1.1      1.1     92.5
+                       185         6      2.1      2.1     94.6
+
+ENTAGE    Age at KTS admission - in months  (cont.)
+
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+
+                       186         1       .4       .4     95.0
+                       187         3      1.1      1.1     96.1
+                       189         1       .4       .4     96.4
+                       190         1       .4       .4     96.8
+                       191         2       .7       .7     97.5
+                       193         2       .7       .7     98.2
+                       195         1       .4       .4     98.6
+                       199         1       .4       .4     98.9
+                       200         1       .4       .4     99.3
+                       201         1       .4       .4     99.6
+                       208         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+             
+Valid cases     280      Missing cases      0
+-------------------------------------------------------------------------
+
+TOTLV     Total number of leave periods
+(Variable 24) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         0        12      4.3      4.3      4.3
+                         1        16      5.7      5.7     10.0
+                         2        18      6.4      6.4     16.4
+                         3        17      6.1      6.1     22.5
+                         4        26      9.3      9.3     31.8
+                         5        26      9.3      9.3     41.1
+                         6        25      8.9      8.9     50.0
+                         7        21      7.5      7.5     57.5
+                         8        15      5.4      5.4     62.9
+                         9        16      5.7      5.7     68.6
+                        10        10      3.6      3.6     72.1
+                        11        16      5.7      5.7     77.9
+                        12         6      2.1      2.1     80.0
+                        13         7      2.5      2.5     82.5
+                        14         4      1.4      1.4     83.9
+                        15         3      1.1      1.1     85.0
+                        16         4      1.4      1.4     86.4
+                        17         4      1.4      1.4     87.9
+                        18         3      1.1      1.1     88.9
+                        19         6      2.1      2.1     91.1
+                        20         2       .7       .7     91.8
+                        21         3      1.1      1.1     92.9
+                        22         3      1.1      1.1     93.9
+                        23         3      1.1      1.1     95.0
+
+TOTLV     Total number of leave periods  (cont.)
+ 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        24         1       .4       .4     95.4
+                        25         1       .4       .4     95.7
+                        26         1       .4       .4     96.1
+                        27         1       .4       .4     96.4
+                        29         3      1.1      1.1     97.5
+                        32         1       .4       .4     97.9
+                        33         1       .4       .4     98.2
+                        34         1       .4       .4     98.6
+                        35         2       .7       .7     99.3
+                        44         1       .4       .4     99.6
+                        94         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-------------------------------------------------------------------------
+
+DAYSLV    Number of days on leave
+(Variable 25) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         0        12      4.3      4.3      4.3
+                         1         2       .7       .7      5.0
+                         3         1       .4       .4      5.4
+                         4         1       .4       .4      5.7
+                         6         1       .4       .4      6.1
+                         7         5      1.8      1.8      7.9
+                         9         4      1.4      1.4      9.3
+                        10         3      1.1      1.1     10.4
+                        11         4      1.4      1.4     11.8
+                        12         1       .4       .4     12.1
+                        13         4      1.4      1.4     13.6
+                        15         1       .4       .4     13.9
+                        17         3      1.1      1.1     15.0
+                        18         3      1.1      1.1     16.1
+                        19         4      1.4      1.4     17.5
+                        20         3      1.1      1.1     18.6
+                        21         2       .7       .7     19.3
+                        22         2       .7       .7     20.0
+                        23         1       .4       .4     20.4
+                        24         3      1.1      1.1     21.4
+                        25         7      2.5      2.5     23.9
+                        26         6      2.1      2.1     26.1
+                        27         1       .4       .4     26.4
+                        29         4      1.4      1.4     27.9
+                        30         7      2.5      2.5     30.4
+
+DAYSLV    Number of days on leave  (cont.)
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        32         3      1.1      1.1     31.4
+                        33         7      2.5      2.5     33.9
+                        34         9      3.2      3.2     37.1
+                        36         8      2.9      2.9     40.0
+                        37         1       .4       .4     40.4
+                        38         3      1.1      1.1     41.4
+                        39         5      1.8      1.8     43.2
+                        40         3      1.1      1.1     44.3
+                        41         3      1.1      1.1     45.4
+                        42         4      1.4      1.4     46.8
+                        43         3      1.1      1.1     47.9
+                        45         4      1.4      1.4     49.3
+                        46         4      1.4      1.4     50.7
+                        47         7      2.5      2.5     53.2
+                        48         6      2.1      2.1     55.4
+                        49         4      1.4      1.4     56.8
+                        50         4      1.4      1.4     58.2
+                        51         2       .7       .7     58.9
+                        52         5      1.8      1.8     60.7
+                        53         6      2.1      2.1     62.9
+                        54         5      1.8      1.8     64.6
+                        55         2       .7       .7     65.4
+                        56         5      1.8      1.8     67.1
+                        57         4      1.4      1.4     68.6
+                        58         3      1.1      1.1     69.6
+                        59         3      1.1      1.1     70.7
+                        60         3      1.1      1.1     71.8
+                        61         5      1.8      1.8     73.6
+                        62         1       .4       .4     73.9
+                        64         3      1.1      1.1     75.0
+                        65         3      1.1      1.1     76.1
+                        66         3      1.1      1.1     77.1
+                        67         1       .4       .4     77.5
+                        68         2       .7       .7     78.2
+                        69         2       .7       .7     78.9
+                        70         2       .7       .7     79.6
+                        71         2       .7       .7     80.4
+                        72         1       .4       .4     80.7
+                        74         3      1.1      1.1     81.8
+                        75         1       .4       .4     82.1
+                        76         2       .7       .7     82.9
+                        78         1       .4       .4     83.2
+                        79         4      1.4      1.4     84.6
+                        80         1       .4       .4     85.0
+                        81         2       .7       .7     85.7
+                        82         2       .7       .7     86.4
+                        84         2       .7       .7     87.1
+                        85         3      1.1      1.1     88.2
+
+DAYSLV    Number of days on leave  (cont.)
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        86         2       .7       .7     88.9
+                        89         2       .7       .7     89.6
+                        91         2       .7       .7     90.4
+                        94         1       .4       .4     90.7
+                        95         1       .4       .4     91.1
+                        97         2       .7       .7     91.8
+                        98         1       .4       .4     92.1
+                       100         1       .4       .4     92.5
+                       103         1       .4       .4     92.9
+                       104         2       .7       .7     93.6
+                       105         1       .4       .4     93.9
+                       106         2       .7       .7     94.6
+                       108         1       .4       .4     95.0
+                       109         2       .7       .7     95.7
+                       110         1       .4       .4     96.1
+                       111         2       .7       .7     96.8
+                       113         1       .4       .4     97.1
+                       123         2       .7       .7     97.9
+                       127         1       .4       .4     98.2
+                       130         1       .4       .4     98.6
+                       137         1       .4       .4     98.9
+                       156         1       .4       .4     99.3
+                       168         1       .4       .4     99.6
+                       235         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-------------------------------------------------------------------------
+
+TOTABSC   Number of KTS abscondings
+(Variable 26) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         0        98     35.0     35.0     35.0
+                         1        54     19.3     19.3     54.3
+                         2        26      9.3      9.3     63.6
+                         3        26      9.3      9.3     72.9
+                         4        18      6.4      6.4     79.3
+                         5        15      5.4      5.4     84.6
+                         6         7      2.5      2.5     87.1
+                         7         8      2.9      2.9     90.0
+                         8         5      1.8      1.8     91.8
+                         9         5      1.8      1.8     93.6
+                        10         3      1.1      1.1     94.6
+                        11         2       .7       .7     95.4
+                        12         4      1.4      1.4     96.8
+
+TOTABSC   Number of KTS abscondings  (cont.)
+ 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        13         2       .7       .7     97.5
+                        14         1       .4       .4     97.9
+                        15         2       .7       .7     98.6
+                        16         1       .4       .4     98.9
+                        18         1       .4       .4     99.3
+                        22         1       .4       .4     99.6
+                        24         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-----------------------------------------------------------------------
+
+SCHOFF    Number of offences during KTS
+(Variable 27) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         0       200     71.4     71.4     71.4
+                         1        49     17.5     17.5     88.9
+                         2        25      8.9      8.9     97.9
+                         3         5      1.8      1.8     99.6
+                         4         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-------------------------------------------------------------------------
+
+REL1LAG   Time to first release - in months
+(Variable 28) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         1         2       .7       .7       .7
+                         2        11      3.9      3.9      4.6
+                         3         4      1.4      1.4      6.1
+                         4         8      2.9      2.9      8.9
+                         5         3      1.1      1.1     10.0
+                         6        10      3.6      3.6     13.6
+                         7        10      3.6      3.6     17.1
+                         8        14      5.0      5.0     22.1
+                         9        14      5.0      5.0     27.1
+                        10        18      6.4      6.4     33.6
+                        11        22      7.9      7.9     41.4
+                        12        22      7.9      7.9     49.3
+                        13        18      6.4      6.4     55.7
+
+REL1LAG   Time to first release - in months  (cont.)
+ 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        14        16      5.7      5.7     61.4
+                        15        17      6.1      6.1     67.5
+                        16        11      3.9      3.9     71.4
+                        17        18      6.4      6.4     77.9
+                        18        16      5.7      5.7     83.6
+                        19        14      5.0      5.0     88.6
+                        20         4      1.4      1.4     90.0
+                        21         5      1.8      1.8     91.8
+                        22         8      2.9      2.9     94.6
+                        23         2       .7       .7     95.4
+                        24         6      2.1      2.1     97.5
+                        25         2       .7       .7     98.2
+                        26         2       .7       .7     98.9
+                        27         2       .7       .7     99.6
+                        29         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-------------------------------------------------------------------------
+
+RELLAST   Time to last release - in months
+(Variable 29) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         1         2       .7       .7       .7
+                         2        10      3.6      3.6      4.3
+                         3         5      1.8      1.8      6.1
+                         4         8      2.9      2.9      8.9
+                         5         3      1.1      1.1     10.0
+                         6        10      3.6      3.6     13.6
+                         7        10      3.6      3.6     17.1
+                         8        12      4.3      4.3     21.4
+                         9        13      4.6      4.6     26.1
+                        10        16      5.7      5.7     31.8
+                        11        19      6.8      6.8     38.6
+                        12        20      7.1      7.1     45.7
+                        13        18      6.4      6.4     52.1
+                        14        16      5.7      5.7     57.9
+                        15        13      4.6      4.6     62.5
+                        16        11      3.9      3.9     66.4
+                        17        17      6.1      6.1     72.5
+                        18        14      5.0      5.0     77.5
+                        19        18      6.4      6.4     83.9
+                        20         5      1.8      1.8     85.7
+                        21         6      2.1      2.1     87.9
+
+RELLAST   Time to last release - in months  (cont.)
+
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        22        11      3.9      3.9     91.8
+                        23         2       .7       .7     92.5
+                        24         6      2.1      2.1     94.6
+                        25         5      1.8      1.8     96.4
+                        26         2       .7       .7     97.1
+                        27         4      1.4      1.4     98.6
+                        29         1       .4       .4     98.9
+                        30         1       .4       .4     99.3
+                        33         1       .4       .4     99.6
+                        36         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-----------------------------------------------------------------------
+
+NUMREL    Number of releases from KTS
+(Variable 31) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         1       257     91.8     91.8     91.8
+                         2        21      7.5      7.5     99.3
+                         3         2       .7       .7    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-----------------------------------------------------------------------
+
+SCHTIME   Total time at KTS - in months
+(Variable 33) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         1         2       .7       .7       .7
+                         2        11      3.9      3.9      4.6
+                         3         4      1.4      1.4      6.1
+                         4         8      2.9      2.9      8.9
+                         5         3      1.1      1.1     10.0
+                         6        10      3.6      3.6     13.6
+                         7        10      3.6      3.6     17.1
+                         8        12      4.3      4.3     21.4
+                         9        14      5.0      5.0     26.4
+                        10        17      6.1      6.1     32.5
+                        11        19      6.8      6.8     39.3
+                        12        22      7.9      7.9     47.1
+
+SCHTIME   Total time at KTS - in months  (cont.)
+ 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                        13        20      7.1      7.1     54.3
+                        14        16      5.7      5.7     60.0
+                        15        13      4.6      4.6     64.6
+                        16        13      4.6      4.6     69.3
+                        17        22      7.9      7.9     77.1
+                        18        15      5.4      5.4     82.5
+                        19        14      5.0      5.0     87.5
+                        20         3      1.1      1.1     88.6
+                        21         6      2.1      2.1     90.7
+                        22         8      2.9      2.9     93.6
+                        23         4      1.4      1.4     95.0
+                        24         6      2.1      2.1     97.1
+                        25         2       .7       .7     97.9
+                        26         2       .7       .7     98.6
+                        27         2       .7       .7     99.3
+                        29         1       .4       .4     99.6
+                        31         1       .4       .4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-----------------------------------------------------------------------
+
+CTAPP2    No. of ct. appearances - within 2 yrs.
+(Variable 37) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         1        66     23.6     23.6     23.6
+                         2        34     12.1     12.1     35.7
+                         3        30     10.7     10.7     46.4
+                         4        13      4.6      4.6     51.1
+                         5         4      1.4      1.4     52.5
+                         6         1       .4       .4     52.9
+Not app, no ct. app.    97        68     24.3     24.3     77.1
+Not app, not rel'd      98        64     22.9     22.9    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+
+OFFLAG2   No. of months to 1st ct. app. - within 2
+(Variable 38) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                         1         4      1.4      1.4      1.4
+                         2         5      1.8      1.8      3.2
+                         3         8      2.9      2.9      6.1
+                         4         9      3.2      3.2      9.3
+                         5         7      2.5      2.5     11.8
+                         6         7      2.5      2.5     14.3
+                         7         7      2.5      2.5     16.8
+                         8         9      3.2      3.2     20.0
+                         9         6      2.1      2.1     22.1
+                        10         7      2.5      2.5     24.6
+                        11        11      3.9      3.9     28.6
+                        12         6      2.1      2.1     30.7
+                        13         8      2.9      2.9     33.6
+                        14        11      3.9      3.9     37.5
+                        15         7      2.5      2.5     40.0
+                        16         5      1.8      1.8     41.8
+                        17         5      1.8      1.8     43.6
+                        18         2       .7       .7     44.3
+                        19         4      1.4      1.4     45.7
+                        20         8      2.9      2.9     48.6
+                        21         4      1.4      1.4     50.0
+                        22         4      1.4      1.4     51.4
+                        23         4      1.4      1.4     52.9
+Not app, no ct. app.    97        68     24.3     24.3     77.1
+Not app, not rel'd      98        64     22.9     22.9    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-------------------------------------------------------------------------
+
+SER1ST    Seriousness of first conviction
+(Variable 40) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                       1.2         1       .4       .4       .4
+                       1.4         7      2.5      2.5      2.9
+                       1.6         4      1.4      1.4      4.3
+                       1.8         4      1.4      1.4      5.7
+                       2.0         9      3.2      3.2      8.9
+                       2.2         8      2.9      2.9     11.8
+                       2.4         6      2.1      2.1     13.9
+                       2.6        10      3.6      3.6     17.5
+                       2.8        18      6.4      6.4     23.9
+                       3.0        16      5.7      5.7     29.6
+                       3.2        20      7.1      7.1     36.8
+
+SER1ST    Seriousness of first conviction  (cont.)
+ 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                       3.4         9      3.2      3.2     40.0
+                       3.6         7      2.5      2.5     42.5
+                       3.8         3      1.1      1.1     43.6
+                       4.0         4      1.4      1.4     45.0
+                       4.2         2       .7       .7     45.7
+                       4.4         2       .7       .7     46.4
+                       4.6         6      2.1      2.1     48.6
+                       4.8         1       .4       .4     48.9
+                       5.0         2       .7       .7     49.6
+Not app, no ct. app.  97.0        68     24.3     24.3     73.9
+Not app, not rel'd    98.0        64     22.9     22.9     96.8
+No info. available    99.0         9      3.2      3.2    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+-----------------------------------------------------------------------
+
+SERALL    Seriousness of all convictions 
+(Variable 41) 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                       1.4         3      1.1      1.1      1.1
+                       1.6         1       .4       .4      1.4
+                       1.8         3      1.1      1.1      2.5
+                       2.0         4      1.4      1.4      3.9
+                       2.2         3      1.1      1.1      5.0
+                       2.4         1       .4       .4      5.4
+                       2.6         5      1.8      1.8      7.1
+                       2.8         9      3.2      3.2     10.4
+                       3.0         7      2.5      2.5     12.9
+                       3.2         6      2.1      2.1     15.0
+                       3.4         6      2.1      2.1     17.1
+                       3.6         4      1.4      1.4     18.6
+                       3.8         3      1.1      1.1     19.6
+                       4.0         6      2.1      2.1     21.8
+                       4.2         4      1.4      1.4     23.2
+                       4.4         2       .7       .7     23.9
+                       4.6         4      1.4      1.4     25.4
+                       4.8         3      1.1      1.1     26.4
+                       5.0         3      1.1      1.1     27.5
+                       5.2         3      1.1      1.1     28.6
+                       5.4         2       .7       .7     29.3
+                       5.8         3      1.1      1.1     30.4
+                       6.2         6      2.1      2.1     32.5
+                       6.4         5      1.8      1.8     34.3
+
+SERALL    Seriousness of all convictions  (cont.)
+ 
+                                                 Valid     Cum
+Value Label          Value  Frequency  Percent  Percent  Percent
+
+                       6.6         4      1.4      1.4     35.7
+                       6.8         1       .4       .4     36.1
+                       7.0         1       .4       .4     36.4
+                       7.2         3      1.1      1.1     37.5
+                       7.4         2       .7       .7     38.2
+                       7.8         2       .7       .7     38.9
+                       8.6         1       .4       .4     39.3
+                       9.0         2       .7       .7     40.0
+                       9.2         1       .4       .4     40.4
+                       9.4         1       .4       .4     40.7
+                       9.6         1       .4       .4     41.1
+                       9.8         1       .4       .4     41.4
+                      10.2         2       .7       .7     42.1
+                      10.4         1       .4       .4     42.5
+                      10.6         1       .4       .4     42.9
+                      10.8         1       .4       .4     43.2
+                      11.0         1       .4       .4     43.6
+                      11.2         2       .7       .7     44.3
+                      12.2         1       .4       .4     44.6
+                      12.4         1       .4       .4     45.0
+                      12.6         1       .4       .4     45.4
+                      13.2         1       .4       .4     45.7
+                      13.6         3      1.1      1.1     46.8
+                      17.0         1       .4       .4     47.1
+                      17.2         1       .4       .4     47.5
+Not app, no ct. app.  97.0        68     24.3     24.3     71.8
+Not app, not rel'd    98.0        64     22.9     22.9     94.6
+No info. available    99.0        15      5.4      5.4    100.0
+                              -------  -------  -------
+                     Total       280    100.0    100.0
+
+Valid cases     280      Missing cases      0
+
+
