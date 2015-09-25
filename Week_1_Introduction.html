@@ -412,21 +412,8 @@ BCS0708 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span cla
 <pre><code>##  min Q1 median Q3 max     mean      sd     n missing
 ##   16 36     49 65 101 50.42278 18.5389 11661      15</code></pre>
 <p>The <code>describe()</code> function from the <a href="http://cran.r-project.org/web/packages/Hmisc/index.html">Hmisc</a> package:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Hmisc)</code></pre>
-<pre><code>## Loading required package: grid
-## Loading required package: survival
-## Loading required package: Formula
-## 
-## Attaching package: 'Hmisc'
-## 
-## The following objects are masked from 'package:dplyr':
-## 
-##     combine, src, summarize
-## 
-## The following objects are masked from 'package:base':
-## 
-##     format.pval, round.POSIXt, trunc.POSIXt, units</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">describe</span>(BCS0708$age) <span class="co">#n,missing, mean, various percentiles, the 5 lowest and highest values</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Hmisc)
+<span class="kw">describe</span>(BCS0708$age) <span class="co">#n,missing, mean, various percentiles, the 5 lowest and highest values</span></code></pre>
 <pre><code>## BCS0708$age 
 ##       n missing  unique    Info    Mean     .05     .10     .25     .50 
 ##   11661      15      84       1   50.42      21      26      36      49 
@@ -722,7 +709,7 @@ total N=11676 · valid N=11625 · x̄=2.26 · σ=0.93
 <li><p><a href="https://www.youtube.com/watch?v=jGf7WNh-LX8&amp;list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S&amp;index=7">Subsetting data</a></p></li>
 <li><p><a href="https://www.youtube.com/watch?v=5dNNcC-UBeA&amp;list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S&amp;index=12">Customising the look of R Studio</a></p></li>
 </ul>
-<p>Alternatively you may find as helpful reference <a href="http://ateucher.github.io/rcourse_site/index.html">the online handouts</a> produced by Andy Teucher. They are more parsimonious than this handout and can be used as a cheat-sheet for the type of functions we introduced today.</p>
+<p>Alternatively you may find as helpful reference <a href="http://ateucher.github.io/rcourse_site/index.html">the online handouts</a> produced by Andy Teucher. They are more parsimonious than this handout and can be used as a cheat-sheet for the type of functions we introduced today. If you want further practice you may enjoy the interactive modules in <a href="http://tryr.codeschool.com/">Try R</a>. And for further documentation, the <a href="http://www.computerworld.com/article/2497464/business-intelligence/business-intelligence-60-r-resources-to-improve-your-data-skills.html">Beginner’s Guide to R guide</a> of Computerworld magazine, is pretty handy and you will find there as well a very comprehensive annotated list of additional learning resources for R.</p>
 <p><strong>Important terms introduced today</strong> (if you are not clear about them, please read the document again or ask me about their meaning: + Code + Object-oriented language + Expressions + Assignment operator + Debugging + Annotations + Functions + Arguments + Vectors + Vector class + Data frames + Global environment + Coding conventions + Sub-setting + Logical operators + Codebook + Metadata + Data munging + Missing data + Summary statistics + Central tendency + Variability + Mean, Median, Mode + Standard Deviation + Range + Quantiles + Interquartile range + Quantitative variables + Categorical variables + Frequency table + Working directory</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>() <span class="co">#This function provides information about the version of R I used to produce the html file you are reading. All these tutorials have been created directly with RStudio using the rmarkdown and knitr packages. A wonderful thing about R is that is makes largely redundant the use of other tools for publishing your work or for producing presentations. Including this session information at the end of the html file will allow others to reproduce this work if their version of R encounter problems with the code provided in this document. </span></code></pre>
 <pre><code>## R version 3.2.2 (2015-08-14)

@@ -541,7 +541,7 @@ favstats(~age, data = BCS0708) #five number summary, mean, standard deviation, a
 
 The `describe()` function from the [Hmisc](http://cran.r-project.org/web/packages/Hmisc/index.html) package:
 
-```{r}
+```{r, message = F, warning=F}
 library(Hmisc)
 describe(BCS0708$age) #n,missing, mean, various percentiles, the 5 lowest and highest values
 ```
@@ -702,9 +702,9 @@ Also, in order to consolidate what we have covered today, you may also want to w
 
 + [Customising the look of R Studio](https://www.youtube.com/watch?v=5dNNcC-UBeA&list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S&index=12)
 
-Alternatively you may find as helpful reference [the online handouts](http://ateucher.github.io/rcourse_site/index.html) produced by Andy Teucher. They are more parsimonious than this handout and can be used as a cheat-sheet for the type of functions we introduced today.
+Alternatively you may find as helpful reference [the online handouts](http://ateucher.github.io/rcourse_site/index.html) produced by Andy Teucher. They are more parsimonious than this handout and can be used as a cheat-sheet for the type of functions we introduced today. If you want further practice you may enjoy the interactive modules in [Try R](http://tryr.codeschool.com/). And for further documentation, the [Beginner's Guide to R guide](http://www.computerworld.com/article/2497464/business-intelligence/business-intelligence-60-r-resources-to-improve-your-data-skills.html) of Computerworld magazine, is pretty handy and you will find there as well a very comprehensive annotated list of additional learning resources for R.
 
-**Important terms introduced today** (if you are not clear about them, please read the document again or ask me about their meaning:
+**Important terms introduced today** (if you are not clear about them, please read the document again or ask me about their meaning: 
 + Code
 + Object-oriented language
 + Expressions
