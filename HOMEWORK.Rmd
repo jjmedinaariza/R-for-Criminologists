@@ -1,5 +1,5 @@
 ---
-title: "HOMEWORK ACTIVITIES"
+title: "HOMEWORK ACTIVITIES AUTUMN 2015"
 output: 
   html_document:
     theme: cosmo
@@ -15,59 +15,16 @@ Then you need to upload the file to Turnit In through Blackboard.
 ##Week 1: Basic Data Exploration and Filtering
 
 ###Part 1:
-Create a data frame with the points achieved by all the Premiership teams in the 2013-2014 season. You can find the relevant information [here](http://en.wikipedia.org/wiki/2013%E2%80%9314_Premier_League).
+Create a data frame with the points achieved by all the Premiership teams in the 2014-2015 season. You can find the relevant information [here](https://en.wikipedia.org/wiki/2014%E2%80%9315_Premier_League).
 1) What was the mean value of points for all the teams?
 2) Using the filtering methods describe compute the mean (and standard deviation) for the 4 top teams and compare it with the mean (and the standard deviation) of the remainder teams.
 
 ###Part 2:
-Load the `Arrests` data available from the `effects` package.
+Load the [classic](https://en.wikipedia.org/wiki/Andr%C3%A9-Michel_Guerry) `Guerry` data available from the `Guerry` package.
 
 1) How many variables and cases does this dataset have? Tip: `dim()`
 2) What are the names of the variables? Tip: `names()`
-3) What does the variable `checks` measures? Tip: `help()`
-4) Produce a simple histogram of the `checks` variable. Any discernible patterns? *Discuss*.
-5) Produce summary statistics of the `checks` variable by `colour`. Any discernible patterns? *Discuss*.
-
-##Week 2: Basic visualisations
-
-Download from the GitHub repository the following dataset `crossnat.csv`. Look at the instructions for how to do this that we provided in Week 1. This comma-separated value file contains a number of variables about 194 countries. I put together this file for teaching purposes in January 2014. The information comes from a variety of sources (World Bank, United Nations, OCDE, etc) and it relates to the more recent year for which data was available then.
-
-1) Display a histogram for the homicide rate per 100,000 population (`homicide`). Discuss. Try to identify the identify of any outliers and discuss. Are these errors? Are there plausible explanations for the extreme values in these countries? 
-2) Produce density estimates and boxplots to compare the homicide rate according to various categories of the level of [human development](http://hdr.undp.org/en/content/human-development-index-hdi) per country. Discuss. 
-3) Produce a scatterplot with a smoothed line to examine the relationship between `homicide` and `gdppercapita`. Discuss. 
-4) Produce a scatterplot matrix to examine the relationship between `homicide`, `gdppercapita`, `urbanpop` (proportion of the population that lives in urban areas) and `prisonrate`(prison rate per 100,000). Discuss. 
-
-##Week 3: Contrasting means.
-
-For this exercise you need to download a dataset available in the [UK Data Archive](http://www.data-archive.ac.uk/). The dataset belongs to an old study comparing treatments for juvenile offenders. You can find out more details about it [here](http://discover.ukdataservice.ac.uk/catalogue/?sn=3168&type=Data%20catalogue). Make sure you read the User Guide and the Codebook at the bottom of the page. We are going to try to reproduce the results obtained by the researchers. In order to be able to download data from this repository you have to first register with it. To do so follow the instructions [here](http://ukdataservice.ac.uk/get-data/how-to-access/registration.aspx) and then follow the [instructions for downloading data](http://ukdataservice.ac.uk/get-data/how-to-access/downloadorder.aspx). Why so many loops? This will teach you how to use this most valuable resource. This repository is full of data you can use for your own purposes, including the full version of the Crime Survey of England and Wales. When downloading the file you will be given the choise of different formats. Save the file in .tab delimited format. Then you could adapt the code below to read it into R.
-
-```{r}
-Kingswood <- read.table("g168.tab", sep="\t", header=TRUE)
-
-```
-
-You will need to look at the Codebook to understand the meaning of the variable names and what they are measuring. But know that the `HOUSE` variable identifies the treatment condition. The class 2 corresponds to the comparison group and the class 3 corresponds to the experimental group. Notice however that this is an integer vector, so you will need to redefine it as a factor in order to be able to use it in your tests.
-
-BEWARE: if you do not pay close attention to the codebook there is a very good chance you will get the wrong answers below. Exploring the data beforehand can also help you to identify things you may have to do before running your hypothesis test.
-
-1. Is there a relationship between the experimental treatment and number of court appearances after release? Discuss.
-
-2. Is there a relationship between the experimental treatment and the seriousness score of the first offence after release? Discuss.
-
-3. Consider now whether including the third site in the study (House 1) allows us to see any differences in recidivism using the two outcome measaures used so far. Discuss.
-
-4. Is there a relationship between criminal record of parents and number of court appearances after release? Discuss.
-
-
-##Week 4: Assessing the relationship across factors
-
-You need to use the data (BCS0708) we have been using so far for illustrations. I want you to examine the relationship that exist:
--between victimisation and gender, a dichotomous nomimal measure, for which I will expect you to compute the odds ratio
--between being employed (work) and respondent’s understanding of the causes of crime (causem)
--between victimisation and perceptions around the evolution of crime trends (crimerat)
-
-Discuss and aim to interpret your findings in a way that is consistent with theory and common sense.
-
-
-
+3) What does the variable `Prostitutes` measures? Tip: `help()`
+4) Produce a simple histogram of the `Crime_pers` variable. Any discernible patterns? *Discuss*.
+5) Produce summary statistics of the `Crime_pers` variable by `Region`. Any discernible patterns? *Discuss*.
 
