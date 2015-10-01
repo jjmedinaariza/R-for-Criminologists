@@ -5,6 +5,7 @@ output:
   html_document:
     theme: cosmo
     highlight: haddock
+    keep_md: true
 ---
 **Table of Contents**
 [Section 2.1: Introduction](#introduction)
@@ -28,7 +29,7 @@ One of the reasons why R is so popular is because it is capable of producing ast
 
 ![astonishing](http://topography.geotheory.co.uk/slides/european-sealevelness.png) 
 
-As with other aspects of R, there are a number of core functions that can be used to produced graphics. But it is by mastering user-designed graphic packages that you will get the most of R graphical power. Two popular packages for data visualisation in R are `lattice` and `ggplot2`. We will focus in the latter. It is a very flexible package that tries to implement the [grammar of graphics](http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7). The `ggplot2` package has excelent online [documentation](http://ggplot2.org/). I also highly recommend the book by Winston Chang as a [valuable reference](http://shop.oreilly.com/product/0636920023135.do).
+As with other aspects of R, there are a number of core functions that can be used to produced graphics. But it is by mastering user-designed graphic packages that you will get the most of R graphical power. Two popular packages for data visualisation in R are `lattice` and `ggplot2`. We will focus in the latter. It is a very flexible package that tries to implement the [grammar of graphics](http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7). The `ggplot2` package has excellent online [documentation](http://ggplot2.org/). I also highly recommend the book by Winston Chang as a [valuable reference](http://shop.oreilly.com/product/0636920023135.do).
 
 There are two different ways of producing plots with `ggplot2`. The quick way (which gives you less control over the graphic) using the `qplot()` function (stands for quick plot) and the slightly brick-by-brick way using the `ggplot()` function. The `ggplot()` function gives you more control over appearance. With `qplot()` you can produce plots quickly for exploration and then further explore the data or beautify your plot with `ggplot()`. 
 
@@ -40,7 +41,7 @@ The grammar of graphics defines various components of the graphic. Some of the m
 
 -**The geoms**: They describe the objects that represent the data (e.g., points, lines, polygons, etc.).
 
--**The aesthetics**: They describe the visual characteristics that represent data (e.g., position, size, color, shape, transparency).
+-**The aesthetics**: They describe the visual characteristics that represent data (e.g., position, size, colour, shape, transparency).
 
 -**Facets**: They describe how data is split into subsets and displayed as multiple small graphs.
 
@@ -63,7 +64,7 @@ qplot(crim, data = Boston)
 
 ```
 
-This is the distribution of the per capita crime rate by town int he suburbs of Boston. As you can see this is a highly skewed distribution. You better get used to the look of it. Crime data tend to look like this[^1]. You will notice that all we have done is to tell R to use the variable we wanted to plot and the dataset where that variable is located [^2]. 
+This is the distribution of the per capita crime rate by town in he suburbs of Boston. As you can see this is a highly skewed distribution. You better get used to the look of it. Crime data tend to look like this[^1]. You will notice that all we have done is to tell R to use the variable we wanted to plot and the dataset where that variable is located [^2]. 
 
 As mentioned earlier, we will emphasise in this course the use of the `ggplot()` function. With `ggplot()` you start with a blank canvass and keep adding specific layers. The `ggplot()` function can specify the dataset and the aesthetics (the visual characteristics that represent the data). If you want to produce a histogram with the `ggplot` function you would use the following equivalent code:
 
@@ -75,7 +76,7 @@ ggplot(Boston, aes(x = crim)) + #The "aes" argument defines the aesthetics for t
 
 So you can see that `ggplot` works in a way that you can add a series of additional specifications (layers, annotations). In this simple plot the `ggplot` function simply maps *crim* as the variable to be displayed (as one of the aesthetics) and the dataset. Then you add the `geom_histogram` to tell R that you want this variable to be represented as a histogram. Later we will see what other things you can add.
 
-A histogram is simply putting cases in "bins" and then creates a bar for each bin. You can think of it as a visual grouped frequency distribution. The code we have used so far has used a binwidth of size range/30 as R kindly reminded us. But you can modify this parameter if you want to get a rougher or a more granular picture. In fact, you should *always* play around with different specifications of the binwidth until you find one that tells the full story in a parsimonious way.
+A histogram is simply putting cases in "bins" and then creates a bar for each bin. You can think of it as a visual grouped frequency distribution. The code we have used so far has used a bin-width of size range/30 as R kindly reminded us. But you can modify this parameter if you want to get a rougher or a more granular picture. In fact, you should *always* play around with different specifications of the bin-width until you find one that tells the full story in a parsimonious way.
 
 ```{r}
 ggplot(Boston, aes(x = crim)) +
@@ -83,7 +84,7 @@ ggplot(Boston, aes(x = crim)) +
 
 ```
 
-Using binwidth of 1 we are essentially creating a bar for every one unit increase in the percent rate of crime. We can still see that most towns have a very low level of crime.
+Using bin-width of 1 we are essentially creating a bar for every one unit increase in the percent rate of crime. We can still see that most towns have a very low level of crime.
 
 ```{r}
 #Let's sum the number of towns with a value lower than 1 in the per capita crime rate
@@ -93,7 +94,15 @@ sum(Boston$crim < 1)
 
 We can see that the large majority of towns, 332 out of 506, have a per capita crime rate below 1%. But we can also see that there are some towns that have a high concentration of crime. This is a spatial feature of crime; it tends to concentrate in particular areas and places. You can see how we can use visualisations to show the data and get a first feeling for how it may be distributed.
 
-Often we visualise data because we want to compare distibutions. **Most of data analysis is about making comparisons**. We are going to explore whether the distribution of crime is different for less affluent areas. The variable *medv* measures the median value of owner-occupied homes. For the purposes of this illustration I want to dichotomise this variable, to create a group of towns with particularly low values versus all the others. For further details in how to recode variables with R you may want to read the relevant sections in [Quick R](http://www.statmethods.net/management/variables.html) or the [R Cookbook](http://www.cookbook-r.com/Manipulating_data/Recoding_data/).
+When plotting a continuous variable we are interested in the following features:
+
++ **Asymmetry**: whether the distribution is skewed to the right or to the left.
++ **Outliers**: Are there one or more values that seem very unlike the others?
++ **Multimodality**: How many peaks has the distribution? More than one peak may indicate that the variable is measuring different groups.
++ **Impossibilities or other anomalies**: Values that are simply unrealistic given what we are measuring (e.g., somebody with an age of a 1000 years). Sometimes you may come across a distribution of data with a very high (and implausible) frequency count for a particular value. Maybe you measure age and you have a large number of cases aged 99 (which is often a code used for missing data).
++ **Spread**: this gives us an idea of variability in our data.
+
+Often we visualise data because we want to compare distributions. **Most of data analysis is about making comparisons**. We are going to explore whether the distribution of crime is different for less affluent areas. The variable *medv* measures the median value of owner-occupied homes. For the purposes of this illustration I want to dichotomise this variable, to create a group of towns with particularly low values versus all the others. For further details in how to recode variables with R you may want to read the relevant sections in [Quick R](http://www.statmethods.net/management/variables.html) or the [R Cookbook](http://www.cookbook-r.com/Manipulating_data/Recoding_data/).
 
 ```{r}
 #How to create a categorical variable based on information from a quantitative variable
@@ -113,9 +122,9 @@ ggplot(Boston, aes(x = crim)) +
 
 ```
 
-Visually this may not look great, but it begins to tell a story. We can see that there is a considerable lower proportion of towns with low levels of crime in the group of towns that have cheaper homes. It is a flatter, less skewed distribution. You can see how the `facet_grid()` expression is telling R to create the histogram of the variable mentioned in the ggplot function for the groups defined by the categorical input of interest (the factor "lowval"").
+Visually this may not look great, but it begins to tell a story. We can see that there is a considerable lower proportion of towns with low levels of crime in the group of towns that have cheaper homes. It is a flatter, less skewed distribution. You can see how the `facet_grid()` expression is telling R to create the histogram of the variable mentioned in the ggplot function for the groups defined by the categorical input of interest (the factor "lowval").
 
-Instead of using factes, we could overlay the histograms with a bit of transparency. Transparencies work better in screens than in printed document, so keep in mind this when deciding whether to use them instead of facets. The code is as follows:
+Instead of using facets, we could overlay the histograms with a bit of transparency. Transparencies work better in screens than in printed document, so keep in mind this when deciding whether to use them instead of facets. The code is as follows:
 
 ```{r, message=F, warning=F}
 ggplot(Boston, aes(x = crim, fill = lowval)) + #"fill" identifies the factor grouping the cases
@@ -145,7 +154,7 @@ ggplot(Boston, aes(x = crim)) +
 
 In a density plot the area under the lines sum to 1 and the Y, vertical, axis now gives you the estimated probability for the values in the X, horizontal, axis. In this plot we can see that there is a high estimated probability of observing a town with near zero per capita crime rate and a low estimated probability of seeing towns with large per capita crime rates. As you can observe it provides a smoother representation of the distribution (as compared to the histograms).
 
-You can also use this to compare the distribution of a quantitative variable across the levels in a categorical variable (factor) and, as before, is possibly better to take the log of sweked variables such as crime:
+You can also use this to compare the distribution of a quantitative variable across the levels in a categorical variable (factor) and, as before, is possibly better to take the log of skewed variables such as crime:
 
 ```{r}
 #We are mapping "lowval" as the variable colouring the lines 
@@ -265,7 +274,7 @@ ggplot(BCS0708, aes(x = age, y = tcviolent)) +
   geom_point(alpha=.2, position="jitter") #Alternatively you could replace geom_point() with geom_jitter() in which case you don't need to specify the position
 ```
 
-Another alternative for solving overplotting is to **bin the data** into rectangles and map the density of the points to the fill of the color of the rectangles.
+Another alternative for solving overplotting is to **bin the data** into rectangles and map the density of the points to the fill of the colour of the rectangles.
 
 ```{r}
 ggplot(BCS0708, aes(x = age, y = tcviolent)) +
@@ -320,9 +329,9 @@ ggplot(Boston, aes(x = medv, y = crim, colour = as.factor(chas))) +
 
 ```
 
-You can see how the relationship between crime and property values is more marked for areas not bordering the river, mostly because you have consideraly fewer cheaper areas bordering the river. Notice as well the upward trend in the green line at high values of `medv`. As we saw there seems to be quite a few of those particularly more expensive areas that have high crime and seem to be by the river.
+You can see how the relationship between crime and property values is more marked for areas not bordering the river, mostly because you have considerably fewer cheaper areas bordering the river. Notice as well the upward trend in the green line at high values of `medv`. As we saw there seems to be quite a few of those particularly more expensive areas that have high crime and seem to be by the river.
 
-We can also map a quantitative variable to the colour aesthetic. When we do that, instead of different colours for each category we have a gradation in color from darker to lighter depending on the value of the quantitative variable. Below we display the relationship between crime and property values conditioning on the status of the area (high values in `lstat` represent lower status).
+We can also map a quantitative variable to the colour aesthetic. When we do that, instead of different colours for each category we have a gradation in colour from darker to lighter depending on the value of the quantitative variable. Below we display the relationship between crime and property values conditioning on the status of the area (high values in `lstat` represent lower status).
 
 ```{r}
 ggplot(Boston, aes(x = medv, y = crim, colour = lstat)) +
@@ -369,7 +378,7 @@ What we see here is that for the most part the relationship of age and worry for
 
 ##2.7 Scatterplot matrix
 
-Sometimes you want to produce many scatterplots simulatenously to have a first peak at the relationship between the various variables in your data frame. The way to do this is by using a scatterplot matrix. Unfortunately, `ggplot2` doesn't do scatterplot matrix too well. For this it is better to use the graphics tools of base R. 
+Sometimes you want to produce many scatterplots simultaneously to have a first peak at the relationship between the various variables in your data frame. The way to do this is by using a scatterplot matrix. Unfortunately, `ggplot2` doesn't do scatterplot matrix too well. For this it is better to use the graphics tools of base R. 
 
 Not to overcomplicate things we will only use a few variables from the `Boston` dataset:
 
@@ -429,7 +438,7 @@ pairs(Boston_SM, pch=".", #Produces smaller points to make it easier to see
 
 We will explain what correlation coefficients are and when they are appropriate later this semester. For now just focus in trying to understand what the plots show. What do you think may be going on with the distribution of "indus" (proportion of non-retail business acres per town)? 
 
-One of the beauties of `ggplot2` is that its functionality has been extended by a number of other packages. One of them is the `GGally` package that allows us to produce output similar to the one we just produced in a much quicker and straigthforward way and extend the correlation matrix to situations in which some of your variables are not nummeric. You can easily produced [**generalised pair plots**](http://www.bricol.net/downloads/pubs/Emerson_et_al.2013.pdf) for these scenarios using this package.
+One of the beauties of `ggplot2` is that its functionality has been extended by a number of other packages. One of them is the `GGally` package that allows us to produce output similar to the one we just produced in a much quicker and straightforward way and extend the correlation matrix to situations in which some of your variables are not numeric. You can easily produced [**generalised pair plots**](http://www.bricol.net/downloads/pubs/Emerson_et_al.2013.pdf) for these scenarios using this package.
 
 
 ```{r, message=F, warning=F}
@@ -461,7 +470,7 @@ ggplot(Boston, aes(x = medv, y = crim, colour = as.factor(chas))) +
 
 ```
 
-Using `labs()` you can change the text of axis labels (and the legend title), which may be handy if your variables have cryptic names. Equally you can manually name the lables in a legend. The value for "chas" are 0 and 1. This is not informative. We can change that.
+Using `labs()` you can change the text of axis labels (and the legend title), which may be handy if your variables have cryptic names. Equally you can manually name the labels in a legend. The value for "chas" are 0 and 1. This is not informative. We can change that.
 
 ```{r}
 ggplot(Boston, aes(x = medv, y = crim, colour = as.factor(chas))) +
@@ -488,7 +497,7 @@ grid.arrange(p1, p2, p3, ncol=3) #ncol tells R we want them side by side, if you
 
 ```
 
-There is a package in development that will allow you to add new themes to ggplot2 graphics. You can see details here. If you want to install it you would need to use the following code, but keep in mind that this package is still not too stable. You may prefer to way until it is available in the CRAN repository.
+There are packages that allow you to add new themes to ggplot2 graphics. The *ggthemes* package is one of them. You can install this package in the usual way. Check [here](https://cran.r-project.org/web/packages/ggthemes/vignettes/ggthemes.html) for details. There is also another one called *ggthemr* still in development. If you want to install the latter you would need to use the following code, but keep in mind that this package is still not too stable. You may prefer to way until it is available in the CRAN repository. 
 
 ```{r, eval = FALSE}
 devtools::install_github("ggthemr", "cttobin")
@@ -496,7 +505,7 @@ devtools::install_github("ggthemr", "cttobin")
 
 This is an example of the `dust` theme in this package. You can see other themes in the [github page for the package](https://github.com/cttobin/ggthemr).
 
-![themes](https://raw.githubusercontent.com/cttobin/ggthemr/master/figure/unnamed-chunk-8.png)
+![themes](https://raw.githubusercontent.com/cttobin/ggthemr/master/figure/unnamed-chunk-10-1.png)
 
 ##2.9 Plotting categorical data: bar charts
 
@@ -563,6 +572,8 @@ You can also use `coord_flip()` with other `ggplot` plots (e.g., boxplots).
 
 A particular type of bar chart is the divergent stacked bar chart, often used to visualise [**Likert scales**](http://en.wikipedia.org/wiki/Likert_scale). You may want to look at some of the options available for it via the [HH package](http://www.jstatsoft.org/v57/i05/paper), the [likert package](http://jason.bryer.org/likert/) or [sjPlot](http://strengejacke.wordpress.com/2013/07/17/plotting-likert-scales-net-stacked-distributions-with-ggplot-rstats/). But we won't cover them here in detail.
 
+Keep in mind that knowing *how* to get R to produce a particular visualisation is only half the job. The other half is knowing *when* to produce a particular kind of visualisation. [This blog](https://solomonmessing.wordpress.com/2014/10/11/when-to-use-stacked-barcharts/), for example, discusses some of the problems with stacked bar charts and the exceptional circumstances in which you may want to use them.
+
 There are other tools sometimes used for visualising categorical data. Pie charts is one of them. But don't use pie charts. They are evil. This is the only pie chart you will see in this course:
 
 ![cute pie chart](https://pbs.twimg.com/media/BsymGJJCYAE-oTd.jpg)
@@ -575,26 +586,26 @@ By now you should know the path to data analysis wisdom will take time. The good
 
 First **MOOCS (Massive Online Open Courses)**. There are a couple of useful MOOCS that provide training in data visualisation for free (well, you can pay if you want a certificate, but you can also use the resources and learn for free):
 
-+ [UDACITY Exploratory Data Analysis](https://www.udacity.com/course/ud651). This course offered by programmers at Facebook will teach you loads of cool things about ggplot2 in a very interactive manner. The course is very well designed and you can take it at your own pace. Beware, the product placement is very much in your face, but other than that is a really good course.
++ [UDACITY Data Analysis with R](https://www.udacity.com/course/data-analysis-with-r--ud651). This course offered by programmers at Facebook will teach you loads of cool things about ggplot2 in a very interactive manner. The course is very well designed and you can take it at your own pace. Beware, the product placement is very much in your face, but other than that is a really good course.
 
 + [COURSERA Exploratory Data Analysis](https://www.coursera.org/course/exdata). The Coursera approach relies uses more traditional video lectures. It complements the UDACITY course in that it provides a general overview of graphics in base R, the lattice package and ggplot2. Also, the second part of the course covers slightly more specialised tools for identifying groups.
 
-+ You may also want to keep your eyes open for any new edition of Alberto Cairo's MOOC on ["Data Visualisation and Infographics"](https://knightcenter.utexas.edu/00-14548-third-edition-infographics-and-data-visualization-starts-more-3300-students) which covers not the software but the principles and theory of good static and interactive visualisation.
++ You may also want to keep your eyes open for any new edition of Alberto Cairo's MOOC on ["Data Visualisation and Infographics"](https://knightcenter.utexas.edu/00-14548-third-edition-infographics-and-data-visualization-starts-more-3300-students) which covers not the software but the principles and theory of good static and interactive visualisation. I understand he is planning to offer a new edition of this course during this academic year.
 
-Second, **online tutorials**. One of the things you will also soon discover is that R users are keen to write "how to" guides in some of the [552 R devoted blogs](http://www.r-bloggers.com/) or as part of [Rpubs](https://rpubs.com/). Using google or similar you will often find solutions to almost any problem you will encounter using R. For example, in this blog there are a few tutorials that you may want to look to complement my own:
+Second, **online tutorials**. One of the things you will also soon discover is that R users are keen to write "how to" guides in some of the [573 R devoted blogs](http://www.r-bloggers.com/) or as part of [Rpubs](https://rpubs.com/). Using google or similar you will often find solutions to almost any problem you will encounter using R. For example, in this blog there are a few tutorials that you may want to look to complement my own:
 
 + [Cheatsheet for visualising scatterplots](http://rforpublichealth.blogspot.co.uk/2013/11/ggplot2-cheatsheet-for-scatterplots.html)  
 + [Cheatsheet for visualizing distributions](http://rforpublichealth.blogspot.co.uk/2014/02/ggplot2-cheatsheet-for-visualizing.html)  
 + [Cheatsheet for barplots](http://rforpublichealth.blogspot.co.uk/2014_01_01_archive.html)  
 
-Third, blogs on data visualisation. If you use [Feedly](https://feedly.com/index.html#discover) or a similar blog aggregator, you should add the following blogs to your reading list. They are written by leading people in the field and are full of useful advice:
+Third, *blogs on data visualisation*. If you use [Feedly](https://feedly.com/index.html#discover) or a similar blog aggregator, you should add the following blogs to your reading list. They are written by leading people in the field and are full of useful advice:
 + [Flowing Data](http://flowingdata.com/)
 + [The Functional Art](http://www.thefunctionalart.com/)
 + [Visual Business Intelligence](http://www.perceptualedge.com/blog/)
 + [chartsnthings](https://kpq.github.io/chartsnthings/)
 + [Data Revelations](http://www.datarevelations.com/category/blog)
 
-Finally, **resources for visualisations we don't have the time to cover**. R is way ahead some of the more popular data analysis programs you may be more familiar with (e.g SPSS). There's many things you can do. First, if you like maps, **R can also be used to produce visualisations of spatial data**. There are various resources to learn how to do this. But you may want to start with the handouts produced by [Dr. Nick Bearman](http://www.liv.ac.uk/environmental-sciences/staff/nick-bearman/) (University of Liverpool):
+Fourth, **resources for visualisations we don't have the time to cover**. R is way ahead some of the more popular data analysis programs you may be more familiar with (e.g SPSS). There's many things you can do. First, if you like maps, **R can also be used to produce visualisations of spatial data**. There are various resources to learn how to do this. But you may want to start with the handouts produced by [Dr. Nick Bearman](http://www.liv.ac.uk/environmental-sciences/staff/nick-bearman/) (University of Liverpool):
 
 + [Getting started with maps in R](https://rpubs.com/nickbearman/gettingstartedwithr)
 
@@ -602,7 +613,17 @@ Finally, **resources for visualisations we don't have the time to cover**. R is 
 
 Next semester we offer a [course on crime mapping](http://courses.humanities.manchester.ac.uk/pg/search_details.asp?ID=1803), but we will be using friendlier point-and-click user interfaces (ArcGis though soon migrating to QGis) for that (rather than R).
 
-Second, you may be interested in producing interactive graphics in the internet. Data journalism is making big inroads into this area. You may want to have a look at the [ggvis](http://ggvis.rstudio.com/) package, produced by the RStudio team, or [rcharts](http://rcharts.io/).
+Second, you may be interested in producing interactive graphics in the internet. Data journalism is making big inroads into this area. You may want to have a look at the [ggvis](http://ggvis.rstudio.com/) package, produced by the R Studio team, or [rcharts](http://rcharts.io/).
+
+Finally, you may want to consider some of the general books that will help you to produce better and more appropriate visualizations. These are some suggestions:
+
++ [The R Graphics Cookbook](http://shop.oreilly.com/product/0636920023135.do) always sitting next to my desktop and possibly the most useful R reference book I always keep going back to.
+
++ [Graphical Data Analysis with R](https://www.crcpress.com/Graphical-Data-Analysis-with-R/Unwin/9781498715232).
+
++ [The Truthful Art](http://www.amazon.co.uk/The-Truthful-Art-Charts-Communication/dp/0321934075). You can check the author's list of recommended resources [here](http://www.thefunctionalart.com/2012/10/recommended-readings-for-infographics.html).
+
++ [Data Points: Visualizations that mean something](http://www.amazon.co.uk/Data-Points-Visualization-Means-Something/dp/111846219X/ref=la_B004S83IUE_1_2?s=books&ie=UTF8&qid=1443698997&sr=1-2).
 
 ```{r}
 sessionInfo()
