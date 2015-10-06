@@ -8,7 +8,7 @@ output:
 
 ##General instructions
 
-For all activities you are expected to produce html files with the discussed answers and the relevant code. You need to generate a markdown document and use `knitr` to generate the html file with your answer. Create one html file for each weekly submission. [This video](https://www.youtube.com/watch?v=-apyD5f9nwg) explains how to do this. The video uses an earlier version of `rmarkdown`, so you will notice that when you create a new markdown file instead a dialogue box open (select html) and you won't see in the working directory any reference to a .md file. Everything else pretty much remains the same. In any case, you can find further details about `rmarkdown` [here](http://rmarkdown.rstudio.com/) or in this [very detailed tutorial](http://galahad.well.ox.ac.uk/repro/?utm_content=bufferc4efb&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer). [This guide](http://stat545-ubc.github.io/block007_first-use-rmarkdown.html#troubleshooting) helps you to test drive and troubleshoot common problems. Although it may take you a while to get used to produce your homework in this way, in the long run you will see the benefits.
+For all activities you are expected to produce html files with the discussed answers and the relevant code. You need to generate a markdown document and use `knitr` to generate the html file with your answer. Create one html file for each weekly submission. [This video](https://www.youtube.com/watch?v=-apyD5f9nwg) explains how to do this. The video uses an earlier version of `rmarkdown`, so you will notice that when you create a new markdown file instead a dialogue box open (select html) and you won't see in the working directory any reference to a .md file. Everything else pretty much remains the same. In any case, you can find further details about `rmarkdown` [here](http://rmarkdown.rstudio.com/) or in this [very detailed tutorial](http://galahad.well.ox.ac.uk/repro/?utm_content=bufferc4efb&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer). [This guide](http://stat545-ubc.github.io/block007_first-use-rmarkdown.html#troubleshooting), produced for a different course unit, helps you to test drive and troubleshoot common problems. Although it may take you a while to get used to produce your homework in this way, in the long run you will see the benefits.
 
 Then you need to upload the file to Turnit In through Blackboard.
 
@@ -32,7 +32,18 @@ Load the [classic](https://en.wikipedia.org/wiki/Andr%C3%A9-Michel_Guerry) `Guer
 
 ##Week 2: Basic visualisations
 
-Download from the GitHub repository the following dataset `crossnat.csv`. Look at the instructions for how to do this that we provided in Week 1. This comma-separated value file contains a number of variables about 194 countries. I put together this file for teaching purposes in January 2014. The information comes from a variety of sources (World Bank, United Nations, OCDE, etc) and it relates to the more recent year for which data was available then.
+Download from the GitHub repository the following dataset `crossnat.csv`. You url for the dataset is: https://raw.githubusercontent.com/jjmedinaariza/R-for-Criminologists/master/crossnat.csv
+
+Look at the instructions for how to download files from the web that we provided in Week 1. This comma-separated value file contains a number of variables about 194 countries. I put together this file for teaching purposes in January 2014. The information comes from a variety of sources (World Bank, United Nations, OCDE, etc) and it relates to the more recent year for which data was available then.
+
+Sometimes students experience problems when downloading files within a rmarkdown file. If you are getting stuck you may try an alternative. First get the file in your hard-drive using the console or a script (not rmarkdown):  
+
+1) Download the file into your global environment as covered in week 1; 
+2) Save the file into your hard-drive, for example write.csv(crossnat, "crossnat.csv") to save it as .csv in your working directory; 
+
+Then and only then read the data from your working directory into rmarkdown (e.g., using the read.csv function).
+
+Ok, these are the exercises:
 
 1) Display a histogram for the prison rate per 100,000 population (`prisonrate`). Discuss. Try to identify the identify of any outliers and discuss. Are these errors? Are there plausible explanations for the extreme values in these countries? 
 2) Produce density estimates and boxplots to compare the prison rate according to various categories of the level of [human development](http://hdr.undp.org/en/content/human-development-index-hdi) per country. Discuss. 
