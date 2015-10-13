@@ -49,3 +49,16 @@ Ok, these are the exercises:
 2) Produce density estimates and boxplots to compare the prison rate according to various categories of the level of [human development](http://hdr.undp.org/en/content/human-development-index-hdi) per country. Discuss. 
 3) Produce a scatterplot with a smoothed line to examine the relationship between `prisonrate` and `gdppercapita`. Discuss. 
 4) Produce a scatterplot matrix to examine the relationship between `prisonrate`, `gdppercapita`, `urbanpop` (proportion of the population that lives in urban areas) and `homicide`(homicide per 100,000). Discuss. 
+
+##Week 3
+
+We are going to use a dataset that is often employed in econometric research to investigate methods to estimate causal effects in non experimental scenarios. You need to use the so-called "lalonde" data available with the "arm" package. You will be able to find details about this dataset in the reference articles cited in the Help file. This is a smaller subset of a study that look at the effectiveness of job programs in a number of outcomes. For the exercise you need to: 
+
+1) Visually explore the impact of treatment in real earnings in 1975 using some of the graphical tools we introduced in week 2. 
+
+2) Use error bars, as descirbed in week 3, to compare the treatment and no treatment group in real earnings in 1975. 
+
+3) Use the t.test function to obtain the confidence intervals for the real earnings in 1975 for each of these two groups. 
+
+4) Use the procedures described in week 3 to estimate the confidence interval of the proportion of individuals with earnings being not zero in 1975 (u75) across the two levels of "treat". 
+
