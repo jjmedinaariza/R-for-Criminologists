@@ -62,3 +62,24 @@ We are going to use a dataset that is often employed in econometric research to 
 
 4) Use the procedures described in week 3 to estimate the confidence interval of the proportion of individuals with earnings being not zero in 1975 (u75) across the two levels of "treat". 
 
+
+##Week 4: Contrasting means.
+
+For this exercise you need to download a dataset available in the [UK Data Archive](http://www.data-archive.ac.uk/). The dataset belongs to an old study comparing treatments for juvenile offenders. You can find out more details about it [here](http://discover.ukdataservice.ac.uk/catalogue/?sn=3168&type=Data%20catalogue). Make sure you read the User Guide and the Codebook at the bottom of the page. We are going to try to reproduce the results obtained by the researchers. In order to be able to download data from this repository you have to first register with it. To do so follow the instructions [here](http://ukdataservice.ac.uk/get-data/how-to-access/registration.aspx) and then follow the [instructions for downloading data](http://ukdataservice.ac.uk/get-data/how-to-access/downloadorder.aspx). Why so many loops? This will teach you how to use this most valuable resource. This repository is full of data you can use for your own purposes, including the full version of the Crime Survey of England and Wales. When downloading the file you will be given the choise of different formats. Save the file in .tab delimited format. Then you could adapt the code below to read it into R.
+
+```{r, eval = FALSE}
+Kingswood <- read.table("g168.tab", sep="\t", header=TRUE)
+
+```
+
+You will need to look at the Codebook to understand the meaning of the variable names and what they are measuring. But know that the `HOUSE` variable identifies the treatment condition. The class 2 corresponds to the comparison group and the class 3 corresponds to the experimental group. Notice however that this is an integer vector, so you will need to redefine it as a factor in order to be able to use it in your tests.
+
+BEWARE: if you do not pay close attention to the codebook there is a very good chance you will get the wrong answers below. Exploring the data beforehand can also help you to identify things you may have to do before running your hypothesis test.
+
+1. Is there a relationship between the experimental treatment and number of court appearances after release? Discuss.
+
+2. Is there a relationship between the experimental treatment and the seriousness score of the first offence after release? Discuss.
+
+3. Consider now whether including the third site in the study (House 1) allows us to see any differences in recidivism using the two outcome measaures used so far. Discuss.
+
+4. Is there a relationship between criminal record of parents and number of court appearances after release? Discuss.

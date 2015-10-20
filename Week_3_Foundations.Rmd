@@ -150,7 +150,7 @@ IQ_mean <- data.frame(mean(fake_population$IQ))
 #Have a look inside the object to see what the variable containing the mean is called (and we can then use this name in our plot function)
 names(IQ_mean)
 #And we can plot it then
-ggplot(samp_IQ, aes(x = result)) + 
+ggplot(samp_IQ, aes(x = with)) + 
   geom_histogram() +
   geom_vline(aes(xintercept = mean.fake_population.IQ.), data = IQ_mean,
              linetype = "dashed", size = 1, colour = "red") + #This code will add a red line with the overall mean
@@ -172,7 +172,7 @@ We can have a sense for what the sampling distribution of the means of IQ for sa
 #We will take 50000 samples and compute the means, it may take a bit
 sampd_IQ_10 <- do(50000) * with(sample(fake_population, 10), mean(IQ))
 #And compute the mean of this sampling distribution of the means and compare it to the population mean
-mean(sampd_IQ_10$result) #mean of the sample means
+mean(sampd_IQ_10$with) #mean of the sample means
 mean(fake_population$IQ) #mean of the population
 ```
 
@@ -182,7 +182,7 @@ Let's now visually explore the distribution of the sample means.
 
 ```{r}
 #Now we plot the means
-qplot(sampd_IQ_10$result, xlab = "Distribution of means from samples of size 10")
+qplot(sampd_IQ_10$with, xlab = "Distribution of means from samples of size 10")
 ```
 
 Amazing, isn't it? When you take many random samples from a normally distributed variables; compute the means for each of these samples; and plot the means of each of these samples, you end up with something that is also normally distributed. *The sampling distribution of the means of normally distributed variables in the population is normally distributed*. I want you to think for a few seconds as to what this means and then keep reading.
@@ -199,9 +199,9 @@ sampd_IQ_100 <- do(50000) * with(sample(fake_population, 100), mean(IQ))
 sampd_IQ_1000 <- do(50000) * with(sample(fake_population, 1000), mean(IQ))
 #Plot the results, notice how we have changed the aesthetics. We are definig them within each geom because we are using different data stored in different dataframes.
 ggplot() + 
-    geom_density(data = sampd_IQ_1000, aes(x = result, fill = "1000"), position = "identity", alpha = 0.4) +
-   geom_density(data = sampd_IQ_100, aes(x = result, fill = "100"), position = "identity", alpha = 0.4) +
-   geom_density(data = sampd_IQ_30, aes(x = result, fill = "30"), position = "identity", alpha = 0.4) +
+    geom_density(data = sampd_IQ_1000, aes(x = with, fill = "1000"), position = "identity", alpha = 0.4) +
+   geom_density(data = sampd_IQ_100, aes(x = with, fill = "100"), position = "identity", alpha = 0.4) +
+   geom_density(data = sampd_IQ_30, aes(x = with, fill = "30"), position = "identity", alpha = 0.4) +
   labs(fill = "Sample size") + #This will change the title of the legend
   scale_fill_discrete(limits = c("1000", "100", "30")) + #This will ensure the order of the items in the legend is correct
   xlab("Distribution of mean value of IQ")
