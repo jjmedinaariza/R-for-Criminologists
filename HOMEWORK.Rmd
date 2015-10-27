@@ -86,9 +86,14 @@ BEWARE: if you do not pay close attention to the codebook there is a very good c
 
 ##Week 5: Assessing the relationship across factors
 
-You need to use the data (BCS0708) we have been using so far for illustrations. I want you to examine the relationship that exist:
--between victimisation and gender, a dichotomous nomimal measure, for which I will expect you to compute the odds ratio
--between being employed (work) and respondent's understanding of the causes of crime (causem)
--between victimisation and perceptions around the evolution of crime trends (crimerat)
+You need to use the data (BCS0708) we have been using so far for illustrations. I want you to examine the relationship that exist: 
+
+-between victimisation and gender, a dichotomous nomimal measure, for which I will expect you to compute the odds ratio 
+
+-between being employed (work) and respondent's understanding of the causes of crime (causem) 
+
+-between victimisation and perceptions around the evolution of crime trends (crimerat) 
+
+
 
 Discuss and aim to interpret your findings in a way that is consistent with theory and common sense.
