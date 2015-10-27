@@ -54,7 +54,7 @@ Ok, these are the exercises:
 
 We are going to use a dataset that is often employed in econometric research to investigate methods to estimate causal effects in non experimental scenarios. You need to use the so-called "lalonde" data available with the "arm" package. You will be able to find details about this dataset in the reference articles cited in the Help file. This is a smaller subset of a study that look at the effectiveness of job programs in a number of outcomes. For the exercise you need to: 
 
-1) Visually explore the impact of treatment in real earnings in 1975 using some of the graphical tools we introduced in week 2. 
+1) Visually explore the relationship of treatment with real earnings in 1975 using some of the graphical tools we introduced in week 2. 
 
 2) Use error bars, as descirbed in week 3, to compare the treatment and no treatment group in real earnings in 1975. 
 
@@ -83,3 +83,12 @@ BEWARE: if you do not pay close attention to the codebook there is a very good c
 3. Consider now whether including the third site in the study (House 1) allows us to see any differences in recidivism using the two outcome measaures used so far. Discuss.
 
 4. Is there a relationship between criminal record of parents and number of court appearances after release? Discuss.
+
+##Week 5: Assessing the relationship across factors
+
+You need to use the data (BCS0708) we have been using so far for illustrations. I want you to examine the relationship that exist:
+-between victimisation and gender, a dichotomous nomimal measure, for which I will expect you to compute the odds ratio
+-between being employed (work) and respondent's understanding of the causes of crime (causem)
+-between victimisation and perceptions around the evolution of crime trends (crimerat)
+
+Discuss and aim to interpret your findings in a way that is consistent with theory and common sense.
