@@ -98,7 +98,7 @@ You need to use the data (BCS0708) we have been using so far for illustrations. 
 
 Discuss and aim to interpret your findings in a way that is consistent with theory and common sense.
 
-##Week 6: Regression
+##Week 6: Regression (due 8th December)
 
 ###Part 1
 
