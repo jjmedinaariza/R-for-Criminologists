@@ -1,10 +1,9 @@
 ---
-title: "WEEK 1: INTRODUCTION TO R AND BASIC DESCRIPTION OF DATA"
+title: 'WEEK 1: INTRODUCTION TO R AND BASIC DESCRIPTION OF DATA'
 author: "Juanjo Medina"
-output: 
-  html_document:
-    theme: cosmo
-    highlight: haddock
+output:
+  pdf_document:
+   latex_engine: xelatex
 ---
 **Table of Contents**
 [Section 1.1: Introduction](#introduction).
@@ -189,6 +188,8 @@ levels(the_smiths)
 Notice that the levels appear printed by alphabetical order. There will be situations when this is not the most convenient order. We will discuss in these tutorials how to reorder your factor levels when you need to.
 
 You may have noticed the various names I have used to designate objects (`my_1st_vector`, `the_smiths`, etc.). You can use almost any names you want for your objects. Objects in R can have names of any length consisting of letters, numbers, underscores ("_") or the period (".") and should begin with a letter. In addition, when naming objects: 
+
++ Some names are forbidden. These include words such as FALSE and TRUE, logical operators, and programming words like Inf, for, else, break, function, and words for special entities like NA and NaN.
 
 + You want to use names that do not correspond to a specific function. We have seen, for example, that there is a function called `print()`, you don't want to call an object "print" to avoid conflicts. To avoid this use nouns instead of verbs for naming your variables and data.
 
