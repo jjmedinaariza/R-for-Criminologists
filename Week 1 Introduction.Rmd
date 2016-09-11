@@ -1,28 +1,41 @@
 ---
 title: 'WEEK 1: INTRODUCTION TO R AND BASIC DESCRIPTION OF DATA'
-author: "Juanjo Medina"
+author: "Reka Solymosi & Juanjo Medina"
 output:
+  html_document: default
   pdf_document:
-   latex_engine: xelatex
+    latex_engine: xelatex
 ---
+
 **Table of Contents**
-[Section 1.1: Introduction](#introduction).
-[Section 1.2: Interacting with R and creating objects](#interacting-with-r-and-creating-objects).
-[Section 1.3: Vectors, factors and data frames](#vectors-factors-and-data-frames).
-[Section 1.4: Data filtering](#data-filtering).
-[Section 1.5: Loading data and packages](#loading-data-and-packages).
-[Section 1.6: A first look at the data](#a-first-look-at-the-data).
-[Section 1.7: Numerical summaries of central tendency and variability](#numerical-summaries-of-central-tendency-and-variability).
-[Section 1.8: Summarising categorical variables](#summarising-categorical-variables).
-[Section 1.9: Saving your work and further resources](#saving-your-work-and-further-resources).
+
+- [Section 1.1: Introduction](#introduction).
+- [Section 1.2: Interacting with R and creating objects](#interacting-with-r-and-creating-objects).
+- [Section 1.3: Vectors, factors and data frames](#vectors-factors-and-data-frames).
+- [Section 1.4: Data filtering](#data-filtering).
+- [Section 1.5: Loading data and packages](#loading-data-and-packages).
+- [Section 1.6: A first look at the data](#a-first-look-at-the-data).
+- [Section 1.7: Numerical summaries of central tendency and variability](#numerical-summaries-of-central-tendency-and-variability).
+- [Section 1.8: Summarising categorical variables](#summarising-categorical-variables).
+- [Section 1.9: Saving your work and further resources](#saving-your-work-and-further-resources).
 
 ##1.1 Introduction
 
-This course provides an introduction to data analysis using R, a programming language and environment -or as some argue the [lingua franca of statistics](http://vimeo.com/52999628). You can learn more about the history of R clicking [here](https://www.youtube.com/watch?v=kzxHxFHW6hs&list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ) and if you Google "why r" you will find many answers to the question -such as [this](http://www.econometricsbysimulation.com/2014/03/why-use-r-five-reasons.html).
+This course provides an introduction to data analysis using R.
+<!-- , a programming language and environment -or as some argue the [lingua franca of statistics](http://vimeo.com/52999628). You can learn more about the history of R clicking [here](https://www.youtube.com/watch?v=kzxHxFHW6hs&list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ) and if you Google "why r" you will find many answers to the question -such as [this](http://www.econometricsbysimulation.com/2014/03/why-use-r-five-reasons.html). -->
 
 These handouts contains various hyper-links to videos that explain or expand some of the ideas and concepts introduced. It will be handy if you have speakers or headphones to listen to the videos.
+<!--
+###Installing R and R Studio
 
-In order to follow this handout at home you would need to install both R and R Studio in your local machine -click [here](https://www.youtube.com/watch?v=eD07NznguA4) for instructions using Windows or [here](https://www.youtube.com/watch?v=cX532N_XLIs&list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S) for instructions using a Mac. Alternatively, if you are a university student, your university is likely to have these programs already installed in the computers in their labs. 
+In order to follow this handout at home you would need to install both R and R Studio in your local machine 
+
+- click [here](https://www.youtube.com/watch?v=eD07NznguA4) for instructions using Windows or
+- [here](https://www.youtube.com/watch?v=cX532N_XLIs&list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S) for instructions using a Mac. 
+
+Alternatively, if you are a university student, your university is likely to have these programs already installed in the computers in their labs. 
+
+###Tips from Juanjo
 
 In this session we are going to learn some of the basic grammar elements in R. Before we start there are four thoughts I want to share:
 
@@ -34,7 +47,7 @@ In this session we are going to learn some of the basic grammar elements in R. B
 
 + **Embrace frustration** You will get frustrated. But "frustration is not just natural, it's actually a positive thing that you should watch for. Frustration is your brain's way of being lazy; it's trying to get you to quit and go do something easy or fun. If you want to get physically fitter, you need to push your body even though it complains. If you want to get better at programming, you'll need to push your brain. *Recognise when you get frustrated and see it as a good thing; you're now stretching yourself*" (Wickham, 2014: vii-viii).
 
-+ **Don't aim to memorise everything.** There are over 5000 **packages** in R (modules that expand the functionality of R). Each of them create additional **functions** that allow you to do new cool stuff with your data. Nobody expects you to know by heart all of these functions and what they do. Memorising them would be as useless as memorising a dictionary. Instead, as you use R more and more your memory of basic functions (those you use the most) will improve. But in the day of searchable help files, Google, and resources such as [Quick-R](http://www.statmethods.net/) or the [R-Codebook](http://www.cookbook-r.com/) (providing quick "cheat-sheets" for common commands), the need to fill your memory with these functions is considerably reduced. 
++ **Don't aim to memorise everything.** There are over 5000 **packages** in R (modules that expand the functionality of R). Each of them create additional **functions** that allow you to do new cool stuff with your data. Nobody expects you to know by heart all of these functions and what they do. Memorising them would be as useless as memorising a dictionary. Instead, as you use R more and more your memory of basic functions (those you use the most) will improve. But in the day of searchable help files, Google, and resources such as [Quick-R](http://www.statmethods.net/) or the [R-Codebook](http://www.cookbook-r.com/) (providing quick "cheat-sheets" for common commands), the need to fill your memory with these functions is considerably reduced. -->
 
 ##1.2 Interacting with R and creating objects
 
@@ -371,7 +384,7 @@ BCS0708 <- read.csv("BCS0708.csv")
 
 Once in your computer you can load the file into your working environment every time you need it for a different project using the `load()` function.
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, eval = FALSE}
 load("C:/Users/jjmedina/Documents/BCS0708.RData")
 
 ```
@@ -396,7 +409,7 @@ Packages typically include collections of new functions, but often also include 
 
 The first of this is the `Boston` dataset from the `MASS` package that is part of the base installation of R (you do not need to install it). To get the data from a package in your global environment you will see often people may load the package (if it's not already loaded) using the `library()` function and then use the `data()` function. But you don't need to do that, you could instead specify the package where the data is stored as an argument in your `data()` function.
 
-```{r}
+```{r, eval = FALSE}
 data(Boston, package="MASS")
 ```
 
@@ -424,14 +437,14 @@ Data are often too big to look at the whole thing. It is almost always impossibl
 
 If you simply type the name of the new dataset BCS0708 and press return for auto-printing, you will see why we need data summaries. It is hard to eyeball large datasets like this trying to see the whole thing. So lets start by the basic things you always look first in a datasets. First you ask for the dimensions, the number of rows and columns, using the `dim()` function:
 
-```{r}
+```{r, eval = FALSE}
 dim(BCS0708)
 
 ```
 
 We can see that the dataset has 11676 observations or rows and 35 columns or variables. Looking at this information will help you to diagnose whether there was any trouble getting your data into R (e.g., imagine you know there should be more cases or more variable). You may also want to have a look at the names of the columns using the `names()` function. We will see the names of the variables.
 
-```{r}
+```{r, eval = FALSE}
 names(BCS0708)
 ```
 
@@ -439,7 +452,7 @@ As you may notice, these names are hard to interpret. You need to look at the co
 
 Then you may want to look at the class of each individual column. You can do this using the following code. It is a tricky way of doing it, we are using the `sapply()` function to ask to the class of the first row of all the columns and then inferring the class from this first row (which will be the same class in all rows, remember what we said about coercion earlier on):
 
-```{r}
+```{r, eval = FALSE}
 sapply(BCS0708[1, ], class)
 ```
 
@@ -448,7 +461,7 @@ As you can see many variables are classed as factors. This is common with survey
 Another useful function is `str()`, which will return: the name of the variable; the class of each column; the number of levels or categories (if it is a factor); and the values for the first few cases in the dataset. You can also use the `head()` function if you just want to visualise the values for the first few cases in your dataset. The next code for example ask for the values for the first two cases.
 
 
-```{r}
+```{r, eval = FALSE}
 head(BCS0708, 2)
 ```
 
@@ -467,21 +480,21 @@ View(BCS0708)
 
 One thing you may also want to do is to see if there are any **missing values**. For that we can use the `is.na()` function. Missing values in R are coded as NA. The code below, for example, asks for NA values for the variable "educat3"" in the `BCS0708` object for cases 1 to 10:
 
-```{r}
+```{r, eval = FALSE}
 is.na(BCS0708$educat3[1:10])
 
 ```
 
 R is telling me that none of those elements are missing. More typically, you can ask the count of NA values for a particular variable:
 
-```{r}
+```{r, eval = FALSE}
 sum(is.na(BCS0708$educat3)) #This is asking R to sum how many cases are TRUE NA in this variable. When reading a logical vector as the one we are creating, R will treat the FALSE elements as 0s and the TRUE elements as 1s. So basically the sum() function will count the number of TRUE cases returned by the is.na() function.
 
 ```
 
 You can use a bit of a hack to get the proportion of missing cases instead of the count:
 
-```{r}
+```{r, eval = FALSE}
 mean(is.na(BCS0708$educat3))
 
 ```
@@ -494,7 +507,7 @@ There is a whole field of statistics devoted to doing analysis when missing data
 
 The `any()` function is a useful one if you want to check that a particular value exist for a given variable. So, say we want to know whether we have anybody younger than  17 in the dataset, we could type the following:
 
-```{r}
+```{r, eval = FALSE}
 any(BCS0708$age < 17)
 ```
 
@@ -504,7 +517,7 @@ In this section we start exploring some statistical summaries for our data. If y
 
 Let's start with the *mean*. If you want to obtain the mean of a quantitative variable you can use the following expression:
 
-```{r}
+```{r, eval = FALSE}
 mean(BCS0708$age)
 
 ```
@@ -515,14 +528,14 @@ When these things happen, you will need to go through the mental process of elim
 
 If you look at the help files you will notice that there is a default argument for the `mean()` function. The default specifies the following *na.rm=FALSE*. This means that the NA values are not removed before computation proceeds. Of course, you get NA because it is mathematically impossible to perform an operation with a NA value. What is 2+NA? Nothing. I can only imagine this is the default to alert you to the fact you should not ignore missing data problems. Let's try again modifying the default. As you will see now it will work:
 
-```{r}
+```{r, eval = FALSE}
 mean(BCS0708$age, na.rm = TRUE) #Specifying this argument will ensure that only cases with valid values are used in the mathematical operation
 
 ```
 
 Another function you may want to use with numeric variables is `summary()`:
 
-```{r}
+```{r, eval = FALSE}
 summary(BCS0708$age)
 ```
 
@@ -534,7 +547,7 @@ Once installed you can activate packages with either the `library()` or the `req
 
 You could use `favstats()` function from the [mosaic](http://cran.r-project.org/web/packages/mosaic/index.html) package:
 
-```{r, message=F, warning=F}
+```{r, message=F, warning=F, eval = FALSE}
 library(mosaic)
 favstats(~age, data = BCS0708) #five number summary, mean, standard deviation, and number of cases
 
@@ -542,21 +555,21 @@ favstats(~age, data = BCS0708) #five number summary, mean, standard deviation, a
 
 The `describe()` function from the [Hmisc](http://cran.r-project.org/web/packages/Hmisc/index.html) package:
 
-```{r, message = F, warning=F}
+```{r, message = F, warning=F, eval = FALSE}
 library(Hmisc)
 describe(BCS0708$age) #n,missing, mean, various percentiles, the 5 lowest and highest values
 ```
 
 The `stat.desc()` function from the [pastecs](http://cran.r-project.org/web/packages/pastecs/index.html) package:
 
-```{r, message=F, warning=F}
+```{r, message=F, warning=F, eval = FALSE}
 library(pastecs)
 stat.desc(BCS0708$age) #Which gives you among other things the standard error, standard deviation, and 95% confidence interval (if you specify norm=TRUE as an argument you will get test for normality of the distribution, but it will only work in data sets size 3 to 5000 -so we cannot use it here). Specifying basic=FALSE as an argument will also exluce some of the descriptives.
 ```
 
 Or the `describe()` function from the [psych](http://cran.r-project.org/web/packages/psych/index.html) package: 
 
-```{r}
+```{r, eval = FALSE}
 library(psych)
 describe(BCS0708$age) #Which gives you a trimmed mean, as well as measures of skew and kurtosis
 ```
@@ -569,7 +582,7 @@ So in this session, if we use `describe()` again, we will use the function that 
 
 Sometimes you want to produce **summary statistics by group**. The `psych` package is good for this:
 
-```{r}
+```{r, eval = FALSE}
 #Since we just loaded this package we can continue using its functions
 describeBy(BCS0708$age, BCS0708$livharm1) #age descriptives for various categories of marital status
 
@@ -587,7 +600,7 @@ describeBy(british_crime_survey_2007_2008$age, british_crime_survey_2007_2008$li
 
 Yet, even if you have use a short name to designate your objects, you may still have to do more typing that your, let's face it, lazy nature will want. If you have to use as inputs various variables and the function require that you use the `name_of_dataset$name_of_variable` formulation as a way to identify your variables, it can be a bit tedious to do so. An incredibly helpful way of getting around that is using the `with()` function.
 
-```{r}
+```{r, eval = FALSE}
 #Ok, we don't save so much typing with this example, but imagine you have 10 variables!
 with(BCS0708, describeBy(age, livharm1))
 
@@ -595,7 +608,7 @@ with(BCS0708, describeBy(age, livharm1))
 
 Next week we will devote the entire session to cover graphics as a way of visualising data. But it is important you understand that although we separate the treatment of this topic for practical reasons, in practice visualising the data is one of the very first things you do (even before you produce numerical summaries). So, if you are working with a numerical variable, you may want to produce a histogram to quickly look at the full distribution:
 
-```{r}
+```{r, eval = FALSE}
 hist(BCS0708$age)
 
 ```
@@ -604,21 +617,21 @@ hist(BCS0708$age)
 
 How about characterising qualitative variables? You can use the `table()` function to produce a frequency distribution. Let's look at how safe people feel walking along in the area where they live when is dark:
 
-```{r}
+```{r, eval = FALSE}
 table(BCS0708$walkdark)
 
 ```
 
 You can see the modal category is fairly safe. Notice that R by default does not print the missing values. If you want them printed when using this function then you have to specifically ask for them with the `useNA` argument:
 
-```{r}
+```{r, eval = FALSE}
 table(BCS0708$walkdark, useNA = "ifany")
 
 ```
 
 We may also be interested in expressing these quantities in percentage values. In order to do so, we need to engage in a programming trick. First we create a new object and we use the results from this object to compute those quantities. We do this using the following instructions:
 
-```{r}
+```{r, eval = FALSE}
 .Table <- table(BCS0708$walkdark) ##creates a new object called .Table containing the results we saw before
 round(100*.Table/sum(.Table), 2)  ##percentages for ethnic4 created using the object called .Table we just created (because we did not use useNA, this will compute the valid percent)
 remove(.Table) ##removes this object from working memory
@@ -631,8 +644,8 @@ library(sjPlot)
 sjt.frq(BCS0708$walkdark, variableLabels = c("How safe you feel walking alone at dark?"))
 ```
 
-`r library(sjPlot)`
-`r sjt.frq(BCS0708$walkdark, variableLabels=c("How safe you feel walking alone at dark?"), no.output=TRUE)$knitr`
+`library(sjPlot)`
+`sjt.frq(BCS0708$walkdark, variableLabels=c("How safe you feel walking alone at dark?"), no.output=TRUE)$knitr`
 
 ##1.9 Saving your work and further resources
 
@@ -660,7 +673,7 @@ The argument, what you find between parentheses, is simply the particular locati
 
 Once you have created a folder and have set it up as the working directory you can save your progress. You can do this using the following code:
 
-```{r}
+```{r, eval = FALSE}
 save.image("FirstWeek.RData")
 ```
 
