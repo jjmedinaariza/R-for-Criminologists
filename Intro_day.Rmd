@@ -3,7 +3,7 @@ title: "Intro day"
 output: html_document
 author: Reka Solymosi
 ---
-#Intro day tasks
+#Intro day R prep tasks
 
 ##Install R & R Studio
 If you have not already, then please download and install R and R Studio onto your machines. You should be using your own laptops for this course, because that way you get used to working in an environment which you will continue to use after this Masters. However, sessions will be held in computer clusters in case you do not have access to a laptop (or something goes wrong...).
@@ -15,7 +15,9 @@ If you have not already, then please download and install R and R Studio onto yo
 
 When you open R studio, you see there are 4 windows
 
-###The r script and data view window are where you write your code and where you can view your data
+###The r script and data view 
+
+This window is where you write your code and where you can view your data
 
 ![R Script and Data View](introDayImgs/rscriptdataveiw.png)
 
@@ -107,4 +109,4 @@ So for example, if we wanted to know more about the plot function, we would type
 
 The plot view will automatically switch tabs to the 'help' tab, and display all the information you need there. 
 
-Finally you can click on the packages tab to see what packages are already in your environment, and you can add or detach packages using this tab. We'll talk more about packages later.
+Finally you can click on the packages tab to see what packages are already in your environment, and you can add or detach packages using this tab. 

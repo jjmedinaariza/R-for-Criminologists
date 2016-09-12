@@ -1,0 +1,111 @@
+---
+title: "Intro day"
+output: html_document
+author: Reka Solymosi
+---
+#Intro day R data tasks
+
+To get comfortable with using R for playing around with data, let's get some actual crime data, and have a look at it.
+
+##Create a folder to work in
+
+Create a folder to save your data and our outputs in. In R, this is known as a **working directory**. You can name this anything. In this case, I created a folder called 'demo' inside the folder that has the course notes. I now have to tell R about this folder. You can do this a few ways. 
+
+####One way is simple point and click: 
+
+Click on Session > Set working directory > Choose directory...
+
+![Set working directory](introDayImgs/setwd.png)
+
+Then navigate to the folder you want to use, open it, and click on 'Open'.
+
+####Or the other way is to use code (you need to know the filepath for this):
+
+The command to set working directory is `setwd()`. Inside the brackets you need to write the path to your folder, in quotation marks. So for me this is: 
+
+```{r, eval=FALSE}
+setwd("~/Desktop/R-for-Criminologists/demo")
+```
+
+Whichever way you choose, once you have done this you can save all data in this folder, and read them in from here. Also any outputs like plots and code get saved here as well.  
+
+##Get some data
+
+We can play around with police recorded crime data, which can be downloaded from the [police.uk](https://data.police.uk/data/) website. 
+
+Let's stick local and download some data for crime in Manchester. 
+
+To do this, open the [data.police.uk/data](https://data.police.uk/data/) website. 
+
+- In `Date range` just select June 2016 - June 2016
+- In `Force` find `Greater Manchester Police`, and tick the box next to it. 
+- In `Data sets` tick `Include crime data`.
+- Finally click on `Generate File` button.
+
+This will take you to a download page, where you have to click the `Download now` button. This will open a dialogue to save a .zip file. Navigate to the working directory folder you've readet and save it there. Unzip the file. 
+
+##Read the data into R
+
+R reads in data in the form of dataframes. This is essentially the same as a spreadsheet. You have columnds that represent your **variables**. And rows that reporesent your **observations**
+
+So for example, in this data set each row is one crime record.
+
+![Each row is one observation](introDayImgs/rowIsObservation.png)
+
+And this column for example is the month variable. Each observation (crime) will have a value for this variable (the month that it was recorded).
+
+![Each column is a variable](introDayImgs/columnIsVariable.png)
+
+So that is essentially a dataframe. So let's read in the downloaded and unzipped crime data into a dataframe. 
+
+To do so, you need to create a dataframe object, that you map the data onto. So you need to give it a name, and then rrad the file into it. This name is what you will use to call the dataframe. Here I simply call it `crime`. 
+
+To read in the .csv file, which is the format we just downloaded, the command is `read.csv`. 
+
+Again there are two ways to read in the data, if you want to open a window where you can manually navigate and open the file, you can pass `file.choose()` argument to the read.csv() function. 
+
+```{r, eval=FALSE}
+crimes <- read.csv(file.choose())
+```
+
+Or, if you know the path to your file, you can hardcode it in there, within quotation marks:
+
+```{r, eval=FALSE}
+crimes <- read.csv("2016-06/2016-06-greater-manchester-street.csv")
+```
+
+```{r, echo=FALSE}
+crimes <- read.csv("demo/2016-06/2016-06-greater-manchester-street.csv")
+```
+
+You might notice that `crimes` has appeared in your work environment window. It will tell you how many observations (rows - and incidentally the number of recorded crimes in June 2016 within the GMP jurisdiction) and how many variables (columns) your data has.
+
+![Data appears in environment](introDayImgs/dataInEnviro.png)
+
+##Explore the data
+
+As seen earlier, we can just have a look at our data using the `View()` function. 
+
+```{r, eval=FALSE}
+View(crimes)
+```
+
+What are some variables in this data? Are there any questions that you might ask that you could answer with this data?
+
+####Some possibilities
+
+Q1: How many crimes happened in June 2016 in the GMP jurisdiction?
+```{r}
+nrow(crimes)
+```
+
+Q2: What types of crime were recorded?
+```{r}
+unique(crimes$Crime.type)
+```
+
+Q3: Which crime type had the most crimes recorded?
+```{r}
+sort(table(crimes$Crime.type),decreasing=T)
+```
+
