@@ -90,22 +90,104 @@ As seen earlier, we can just have a look at our data using the `View()` function
 View(crimes)
 ```
 
-What are some variables in this data? Are there any questions that you might ask that you could answer with this data?
+###What are some variables in this data? 
+
+What are the variables? 
+What are some questions that you might ask that you could answer with this data?
 
 ####Some possibilities
 
-Q1: How many crimes happened in June 2016 in the GMP jurisdiction?
+#####Q1: How many crimes happened in June 2016 in the GMP jurisdiction?
+
+A1: You can check this a few ways (eg: look in your environment, or the bottom of the data view) but I like explicitly asking R to tell me things, so I will ask it to count the **N**umber of **ROW**s with the `nrow()` function. 
+
 ```{r}
 nrow(crimes)
 ```
 
-Q2: What types of crime were recorded?
+There were a total of 30,671 crimes recorded in Greater Manchester in June 2016.
+
+#####Q2: What types of crime were recorded?
+
+A2: You can use the function `unique()` to get R to list all the unique character values any of your variables can take. 
+
 ```{r}
 unique(crimes$Crime.type)
 ```
 
-Q3: Which crime type had the most crimes recorded?
+The types of crime recorded in this data set are: Anti-social behaviour, Violence and sexual offences, Other crime, Criminal damage and arson, Other theft, Vehicle crime, Burglary, Bicycle theft, Shoplifting, Drugs, Public order, Robbery, Theft from the person, Possession of weapons       
+#####Q3: Which crime type had the most crimes recorded?
+
+A3: To answer this question, you could make a frequency table using the `table()` command. A frequency table just counts the number of times that each crime type appears in the dataframe. Since each row is one crime, each time the crime type appears, one more instance of it can be counted. So a frequency table returns the frequency with which we see each crime type in our data.
+
+Step 1: create table
 ```{r}
-sort(table(crimes$Crime.type),decreasing=T)
+frequencyTableOfCrimeTypes <- table(crimes$Crime.type)
+frequencyTableOfCrimeTypes
 ```
 
+Since there are not too many crime types we can probably eyeball which crime type has the highest number of appearances in the data (frequency). However, I am lazy, so let's get R to tell me the answer instead, by sorting the table. 
+
+You can use the `sort()` command to then arrange this table. You can set the parameter of `decreasing` to **T**rue or to **F**alse, depending on how you want to sort the data. 
+
+Step 2: sort table
+```{r}
+sort(frequencyTableOfCrimeTypes, decreasing=T)
+```
+
+The most common crime recorded is anti-social behaviour.
+
+#####Q4: What is the average number of crimes recorded per neighbourhood?
+
+A4: One of the variables in the dataset is labelled `LSOA.name`. LSOA stands for Lower Level Super Output Area, and it is a geographical region that the Greater Manchester region (and all of the UK actually) is broken into. These areas are often used as proxys for identifying neighbourhoods. More on LSOAs can be found [here](http://webarchive.nationalarchives.gov.uk/20160105160709/http://www.ons.gov.uk/ons/guide-method/geography/beginner-s-guide/census/super-output-areas--soas-/index.html).
+
+One interesting question would be to compare crimes between these neighbourhoods. Let's just look at total number of crimes in each neighbourhood. 
+
+Above with Q3 we talked about how we can make a quick frequency table. This table tells us how many times each LSOA name appears in the data. As every row in the `crimes` dataframe is a crime incident, every time the LSOA name appears, it is a crime incident that happened in that neighbourhood. Therefore if we count the number of times each LSOA name appears in the list of crimes, we then find out how many crimes occurred there in June 2016. 
+
+But of course we want R to count for us, so as before, to create a table, we use the `table()` funciton. Simples.
+
+```{r}
+crimesPerLsoa <- table(crimes$LSOA.name)
+```
+
+At this moment, this is a table. There is less scope for manipulation with tables than with dataframes in R, so let's turn it into a dataframe. You might be noticing that R commands are pretty much like telling the computer what you want it to do in English. So the command to turn something into a dataframe is `to.data.frame`. 
+
+```{r}
+crimesPerLsoaDf <- as.data.frame(crimesPerLsoa)
+```
+
+Let's have a look at this new dataframe. 
+
+```{r, eval=FALSE}
+View(crimesPerLsoaDf)
+```
+
+With viewing the dataframe, we also see that the column titles are `Var1` and `Freq`. This is because we created a **FREQ**uency table of the neighbourhood **VAR**iable. Basically variable here is neighbourhod, and frequency is the number of crimes that were recorded in each. If we want to, for clarity we can rename these. Don't worry too much about the syntax at this point.
+
+```{r}
+colnames(crimesPerLsoaDf)[colnames(crimesPerLsoaDf)=="Var1"] <- "neighbourhood"
+colnames(crimesPerLsoaDf)[colnames(crimesPerLsoaDf)=="Freq"] <- "numCrimes"
+```
+
+***What are the variables in the new dataframe?***
+
+***What are the observations (ie what does each row represent?)***
+
+So one of the variables is the number of crimes, and each row is a neighbourhood. In order to get the average number of crimes in each neighbourhood we calculate the mean. Mean means average in statistics language. Same way you calculate the average, you can calculate the mean by adding up all the values, and then dividing by the total number of observations. 
+
+```{r}
+sum(crimesPerLsoaDf$numCrimes)/nrow(crimesPerLsoaDf)
+```
+
+But of course, we are lazy, and want to make the most of R's capabilities, so we can just use the ... `mean()` function!
+
+```{r}
+mean(crimesPerLsoaDf$numCrimes)
+```
+
+There are an average of 18 crimes per neighbourhood across Greater Manchester.
+
+##HOMEWORK
+
+In your groups come up with three more questions you could ask this data set and do your best to answer them. Use the provided R markdown template to create a PDF for submission. 

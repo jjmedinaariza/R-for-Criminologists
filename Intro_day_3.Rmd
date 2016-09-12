@@ -1,0 +1,99 @@
+---
+title: "Exploratory data analysis"
+output: html_document
+author: Reka Solymosi
+---
+
+#Exploratory data analysis
+
+Let's apply some of the concepts and explore the data we have downloaded in the intro session day.
+
+```{r, echo=FALSE}
+crimes <- read.csv("demo/2016-06/2016-06-greater-manchester-street.csv")
+```
+
+##Mean and variance and distribution
+
+One of the variables in the dataset is labelled `LSOA.name`. LSOA stands for Lower Level Super Output Area, and it is a geographical region that the Greater Manchester region (and all of the UK actually) is broken into. These areas are often used as proxys for identifying neighbourhoods. More on LSOAs can be found [here](http://webarchive.nationalarchives.gov.uk/20160105160709/http://www.ons.gov.uk/ons/guide-method/geography/beginner-s-guide/census/super-output-areas--soas-/index.html).
+
+One interesting question would be to compare crimes between these neighbourhoods. Let's just look at total number of crimes in each neighbourhood. To do so, we can make a quick frequency table, that tells us how many times each LSOA name appears in the data (since each row is a crime, each time that name appears, a crime has occurred). To create a table, we use the `table()` funciton. Simples.
+
+```{r}
+crimesPerLsoa <- table(crimes$LSOA.name)
+```
+
+At this moment, this is a table. There is less scope for manipulation with tables than with dataframes in R, so let's turn it into a dataframe. You might be noticing that R commands are pretty much like telling the computer what you want it to do in English. So the command to turn something into a dataframe is `to.data.frame`. 
+
+```{r}
+crimesPerLsoaDf <- as.data.frame(crimesPerLsoa)
+```
+
+Let's have a look at this new dataframe. 
+
+```{r, eval=FALSE}
+View(crimesPerLsoaDf)
+```
+
+First, how many neighbourhoods do we have data for? 
+
+You can check this a few ways (eg: look in your environment, or the bottom of the data view) but I like explicitly asking R to tell me things, so I will ask it to count the **N**umber of **ROW**s with the `nrow()` function. 
+
+```{r}
+nrow(crimesPerLsoaDf)
+```
+
+With viewing the dataframe, we also see that the column titles are `Var1` and `Freq`. This is because we created a **FREQ**uency table of the neighbourhood **VAR**iable. Basically variable here is neighbourhod, and frequency is the number of crimes that were recorded in each. If we want to, for clarity we can rename these. Don't worry too much about the syntax at this point.
+
+```{r}
+colnames(crimesPerLsoaDf)[colnames(crimesPerLsoaDf)=="Var1"] <- "neighbourhood"
+colnames(crimesPerLsoaDf)[colnames(crimesPerLsoaDf)=="Freq"] <- "numCrimes"
+```
+
+```{r, echo=FALSE}
+crimesPerLsoaDf$neighbourhood <- as.character(crimesPerLsoaDf$neighbourhood)
+```
+So now we have a dataframe with two columns, `neighbourhood` which has the names of each LSOA, and `numCrimes` which is total number of crimes recorded there in June 2016. To access each variable, in R you use the syntay: `dataframe` + `$` + `variable`. So to access `numCrimes` you type `crimesPerLsoaDf$numCrimes`. 
+
+OK now we can ask some quesitons. 
+
+#####What is the average number of crimes across neighbourhoods?
+
+Again we can essentially just ask R to tell us what we want to know. The functions for finding out about central tendencies, are (as you probably can guess by now):
+
+- mean: `mean()`
+- median: `median()`
+
+So let's see: what is the average number of crimes across neighbourhoods?
+
+```{r}
+mean(crimesPerLsoaDf$numCrimes)
+```
+
+That's not too bad. However the mean is quite sensitive to outliers etc. Let's try the median:
+
+```{r}
+median(crimesPerLsoaDf$numCrimes)
+```
+
+That's even lower. 
+
+Alright what about the **S**tandard **D**eviation? (Yes you guessed it the function is `sd()`). 
+
+```{r}
+sd(crimesPerLsoaDf$numCrimes)
+```
+
+What does that mean? Let's look at the distribution of the number of crimes in each neighbourhood. 
+
+```{r}
+hist(crimesPerLsoaDf$numCrimes, breaks=nrow(crimesPerLsoaDf), main = "Number of crimes in each LSOA", xlab = "", ylab = "Number of crimes")
+```
+
+Evidently most neighbourhoods have much fewer than 50 crimes, but there are some outliers, which are neighbourhoods with larger numbers of crimes recorded. 
+
+You can also visualise distribution with a boxplot: 
+
+```{r}
+boxplot(crimesPerLsoaDf$numCrimes, horizontal=TRUE, main="Number of crimes in each LSOA")
+```
+

@@ -1,0 +1,96 @@
+---
+title: "Homework Template"
+output: html_document
+author: Your names here <!-- Put all your names in here -->
+---
+
+##Question 1: 
+<!-- What was the question you asked? -->
+
+Type here
+
+###Why are we asking this question:
+<!-- Justify why you would want to ask this question, what could the answer be useful for -->
+
+Type here
+
+###How we want to answer this question:
+<!-- Here describe the approach you will take to answer this question -->
+
+Type here
+
+###This is our code
+
+```{r, eval=FALSE}
+#paste your R code here
+
+
+
+#end of code here
+```
+
+###This is our answer
+<!-- So what's your answer? -->
+
+Type here
+
+##Question 2: 
+<!-- What was the question you asked? -->
+
+Type here
+
+###Why are we asking this question:
+<!-- Justify why you would want to ask this question, what could the answer be useful for -->
+
+Type here
+
+###How we want to answer this question:
+<!-- Here describe the approach you will take to answer this question -->
+
+Type here
+
+###This is our code
+
+```{r, eval=FALSE}
+#paste your R code here
+
+
+
+#end of code here
+```
+
+###This is our answer
+<!-- So what's your answer? -->
+
+Type here
+
+##Question 3: 
+<!-- What was the question you asked? -->
+
+Type here
+
+###Why are we asking this question:
+<!-- Justify why you would want to ask this question, what could the answer be useful for -->
+
+Type here
+
+###How we want to answer this question:
+<!-- Here describe the approach you will take to answer this question -->
+
+Type here
+
+###This is our code
+
+```{r, eval=FALSE}
+#paste your R code here
+
+
+
+#end of code here
+```
+
+###This is our answer
+<!-- So what's your answer? -->
+
+Type here
+
