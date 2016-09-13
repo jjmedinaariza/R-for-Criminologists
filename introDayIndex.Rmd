@@ -1,0 +1,11 @@
+---
+title: "Intro day index"
+author: "Reka Solymosi"
+date: "12 September 2016"
+output: html_document
+---
+
+Intro day R session lab notes
+
+- [Getting started: Installation and opening up R & R Studio]()
+- [Getting down with data: Some basic tasks to get your hands dirty]()
