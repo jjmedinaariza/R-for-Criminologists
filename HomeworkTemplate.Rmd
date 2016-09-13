@@ -1,7 +1,8 @@
 ---
 title: "Homework Template"
+author: "Your name here <!-- Write your name in here -->"
+team: Your teamname here <!-- Write your teamname in here -->
 output: html_document
-author: Your names here <!-- Put all your names in here -->
 ---
 
 ##Question 1: 
