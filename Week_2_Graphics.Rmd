@@ -1,3 +1,6 @@
+---
+output: pdf_document
+---
 # WEEK 2: GRAPHICS AND EXPLORATORY ANALYSIS
 Juanjo Medina  
 **Table of Contents**

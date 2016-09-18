@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
-<meta name="author" content="Reka Solymosy &amp; Juanjo Medina" />
+<meta name="author" content="Reka Solymosi &amp; Juanjo Medina" />
 
 
 <title>WEEK 1: INTRODUCTION TO R AND BASIC DESCRIPTION OF DATA</title>
@@ -62,7 +62,7 @@ img {
 
 <div id="header">
 <h1 class="title">WEEK 1: INTRODUCTION TO R AND BASIC DESCRIPTION OF DATA</h1>
-<h4 class="author"><em>Reka Solymosy &amp; Juanjo Medina</em></h4>
+<h4 class="author"><em>Reka Solymosi &amp; Juanjo Medina</em></h4>
 </div>
 
 
@@ -81,24 +81,29 @@ img {
 <div id="introduction" class="section level2">
 <h2>1.1 Introduction</h2>
 <p>This course provides an introduction to data analysis using R. <!-- , a programming language and environment -or as some argue the [lingua franca of statistics](http://vimeo.com/52999628). You can learn more about the history of R clicking [here](https://www.youtube.com/watch?v=kzxHxFHW6hs&list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ) and if you Google "why r" you will find many answers to the question -such as [this](http://www.econometricsbysimulation.com/2014/03/why-use-r-five-reasons.html). --></p>
-<p>These handouts contains various hyper-links to videos that explain or expand some of the ideas and concepts introduced. It will be handy if you have speakers or headphones to listen to the videos.</p>
-<div id="installing-r-and-r-studio" class="section level3">
-<h3>Installing R and R Studio</h3>
-<p>In order to follow this handout at home you would need to install both R and R Studio in your local machine</p>
-<ul>
-<li>click <a href="https://www.youtube.com/watch?v=eD07NznguA4">here</a> for instructions using Windows or</li>
-<li><a href="https://www.youtube.com/watch?v=cX532N_XLIs&amp;list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S">here</a> for instructions using a Mac.</li>
-</ul>
-<p>Alternatively, if you are a university student, your university is likely to have these programs already installed in the computers in their labs.</p>
-<p>In this session we are going to learn some of the basic grammar elements in R. Before we start there are four thoughts I want to share:</p>
-<ul>
-<li><p>If you have never learnt a programming language, it is likely that this may feel a bit intimidating and arcane at first. But as with the learning of anything else, <strong>practice will increase your confidence, understanding, and skills</strong>. And if you practice a lot, speaking R will feel as natural to you as speaking your mother tongue. It is paramour that you ignore your fear. As Roosevelt once said: “the only thing we have to fear is…fear itself a nameless, unreasoning, unjustified terror which paralyzes needed efforts to convert retreat into advance.”</p></li>
-<li><p>It is important that you <strong>moderate your expectations</strong>. You would not expect to be the main act at Glastonbury after just a few guitar lessons. But even if you never sell a million records, you can get pretty good at guitar playing by practising. Or going back to the language metaphor, you may not be able to write like Shakespeare, but as long as you can communicate with others in a functional way that’s what really matters.</p></li>
-<li><p><strong>Get used to making mistakes!</strong> You will make loads of them and there’s absolutely no shame on that. As Patrick Burns, author of the helpful <a href="http://www.burns-stat.com/documents/books/the-r-inferno/">R Inferno</a> and <a href="http://www.burns-stat.com/documents/tutorials/impatient-r/">Impatient R</a>, suggests: “An important tool to get around in R is to have a hacking attitude to try things with the idea that they probably won’t work”. Making mistakes is normal and an essential part of the learning process. We learnt by receiving good feedback when making mistakes. My job as an instructor is to give feedback to my students and yours, as a learner, to ask others for help.</p></li>
-<li><p><strong>Embrace frustration</strong> You will get frustrated. But “frustration is not just natural, it’s actually a positive thing that you should watch for. Frustration is your brain’s way of being lazy; it’s trying to get you to quit and go do something easy or fun. If you want to get physically fitter, you need to push your body even though it complains. If you want to get better at programming, you’ll need to push your brain. <em>Recognise when you get frustrated and see it as a good thing; you’re now stretching yourself</em>” (Wickham, 2014: vii-viii).</p></li>
-<li><p><strong>Don’t aim to memorise everything.</strong> There are over 5000 <strong>packages</strong> in R (modules that expand the functionality of R). Each of them create additional <strong>functions</strong> that allow you to do new cool stuff with your data. Nobody expects you to know by heart all of these functions and what they do. Memorising them would be as useless as memorising a dictionary. Instead, as you use R more and more your memory of basic functions (those you use the most) will improve. But in the day of searchable help files, Google, and resources such as <a href="http://www.statmethods.net/">Quick-R</a> or the <a href="http://www.cookbook-r.com/">R-Codebook</a> (providing quick “cheat-sheets” for common commands), the need to fill your memory with these functions is considerably reduced.</p></li>
-</ul>
-</div>
+<p>These handouts contains various hyper-links to videos that explain or expand some of the ideas and concepts introduced. It will be handy if you have speakers or headphones to listen to the videos. <!--
+###Installing R and R Studio
+
+In order to follow this handout at home you would need to install both R and R Studio in your local machine 
+
+- click [here](https://www.youtube.com/watch?v=eD07NznguA4) for instructions using Windows or
+- [here](https://www.youtube.com/watch?v=cX532N_XLIs&list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S) for instructions using a Mac. 
+
+Alternatively, if you are a university student, your university is likely to have these programs already installed in the computers in their labs. 
+
+###Tips from Juanjo
+
+In this session we are going to learn some of the basic grammar elements in R. Before we start there are four thoughts I want to share:
+
++ If you have never learnt a programming language, it is likely that this may feel a bit intimidating and arcane at first. But as with the learning of anything else, **practice will increase your confidence, understanding, and skills**. And if you practice a lot, speaking R will feel as natural to you as speaking your mother tongue. It is paramour that you ignore your fear. As Roosevelt once said: "the only thing we have to fear is...fear itself a nameless, unreasoning, unjustified terror which paralyzes needed efforts to convert retreat into advance."
+
++ It is important that you **moderate your expectations**. You would not expect to be the main act at Glastonbury after just a few guitar lessons. But even if you never sell a million records, you can get pretty good at guitar playing by practising. Or going back to the language metaphor, you may not be able to write like Shakespeare, but as long as you can communicate with others in a functional way that's what really matters.
+
++ **Get used to making mistakes!** You will make loads of them and there's absolutely no shame on that. As Patrick Burns, author of the helpful [R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/) and [Impatient R](http://www.burns-stat.com/documents/tutorials/impatient-r/), suggests: "An important tool to get around in R is to have  a hacking attitude to try things with the idea that they probably won't work". Making mistakes is normal and an essential part of the learning process. We learnt by receiving good feedback when making mistakes. My job as an instructor is to give feedback to my students and yours, as a learner, to ask others for help. 
+
++ **Embrace frustration** You will get frustrated. But "frustration is not just natural, it's actually a positive thing that you should watch for. Frustration is your brain's way of being lazy; it's trying to get you to quit and go do something easy or fun. If you want to get physically fitter, you need to push your body even though it complains. If you want to get better at programming, you'll need to push your brain. *Recognise when you get frustrated and see it as a good thing; you're now stretching yourself*" (Wickham, 2014: vii-viii).
+
++ **Don't aim to memorise everything.** There are over 5000 **packages** in R (modules that expand the functionality of R). Each of them create additional **functions** that allow you to do new cool stuff with your data. Nobody expects you to know by heart all of these functions and what they do. Memorising them would be as useless as memorising a dictionary. Instead, as you use R more and more your memory of basic functions (those you use the most) will improve. But in the day of searchable help files, Google, and resources such as [Quick-R](http://www.statmethods.net/) or the [R-Codebook](http://www.cookbook-r.com/) (providing quick "cheat-sheets" for common commands), the need to fill your memory with these functions is considerably reduced. --></p>
 </div>
 <div id="interacting-with-r-and-creating-objects" class="section level2">
 <h2>1.2 Interacting with R and creating objects</h2>

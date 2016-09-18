@@ -1,8 +1,13 @@
 ---
 title: "Intro day"
-output: html_document
 author: Reka Solymosi
+logo: uomLogo.png
+output:
+  html_document:
+  includes:
+      in_header: logo.html
 ---
+<img src="uomLogo.png" alt="logo" height="100" width="150" style="position:absolute;top:10px;right:10px;" />
 #Intro day R data tasks
 
 To get comfortable with using R for playing around with data, let's get some actual crime data, and have a look at it.
