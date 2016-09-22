@@ -195,4 +195,4 @@ There are an average of 18 crimes per neighbourhood across Greater Manchester.
 
 ##HOMEWORK
 
-In your groups come up with three more questions you could ask this data set and do your best to answer them. Use the provided R markdown template to create a PDF for submission. 
+In your groups come up with three more questions you could ask this data set and do your best to answer them. Use the provided R markdown template to create a html document for submission. 
