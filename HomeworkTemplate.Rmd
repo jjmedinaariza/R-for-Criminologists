@@ -1,30 +1,28 @@
 ---
-title: "Homework Template"
-author: "Your name here <!-- Write your name in here -->"
-team: Your teamname here <!-- Write your teamname in here -->
+title: "Homework template"
+author: "Reka Solymosi"
+date: "23 September 2016"
 output: html_document
 ---
 
 ##Question 1: 
 <!-- What was the question you asked? -->
 
-Type here
+how many burglaries were there?
 
 ###Why are we asking this question:
 <!-- Justify why you would want to ask this question, what could the answer be useful for -->
 
-Type here
-
+i want to know
 ###How we want to answer this question:
 <!-- Here describe the approach you will take to answer this question -->
 
-Type here
+frequency table of crime types look at number 
 
 ###This is our code
 
 ```{r, eval=FALSE}
 #paste your R code here
-
 
 
 #end of code here
