@@ -1,19 +1,31 @@
 ---
-output: pdf_document
+title: 'Week 2 lab notes'
+author: "Reka Solymosi based on work of Juanjo Medina"
+date: "29 September 2016"
+logo: uomLogo.png
+output:
+  html_document:
+  includes:
+      in_header: logo.html
 ---
+<img src="uomLogo.png" alt="logo" height="100" width="150" style="position:absolute;top:10px;right:10px;" />
+
 # WEEK 2: GRAPHICS AND EXPLORATORY ANALYSIS
-Juanjo Medina  
+
 **Table of Contents**
-[Section 2.1: Introduction](#introduction)
-[Section 2.2: Histograms](#histograms)
-[Section 2.3: Density plots](#density-plots)
-[Section 2.4: Box plots](#box-plots)
-[Section 2.5: Scatter plots with two variables](#scatter-plots-with-two-variables)
-[Section 2.6 Scatter plots conditioning in a third variable](#scatter-plots-conditioning-in-a-third-variable)
-[Section 2.7: Scatterplot matrix](#scatterplot-matrix)
-[Section 2.8: Titles and legends in ggplot2](#titles-and-legends-in-ggplot2)
-[Section 2.9: Plotting categorical data: bar charts](#plotting-categorical-data-bar-charts)
-[Section 2.10: Further resources](#further-resources)
+
+- [Section 2.1: Introduction](#introduction)
+- [Section 2.2: Anatomy of a plot](#anatomy-of-a-plot)
+- [Section 2.3: What graph should I use?](#what-graph-should-I-use?)
+- [Section 2.4: Histograms](#histograms)
+- [Section 2.5: Density plots](#density-plots)
+- [Section 2.6: Box plots](#box-plots)
+- [Section 2.7: Scatter plots with two variables](#scatter-plots-with-two-variables)
+- [Section 2.8 Scatter plots conditioning in a third v variable](#scatter-plots-conditioning-in-a-third-variable)
+- [Section 2.9: Scatterplot matrix](#scatterplot-matrix)
+- [Section 2.10: Titles and legends in ggplot2](#titles-and-legends-in-ggplot2)
+- [Section 2.11: Plotting categorical data: bar charts](#plotting-categorical-data-bar-charts)
+- [Section 2.12: Further resources](#further-resources)
 
 ##2.1 Introduction
 
@@ -21,16 +33,35 @@ A picture is worth a thousand words; when presenting and interpreting data this 
 
 Good graphics not only help researchers to make their data easier to understand by the general public. They are also a useful way for understanding the data ourselves. In many ways it is very often a more intuitive way to understand patterns in our data than trying to look at numerical results presented in a tabular form. 
 
-One of the reasons why R is so popular is because it is capable of producing astonishing graphics such as this: 
+Recent research has revealed that papers which have good graphics are perceived as overall more clear and more interesting, and their authors perceived as smarter (see [this presentation](https://vimeo.com/181771433))
 
-![astonishing](http://topography.geotheory.co.uk/slides/european-sealevelness.png) 
+<!--One of the reasons why R is so popular is because it is capable of producing astonishing graphics such as this: 
 
-As with other aspects of R, there are a number of core functions that can be used to produced graphics. But it is by mastering user-designed graphic packages that you will get the most of R graphical power. Two popular packages for data visualisation in R are `lattice` and `ggplot2`. We will focus in the latter. It is a very flexible package that tries to implement the [grammar of graphics](http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7). The `ggplot2` package has excellent online [documentation](http://ggplot2.org/). I also highly recommend the book by Winston Chang as a [valuable reference](http://shop.oreilly.com/product/0636920023135.do).
+![astonishing](http://topography.geotheory.co.uk/slides/european-sealevelness.png) --> 
+
+The preparation for this session includes many great resources on visualising quantitative information, and if you have not had time to go thorugh them, I recommend that you take some time to do so. 
+
+As with other aspects of R, there are a number of core functions that can be used to produced graphics. For example, we've already used `hist()` and `plot()`. However these offer limited possibilities for building graphs, and it is by exploring packages that are developed especially for graphing. 
+
+The package we will be using throughout this tutorial is `ggplot2`. The aim of ggplot is to implement the [grammar of graphics](http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7). The `ggplot2` package has excellent online [documentation](http://ggplot2.org/).
+
+If you don't already have the package installed, you will need to do so using the `install.packages()` function. 
+ 
+ You will then need to load up the package
+ 
+```{r}
+
+library(ggplot2)                                  
+
+```
+
+<!--
+But it is by mastering user-designed graphic packages that you will get the most of R graphical power. Two popular packages for data visualisation in R are `lattice` and `ggplot2`. We will focus in the latter. It is a very flexible package that tries to implement the [grammar of graphics](http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7). The `ggplot2` package has excellent online [documentation](http://ggplot2.org/). I also highly recommend the book by Winston Chang as a [valuable reference](http://shop.oreilly.com/product/0636920023135.do).
 
 There are two different ways of producing plots with `ggplot2`. The quick way (which gives you less control over the graphic) using the `qplot()` function (stands for quick plot) and the slightly brick-by-brick way using the `ggplot()` function. The `ggplot()` function gives you more control over appearance. With `qplot()` you can produce plots quickly for exploration and then further explore the data or beautify your plot with `ggplot()`. 
 
 Unfortunately, we don't have the time to explain in all detail both functions so for most of the session we will use the `ggplot()` function. Although `qplot()` makes it easy to produce basic graphs, it may also delay understanding the philosophy of `ggplot2()`. The `ggplot()` function provides fuller implementation of the grammar of graphics and although it may have a steeper learning curve allows much more flexibility when building graphs.
-
+-->
 The grammar of graphics defines various components of the graphic. Some of the most important are:
 
 -**The data**: For using `ggplot2` the data has to be stored as a data frame
@@ -43,14 +74,248 @@ The grammar of graphics defines various components of the graphic. Some of the m
 
 -**Stats**: They describe statistical transformations that typically summarise data.
 
+<!--
 Although this may sound abstract at this point, it will become clearer as we go along.
 
 We will start by loading the `Boston` dataset that we introduced last week. If you don't remember how to load this data look at the handout from last week.
+-->
 
-##2.2 Histograms
+##2.2 Anatomy of a plot
+
+Essentially the philosophy behind this as that all graphics are made up of layers. Ggplot2 is based on the grammar of graphics, the idea that you can build every graph from the same few components: a data set, a set of geoms—visual marks that represent data points, and a coordinate system.
+
+Take this example (all taken from *Wickham, H. (2010). A layered grammar of graphics. Journal of Computational and Graphical Statistics, 19(1), 3-28.*)
+
+You have a table such as: 
+
+![](week2imgs/table.png)
+
+You then want to plot this. To do so, you want to create a plot that combines the following layers: 
+
+![](week2imgs/layers.png)
+
+This will result in a final plot: 
+
+![](week2imgs/combined.png)
+
+Let's have a look at what this looks like for a graph. 
+<!-- To get the data load up the package "MASS".
+
+```{r}
+library(MASS)
+```
+
+This package has a dataframe called "Boston". This has data about Housing Values in Suburbs of Boston. To access the codebook (how you find out what variables are) use the "?". 
+
+OK so let's make a graph about the variable which represents the per capita crime rate by town ('crim').
+
+```{r}
+
+ggplot(data = Boston, aes(x = crim, y=medv)) +          #data
+   geom_point() +                           #geometry
+  theme_bw()                                    #backgroud coordinate system
+
+```
+
+The first line above begins a plot by calling the `ggplot()` function, and putting the data into it. You have to name your dataframe, and then, within the `aes()` command you pass the specific variables which you want to plot. In this case, we only want to see the distribution of one variable, crime. 
+
+The second line is where we add the geometry. This is where we tell R what we want the graph to be. Here we say we want it to be a histogram. You can see a list of all possible geoms [here](http://docs.ggplot2.org/current/). 
+
+The third line is where we can tweak the display of the graph. Here I used theme_bw() which is a nice clean theme. You can try with other themes. To get a list of themes you can also see the resource [here](http://docs.ggplot2.org/current/). 
+
+```{r}
+
+ggplot(data = Boston, aes(x = crim, y = medv)) +          #data
+   geom_point() +                           #geometry
+  theme_dark()                                    #backgroud coordinate system
+
+```
+
+OK what if we don't want it to be a histogram, we want it to be a density curve?
+
+```{r}
+
+ggplot(data = Boston, aes(x = crim)) +          #data
+   geom_density() +                               #geometry
+  theme_bw()                                    #backgroud coordinate system
+
+```
+
+Cool! But what if I like both?
+
+Well this is the beauty of the layering approach of ggplot2. You can layer on as many geoms as your little heart desires! XD
+
+```{r}
+
+ggplot(data = Boston, aes(x = crim)) +        #data
+geom_histogram(aes(y=..density..)) +          #geometry 1
+geom_density()+                               #geometry 2
+theme_bw()                                    #backgroud coordinate system
+
+```
+
+-->
+
+Let's have a look at some of the homework data agail, lets look at number of banning orders for different football clubs. 
+
+First read the data in from wherever you had saved it 
+
+```{r}
+
+fbo <- read.csv("/Users/reka/Desktop/R-for-Criminologists/fbo-by-club-supported-cleaned.csv")
+
+```
+
+Now let's revisit the question of looking at different number of banning orders for clubs in different leagues. But as a first step, let's just plot the number of banning orders for each club. Let's build this plot:
+
+```{r}
+
+ggplot(data = fbo, aes(x = Club.Supported, y=Banning.Orders)) +          #data
+   geom_point() +                           #geometry
+  theme_bw()                                    #backgroud coordinate system
+
+```
+
+The first line above begins a plot by calling the `ggplot()` function, and putting the data into it. You have to name your dataframe, and then, within the `aes()` command you pass the specific variables which you want to plot. In this case, we only want to see the distribution of one variable, crime. 
+
+The second line is where we add the geometry. This is where we tell R what we want the graph to be. Here we say we want it to be points. You can see a list of all possible geoms [here](http://docs.ggplot2.org/current/). 
+
+The third line is where we can tweak the display of the graph. Here I used theme_bw() which is a nice clean theme. You can try with other themes. To get a list of themes you can also see the resource [here](http://docs.ggplot2.org/current/). 
+
+```{r}
+
+ggplot(data = fbo, aes(x = Club.Supported, y=Banning.Orders)) +     #data
+   geom_point() +                                                   #geometry
+  theme_dark()                                                      #backgroud coordinate system
+
+```
+
+Changing the theme is not all you do with the third element. For example here you can't really read the axis labels, because they're all overlapping. One solution would be to rotate your axis labels 90 degrees, with the following code: `axis.text.x = element_text(angle = 90, hjust = 1)`. You pass this code to the theme argument. 
+
+```{r}
+
+ggplot(data = fbo, aes(x = Club.Supported, y=Banning.Orders)) +     
+   geom_point() +                                                   
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))                                   
+
+```
+
+OK what if we don't want it to be points, but instead we wanted it to be a bar graph?
+
+```{r}
+
+ggplot(data = fbo, aes(x = Club.Supported, y=Banning.Orders)) +   #data
+   geom_bar(stat = "identity") +                                  #geometry
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))                                                       #backgroud coordinate system
+
+```
+
+You might notice here we pass an argument `stat = "identity"` to `geo_bar()` function. This is because you can have a bar graph where the height of the bar shows frequency (stat = "count"), or where the height is taken from a variable in your dataframe (stat = "identity"). Here we specified a y-value (height) as the Banning.Orders variable. 
+
+So this is cool! But what if I like both?
+
+Well this is the beauty of the layering approach of ggplot2. You can layer on as many geoms as your little heart desires! XD
+
+```{r}
+
+ggplot(data = fbo, aes(x = Club.Supported, y=Banning.Orders)) +  #data
+  geom_bar(stat = "identity") +                                  #geometry 1 
+  geom_point()+                                                  #geometry 2
+theme(axis.text.x = element_text(angle = 90, hjust = 1))                                                      #backgroud coordinate system
+
+```
+
+You can add other things too. For example you can add the mean number of Banning.Orders:
+
+```{r}
+ggplot(data = fbo, aes(x = Club.Supported, y=Banning.Orders)) +  #data
+  geom_bar(stat = "identity") +                                  #geometry 1 
+  geom_point() +                                                 #geometry 2
+  geom_hline(yintercept = mean(fbo$Banning.Orders)) +            #mean line
+theme(axis.text.x = element_text(angle = 90, hjust = 1))                                                      #backgroud coordinate system
+
+```
+
+This is basically all you need to know to build a graph!
+
+##2.3 What graph should I use?
+
+There are a lot of points to consider when you are choosing what graph to use to visually represent your data. There are some best practice guidelines, but at the end of the day, you need to consider what is best for your data. What do you want to show? What graph will best communicate your message? Is it a comparison between groups? Is it the frequency distribution of 1 variable? 
+
+As some guidance, you can use the below [cheatsheet, taken from Nathan Yau's blog Flowingdata](https://flowingdata.com/2009/01/15/flow-chart-shows-you-what-chart-to-use/):
+
+![](week2imgs/chart-chart.jpg)
+
+However, keep in mind that this is more of a guideline, aimed to nudge you in the right direction. There are many ways to visualise the same data, and sometimes you might want to experiment with some of these, see what the differences are. 
+
+There is also a vast amount of research into what works in displaying quantitative information. 
+The classic book is by Edward Tufte, but since him there are many other researchers as well who focus on approaches to displaying data. 
+
+They tend to result in recommendations on what to use (and not use) in certain contexts
+
+For example, most data visualisation experts agree that you should not use 3D graphics unless there is a meaning to the third dimension. So using 3D graphics just for decoration, as in [this case](https://mir-s3-cdn-cf.behance.net/project_modules/disp/2505dd10837923.56030acd2ef20.jpg) is normally frowed upon. However there are cases when including a third dimension is vital to communicating your findings. See this [example](http://www.visualisingdata.com/2015/03/when-3d-works/).
+
+Also often certain chart types are villanified. For example, the pie chart is one such example. A lot of people really dislike piecharts, eg see [here](http://www.storytellingwithdata.com/blog/2011/07/death-to-pie-charts) or [here](http://www.businessinsider.com/pie-charts-are-the-worst-2013-6?IR=T). 
+If you want to display proportion, research indicates that a square pie chart is more likely to be interpreted correctly by viewers: [see here](https://eagereyes.org/blog/2016/a-reanalysis-of-a-study-about-square-pie-charts-from-2009)
+
+Also, in some cases bar plots can hide important features of your data, and might not be the most appropriate means for comparison: 
+
+![](week2imgs/barbarplots.jpg)
+
+This has lead to a [kickstarter campaign](https://www.kickstarter.com/projects/1474588473/barbarplots/description) around actually banning bar plots...!
+
+In any case, the plot that you use depends on the data you are plotting, as well as the message you want to convey with the plot. 
+
+So for example, returning again to the difference between number of banning orders between clubs in different leagues, what are some ways of plotting these?
+
+One suggestion is to make a histogram for each one. You can use ggplot's facet_wrap() option to split graphs by a grouping variable. For example, to create a histogram of banning orders you write: 
+
+```{r}
+ggplot(data = fbo, aes(x = Banning.Orders)) + 
+  geom_histogram()
+```
+
+Now to split this by League.of.the.Club.Supported, you use facet_wrap() in the coordinate layer of the plot.
+
+```{r}
+ggplot(data = fbo, aes(x = Banning.Orders)) + 
+  geom_histogram() + 
+  facet_wrap(~League.of.the.Club.Supported)
+```
+
+Well you can see there's different distribution in each league. But is this easy to compare? Maybe another approach would make it easier? 
+
+Personally I like boxplots for showing distribution. So let's try:
+
+```{r}
+ggplot(data = fbo, aes(x = League.of.the.Club.Supported, y = Banning.Orders)) + 
+  geom_boxplot() 
+```
+
+This makes the comparison significantly easier, right? But the order is strange! Remember we talked about factors last week? Well the good thing about factors is that we can arrange them in their natural order. If we dont' describe an order, then R uses the alphabetical order. So let's reorder our factor:
+
+```{r}
+fbo$League.of.the.Club.Supported <- factor(fbo$League.of.the.Club.Supported, levels = c("Premier League", "Championship", "League One", "League Two", "Other clubs"))
+  
+```
+
+And now create the plot again!
+
+```{r}
+ggplot(data = fbo, aes(x = League.of.the.Club.Supported, y = Banning.Orders)) + 
+  geom_boxplot() 
+```
+
+Now this is great! We can see that the higher the league the more banning orders they have. Any ideas why?
+
+We'll now go through some examples of making graphs using ggplot package 
+
+
+##2.4 Histograms
 
 [Histograms](http://www.learner.org/courses/againstallodds/unitpages/unit03.html) are useful ways of representing quantitative variables visually. If you want a quick and dirty histogram you can use the `hist()` function from base graphics as we did last week. But in this course we are going to rely on `ggplot2`, so instead we will use the functions associated with this package. 
 
+<!--
 To create a histogram with the `qplot` function is as simple as this:
 
 
@@ -60,47 +325,58 @@ data(Boston, package="MASS")
 qplot(crim, data = Boston)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-1-1.png) 
+<!--<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-1-1.png) 
 
 This is the distribution of the per capita crime rate by town in he suburbs of Boston. As you can see this is a highly skewed distribution. You better get used to the look of it. Crime data tend to look like this[^1]. You will notice that all we have done is to tell R to use the variable we wanted to plot and the dataset where that variable is located [^2]. 
 
-As mentioned earlier, we will emphasise in this course the use of the `ggplot()` function. With `ggplot()` you start with a blank canvass and keep adding specific layers. The `ggplot()` function can specify the dataset and the aesthetics (the visual characteristics that represent the data). If you want to produce a histogram with the `ggplot` function you would use the following equivalent code:
+--> 
+
+As mentioned earlier, we will emphasise in this course the use of the `ggplot()` function. With `ggplot()` you start with a blank canvass and keep adding specific layers. The `ggplot()` function can specify the dataset and the aesthetics (the visual characteristics that represent the data). 
+
+To get the data we're going to use here, load up the package "MASS".
+
+```{r}
+library(MASS)
+```
+
+This package has a dataframe called "Boston". This has data about Housing Values in Suburbs of Boston. To access the codebook (how you find out what variables are) use the "?". 
+
+OK so let's make a graph about the variable which represents the per capita crime rate by town ('crim').
+
+If you want to produce a histogram with the `ggplot` function you would use the following equivalent code:
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = crim)) + #The "aes" argument defines the aesthetics for the plot, here we are telling R the data we will represent comes from the Boston data and our X variable, displayed in the X axis, will be Per capita crime rate. So we are specfying we are using the "crim" variable to display a position in the X axis.
   geom_histogram() #If we just run the function in the first line we won't be plotting anything, we have to gell R what type of object, or geom, is going to represent the data that we specified in the aesthetics. There are multiple geoms we can use. For a histogram we use the geom_histogram.
 ```
-
+<!--
 ```
 ## stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-2-1.png) 
+ <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-2-1.png) -->
 
 So you can see that `ggplot` works in a way that you can add a series of additional specifications (layers, annotations). In this simple plot the `ggplot` function simply maps *crim* as the variable to be displayed (as one of the aesthetics) and the dataset. Then you add the `geom_histogram` to tell R that you want this variable to be represented as a histogram. Later we will see what other things you can add.
 
 A histogram is simply putting cases in "bins" and then creates a bar for each bin. You can think of it as a visual grouped frequency distribution. The code we have used so far has used a bin-width of size range/30 as R kindly reminded us. But you can modify this parameter if you want to get a rougher or a more granular picture. In fact, you should *always* play around with different specifications of the bin-width until you find one that tells the full story in a parsimonious way.
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = crim)) +
   geom_histogram(binwidth = 1) #We can pass arguments to the the geoms, here we are changing the size of the bins (for further details on other arguments you can check the help files)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-3-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-3-1.png) --> -->
 
 Using bin-width of 1 we are essentially creating a bar for every one unit increase in the percent rate of crime. We can still see that most towns have a very low level of crime.
 
 
-```r
+```{r}
 #Let's sum the number of towns with a value lower than 1 in the per capita crime rate
 sum(Boston$crim < 1)
 ```
 
-```
-## [1] 332
-```
 
 We can see that the large majority of towns, 332 out of 506, have a per capita crime rate below 1%. But we can also see that there are some towns that have a high concentration of crime. This is a spatial feature of crime; it tends to concentrate in particular areas and places. You can see how we can use visualisations to show the data and get a first feeling for how it may be distributed.
 
@@ -115,7 +391,7 @@ When plotting a continuous variable we are interested in the following features:
 Often we visualise data because we want to compare distributions. **Most of data analysis is about making comparisons**. We are going to explore whether the distribution of crime is different for less affluent areas. The variable *medv* measures the median value of owner-occupied homes. For the purposes of this illustration I want to dichotomise this variable, to create a group of towns with particularly low values versus all the others. For further details in how to recode variables with R you may want to read the relevant sections in [Quick R](http://www.statmethods.net/management/variables.html) or the [R Cookbook](http://www.cookbook-r.com/Manipulating_data/Recoding_data/).
 
 
-```r
+```{r}
 #How to create a categorical variable based on information from a quantitative variable
 #First we tell R to create a new vector ("lowval") in the Boston data frame. This vector will be assigned the character value "Low value" when the condition within the square brackets is met. That is, we are saying that whenever the value in "medv" is below 17.02 then the new variable lowval will equal "Low value"
 Boston$lowval[Boston$medv <= 17.02] <- "Low value" #I have chosen 17.02 as this is the first quartile for medv
@@ -127,133 +403,141 @@ Boston$lowval <- as.factor(Boston$lowval) #The variable we created was a charact
 Now we can produce the plot:
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = crim)) +
   geom_histogram(binwidth = 1) +
   facet_grid(lowval ~ .) #Facets are another element of the grammar of graphics, we use it to define subsets of the data to be represented as multiple groups, here we are asking R to produce two plots defined by the two levels of the factor we just created.
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-6-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-6-1.png) --> 
 
 Visually this may not look great, but it begins to tell a story. We can see that there is a considerable lower proportion of towns with low levels of crime in the group of towns that have cheaper homes. It is a flatter, less skewed distribution. You can see how the `facet_grid()` expression is telling R to create the histogram of the variable mentioned in the ggplot function for the groups defined by the categorical input of interest (the factor "lowval").
 
 Instead of using facets, we could overlay the histograms with a bit of transparency. Transparencies work better in screens than in printed document, so keep in mind this when deciding whether to use them instead of facets. The code is as follows:
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = crim, fill = lowval)) + #"fill" identifies the factor grouping the cases
   geom_histogram(position = "identity", alpha = 0.4) #"position = identity"" tells R to overlay the distributions and "alpha"" asks for the degree of transparency, a lower value will be more transparent
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-7-1.png) 
+<!--<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-7-1.png) --> 
 
 In this case, part of the problem we have is that the skew can make it difficult to appreciate the differences. When you are dealing with skewed distributions such as this, it is sometimes convenient to use a transformation. We will come back to this later this semester. For now suffice to say, that taking the logarithm of a skewed variable helps to reduce the skew and to see patterns more clearly. In order to visualise the differences here a bit better we could ask for the logarithm of the crime per capita rate. Notice how I also add a constant of 1 to the variable *crim*, this is to avoid NA values if the value in *crim* is zero (you cannot take the log of 0).
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = log10(crim + 1), fill = lowval)) +
   geom_histogram(position = "identity", alpha = 0.4)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-8-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-8-1.png) --> 
 
 The plot now is a bit clearer. It seems pretty evident that the distribution of crime is slightly different between these two types of towns.
 
-##2.3 Density plots
+##2.5 Density plots
 
 For smoother distributions, you can use density plot. You should have a healthy amount of data to use these or you could end up with a lot of unwanted noise. Let's first look at the single density plot for all cases:
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = crim)) +
   geom_density() 
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-9-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-9-1.png) --> 
 
 In a density plot the area under the lines sum to 1 and the Y, vertical, axis now gives you the estimated probability for the values in the X, horizontal, axis. In this plot we can see that there is a high estimated probability of observing a town with near zero per capita crime rate and a low estimated probability of seeing towns with large per capita crime rates. As you can observe it provides a smoother representation of the distribution (as compared to the histograms).
 
 You can also use this to compare the distribution of a quantitative variable across the levels in a categorical variable (factor) and, as before, is possibly better to take the log of skewed variables such as crime:
 
 
-```r
+```{r}
 #We are mapping "lowval" as the variable colouring the lines 
 ggplot(Boston, aes(x = log10(crim + 1), colour = lowval)) + 
   geom_density() 
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-10-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-10-1.png) --> 
 
 Or you could use transparencies:
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = log10(crim + 1), fill = lowval)) + 
   geom_density(alpha = .3)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-11-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-11-1.png) --> 
 
 Did you notice the difference with the comparative histograms? By using density plots we are rescaling to ensure the same area for each of the levels in our grouping variable. This makes it easier to compare two groups that have different frequencies. The areas under the curve add up to 1 for both of the groups, whereas in the histogram the area within the bars represent the number of cases in each of the groups. If you have many more cases in one group than the other it may be difficult to make comparisons or to clearly see the distribution for the group with fewer cases. So, this is one of the reasons why you may want to use density plots.
 
-##2.4 Box plots
+##2.6 Box plots
 
 [Box plots](http://tomhopper.me/2014/07/04/the-most-useful-data-plot-youve-never-used/) are an interesting way of presenting the 5 number summary in a visual way. [This video](http://www.learner.org/courses/againstallodds/unitpages/unit05.html) may help you to understand them better. If we want to use `ggplot` for this we need some convoluted code, since `ggplot` assumes you want a boxplot to compare various groups. Therefore we need to set some arbitrary value for the grouping variable and we also may want to remove the x-axis tick markers and label. 
 
 For this illustration, I am going to display the distribution of the median value of property in the various towns instead of crime.
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = 1, y = medv)) + 
   geom_boxplot() +
   scale_x_continuous(breaks = NULL) + #removes the tick markers from the x axis
   theme(axis.title.x = element_blank())
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-12-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-12-1.png) -->
 
 Boxplots, however, really come to life when you do use them to compare the distribution of a quantitative variable across various groups. Let's look at the distribution of log(crime) across cheaper and more expensive areas:
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = lowval, y=log10(crim + 1))) +
   geom_boxplot()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-13-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-13-1.png) -->
 
 With a boxplot like this you can see straight away that the bulk of cheaper areas are very different from the bulk of more expensive areas. The first quartile of the distribution for low areas about matches the point at which we start to see **outliers** for the more expensive areas.
 
-This can be even more helpful when you have various groups. Let's try an example using the `BCS0708` data frame we introduced last week. If you did not save your project after last week and need to load the data again but don't remember how, look at the notes from last week.
+This can be even more helpful when you have various groups. Let's try an example using the `BCS0708` data frame we introduced last week. If you did not save your project after last week and need to load the data again. 
+
+```{r}
+##R in Windows have some problems with https addresses, that's why we need to do this first:
+urlfile<-'https://raw.githubusercontent.com/jjmedinaariza/LAWS70821/master/BCS0708.csv'
+#We create a data frame object reading the data from the remote .csv file
+BCS0708<-read.csv(url(urlfile))
+
+```
 
 This dataset contains a quantitative variable that measures the level of worry for crime (`tcviolent`): high scores represent high levels of worry. We are going to see how the score in this variable changes according to ethnicity (`ethgrp2`).
 
 
 
 
-```r
+```{r}
 #A comparative boxplot of ethnicity and worry about violent crime
 ggplot(BCS0708, aes(x = ethgrp2, y = tcviolent)) +
   geom_boxplot()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-14-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-14-1.png) -->
 
 Nice. But could be nicer. To start with we could order the groups along the X axis so that the ethnic groups are positioned according to their level of worry. Secondly, we may want to exclude the information for the NA cases on ethnicity (represented by a flat line).
 
 
-```r
+```{r}
 #A nicer comparative boxplot (excluding NA and reordering the X variable)
 ggplot(subset(BCS0708, !is.na(ethgrp2) & !is.na(tcviolent)), 
        aes(x = reorder(ethgrp2, tcviolent, FUN = median), y = tcviolent)) +
         geom_boxplot()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-15-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-15-1.png) --> 
 
 The `subset` function is using a logical argument to tell R to only use the cases that do not have NA values in the two variables that we are using. The `reorder` function on the hand is asking R to reorder the levels in ethnicity according to the median value of worry of violent crime. Since we are using those functions *within* the `ggplot` function this subsetting and this reordering are not introducing permanent changes in your original dataset. If you prefer to reorder according to the mean you only need to change that parameter after the `FUN` option (e.g, `FUN = mean`).
 
-##2.5 Scatter plots with two variables
+##2.7 Scatter plots with two variables
 
 When looking at the relationship between two quantitative variables nothing beats the **scatterplot**. [This](http://www.datavis.ca/papers/friendly-scat.pdf) is a lovely article in the history of the scatterplot and [this video](http://www.learner.org/courses/againstallodds/unitpages/unit10.html) may help you to understand them better.
 
@@ -262,13 +546,13 @@ A scatterplot plots one variable in the Y axis, and another in the X axis. Typic
 This is how you produce a scatterplot with `ggplot()`:
 
 
-```r
+```{r}
 #A scatterplot of crime versus median value of the properties
 ggplot(Boston, aes(x = medv, y = crim)) +
   geom_point()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-16-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-16-1.png) --> 
 
 Each point represents a case in our dataset and the coordinates attached to it in this two dimensional plane are given by their value in the Y (crime) and X (median value of the properties) variables. 
 
@@ -281,29 +565,29 @@ This is the second reason why you want to plot your data before you do anything 
 One of the things you may notice with a scatterplot is that even with a smallish dataset such as this, with just about 500 cases, **overplotting** may be a problem. When you have many cases with similar (or even worse the same) value, it is difficult to tell them apart. There's a variety of ways of dealing with overplotting. One possibility is to add some **transparency** to the points:
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = medv, y = crim)) +
   geom_point(alpha=.4) #you will have to test different values for alpha
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-17-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-17-1.png) --> 
 
 Why this is an issue may be more evident with the `BCS0708 data`. Compare the two plots:
 
 
-```r
+```{r}
 ggplot(BCS0708, aes(x = age, y = tcviolent)) +
   geom_point()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-18-1.png) 
+<!-- <!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-18-1.png) --> 
 
-```r
+```{r}
 ggplot(BCS0708, aes(x = age, y = tcviolent)) +
   geom_point(alpha=.2)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-18-2.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-18-2.png) --> 
 
 The second plot gives us a better idea of where the observations seem to concentrate in a way that we could not see with the first.
 
@@ -312,101 +596,101 @@ Overplotting can occur when a continuous measurement is rounded to some convenie
 One way of dealing with this particular problem is by **jittering**. Jittering is the act of adding random noise to data in order to prevent overplotting in statistical graphs. In `ggplot` one way of doing this is by passing an argument to `geom_point` specifying you want to jitter the points. This will introduce some random noise so that age looks less discrete.
 
 
-```r
+```{r}
 ggplot(BCS0708, aes(x = age, y = tcviolent)) +
   geom_point(alpha=.2, position="jitter") #Alternatively you could replace geom_point() with geom_jitter() in which case you don't need to specify the position
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-19-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-19-1.png) --> 
 
 Another alternative for solving overplotting is to **bin the data** into rectangles and map the density of the points to the fill of the colour of the rectangles.
 
 
-```r
+```{r}
 ggplot(BCS0708, aes(x = age, y = tcviolent)) +
   stat_bin2d()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-20-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-20-1.png) --> 
 
-```r
+```{r}
 #The same but with nicer graphical parameters
 ggplot(BCS0708, aes(x = age, y = tcviolent)) +
   stat_bin2d(bins=50) + #by increasing the number of bins we get more granularity
   scale_fill_gradient(low = "lightblue", high = "red") #change colors
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-20-2.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-20-2.png) --> 
 
 What this is doing is creating boxes within the two dimensional plane; counting the number of points within those boxes; and attaching a colour to the box in function of the density of points within each of the rectangles.
 
 When looking at scatterplots, sometimes it is useful to summarise the relationships by mean of drawing lines. You could for example add a line representing the **conditional mean**. A conditional mean is simply mean of your Y variable for each value of X. Let's go back to the Boston dataset. We can ask R to plot a line connecting these means using `geom_line()` and specifying you want the conditional means.
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = medv, y = crim)) +
   geom_point(alpha=.4) +
   geom_line(stat='summary', fun.y=mean)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-21-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-21-1.png) --> 
 
 With only about 500 cases there are loads of ups and downs. If you have many more cases for each level of X the line would look less rough. You can, in any case, produce a smoother line using `geom_smooth` instead. We will discuss later this semester how this line is computed (although you will see the R output tells you, you are using something call the "loess" method). For now just know that is a line that tries to *estimate* the typical value for Y for each value of X.
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = medv, y = crim)) +
   geom_point(alpha=.4) +
   geom_smooth(colour="red", size=1, se=FALSE) #We'll explain later this semester what the se argument does, colour is simply asking for a red line instead of blue (which I personally find harder to see. I'm also making the line a bit thicker with size 1)
 ```
 
-```
+<!--```
 ## geom_smooth: method="auto" and size of largest group is <1000, so using loess. Use 'method = x' to change the smoothing method.
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-22-1.png) 
+ ![](Week_2_Graphics_files/figure-html/unnamed-chunk-22-1.png) --> 
 
 As you can see here you produce a smoother line than with the conditional means. The line, as the scatterplot, seems to be suggesting an overall curvilinear relationship that almost flattens out once property values hit $20k. 
 
-##2.6 Scatter plots conditioning in a third variable
+##2.8 Scatter plots conditioning in a third variable
 
 There are various ways to plot a third variable in a scatterplot. You could go 3D and in some contexts that may be appropriate. But more often than not it is preferable to use only a two dimensional plot.
 
 If you have a grouping variable you could map it to the colour of the points as one of the aesthetics arguments. Here we return to the Boston scatterplot but will add a third variable, that indicates whether the town is located by the river or not.
 
 
-```r
+```{r}
 #Scatterplot with two quantitative variables and a grouping variable, we are telling R to tell "chas", a numeric vector, as a factor. 
 ggplot(Boston, aes(x = medv, y = crim, colour = as.factor(chas))) +
   geom_point() 
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-23-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-23-1.png) --> 
 
 Curiously, we can see that there's quite a few of those expensive areas with high levels of crime that seem to be located by the river.
 
 As before you can add smooth lines to capture the relationship. What happens now, though, is that `ggplot` will produce a line for each of the levels in the categorical variable grouping the cases:
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = medv, y = crim, colour = as.factor(chas))) +
   geom_point(alpha=.4) + #I am doing the points semi-transparent to see the lines better
   geom_smooth(se=FALSE, size=1) #I am doing the lines thicker to see them better
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-24-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-24-1.png) --> 
 
 You can see how the relationship between crime and property values is more marked for areas not bordering the river, mostly because you have considerably fewer cheaper areas bordering the river. Notice as well the upward trend in the green line at high values of `medv`. As we saw there seems to be quite a few of those particularly more expensive areas that have high crime and seem to be by the river.
 
 We can also map a quantitative variable to the colour aesthetic. When we do that, instead of different colours for each category we have a gradation in colour from darker to lighter depending on the value of the quantitative variable. Below we display the relationship between crime and property values conditioning on the status of the area (high values in `lstat` represent lower status).
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = medv, y = crim, colour = lstat)) +
   geom_point() 
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-25-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-25-1.png) --> 
 
 As one could predict `lstat` and `medv` seem to be correlated. The areas with low status tend to be the areas with cheaper properties (and more crime) and the areas with higher status tend to be the areas with more expensive properties (and less crime).
 
@@ -414,55 +698,55 @@ You could map the third variable to a different aesthetic (rather than colour). 
 
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = medv, y = crim, size = lstat)) +
   geom_point() #You may want to add alpha for some transparency here.
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-26-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-26-1.png) --> 
 
 If you have larger samples and the patterns are not clear (as we saw when looking at the relationship between age and worry of violent crime) conditioning in a third variable can produce hard to read scatterplots (even if you use transparencies and jittering). Let's look at the relationship between worry for violent crime and age conditioned on victimisation during the previous year:
 
 
-```r
+```{r}
 ggplot(BCS0708, aes(x = age, y = tcviolent, colour = bcsvictim)) +
   geom_point(alpha=.4, position="jitter")
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-27-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-27-1.png) --> 
 
 You can possibly notice that there are more green points in the left hand side (since victimisation tend to be more common among youth). But it is hard to read the relationship with age. We could try to use facets instead using `facet_grid`?
 
 
-```r
+```{r}
 ggplot(BCS0708, aes(x = age, y = tcviolent)) +
   geom_point(alpha=.4, position="jitter") +
   facet_grid( .~ bcsvictim)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-28-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-28-1.png) --> 
 
 It is still hard to see anything, though perhaps you can notice the lower density the points in the bottom right corner in the facet displaying victims of crime. In a case like this may be helpful to draw a smooth line
 
 
-```r
+```{r}
 ggplot(BCS0708, aes(x = age, y = tcviolent, colour = bcsvictim)) +
   geom_point(alpha=.1, position="jitter") +
   geom_smooth(size=1.5, se=FALSE)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-29-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-29-1.png) --> 
 
 What we see here is that for the most part the relationship of age and worry for violent crime looks quite flat, regardless of whether you have been a victim of crime or not. At least, for most people. However, once we get to the 60s things seem to change a bit. Those over 62 that have not been a victim of crime in the past year start to manifest a lower concern with crime as they age (in comparison with those that have been a victim of crime).
 
-##2.7 Scatterplot matrix
+##2.9 Scatterplot matrix
 
 Sometimes you want to produce many scatterplots simultaneously to have a first peak at the relationship between the various variables in your data frame. The way to do this is by using a scatterplot matrix. Unfortunately, `ggplot2` doesn't do scatterplot matrix too well. For this it is better to use the graphics tools of base R. 
 
 Not to overcomplicate things we will only use a few variables from the `Boston` dataset:
 
 
-```r
+```{r}
 #I create a new data frame that only contains 4 variables included in the Boston dataset and I am calling this new data frame object BostonSM
 Boston_SM <- subset(Boston, select = c(crim, medv, indus, lstat))
 ```
@@ -470,11 +754,11 @@ Boston_SM <- subset(Boston, select = c(crim, medv, indus, lstat))
 Then we run the scatterplot matrix using the **pairs()** function:
 
 
-```r
+```{r}
 pairs(Boston_SM)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-31-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-31-1.png) --> 
 
 We can modify this code to put additional information in the matrix. As you may have noticed the matrix is symmetrical, for every scatterplot in the upper left side there is a similar on the the bottom right side. We are going to modify this matrix so that the diagonal boxes not only display the name of the variable but also a histogram for the variables and to display the correlation coefficients in the upper left side (instead of printing twice the same scatterplot). We will also make the points smaller and will add a smooth line within each scatterplot.
 
@@ -483,7 +767,7 @@ The code for this is a bit complicated. We are going to introduce **customised f
 After that we will use the `pairs()` function inserting the inputs that result form using these customised functions. You are likely not to understand the code for the first part. Particularly because apart from doing computations is controlling the aspect of the results. Don't worry, I'm not expecting to understand this code. Just cut and paste. But I think it is important you understand that apart from using the functions created by others and included in packages, once you become proficient in R you can start producing your own functions to expand the range of what you can do with R.
 
 
-```r
+```{r}
 panel.cor <- function(x, y, digits=2, prefix="", cex.cor, ...){
   usr <- par("usr")
   on.exit(par(usr))
@@ -510,60 +794,58 @@ panel.hist <-function(x, ...){
 We can now run the `pairs()` function using our customised functions as inputs.
 
 
-```r
+```{r}
 pairs(Boston_SM, pch=".", #Produces smaller points to make it easier to see
       upper.panel=panel.smooth, #Adds for smoothed lines to be added to the lower panel scatterplots 
       lower.panel=panel.cor, #Ask for correlation coeffients in the upper panel using our customised functions (the size of the numer is bigger is the correlation is bigger, but notice that the coefficient does not include the sign, whether is positve or negative, you need to infer that from the scatterplot)
       diag.panel=panel.hist) #Ask for histograms in the diagonal using our customised function
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-33-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-33-1.png) --> 
 
-We will explain what correlation coefficients are and when they are appropriate later this semester. For now just focus in trying to understand what the plots show. What do you think may be going on with the distribution of "indus" (proportion of non-retail business acres per town)? 
+We will explain what correlation coefficients are and when they are appropriate later this semester. For now just focus in trying to understand what the plots show. What do you think may be going on with the distribution of "indus" (proportion of non-retail business acres per town)?
 
+<!-- 
 One of the beauties of `ggplot2` is that its functionality has been extended by a number of other packages. One of them is the `GGally` package that allows us to produce output similar to the one we just produced in a much quicker and straightforward way and extend the correlation matrix to situations in which some of your variables are not numeric. You can easily produced [**generalised pair plots**](http://www.bricol.net/downloads/pubs/Emerson_et_al.2013.pdf) for these scenarios using this package.
 
-
-
-```r
+```{r}
 library(GGally)
 ggpairs(Boston_SM)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-34-1.png) 
-
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-34-1.png) --> 
 
 As you can see getting results, once you get the knack of it, is only half of the way. The other, and more important, half is trying to make sense of the results. R cannot do that for you. For this you need to use a better tool: **your brain** (scepticism, curiosity, creativity, a lifetime of knowledge) and what Kaiser Fung calls ["numbersense"](http://www.amazon.co.uk/Numbersense-How-Data-Your-Advantage/dp/0071799664).
 
-##2.8 Titles and legends in ggplot2
+##2.10 Titles and legends in ggplot2
 
 We have introduced a number of various graphical tools, but what if you want to customise the way the produce graphic looks like? Here I am just going to give you some code for how to modify the titles and legends you use. For adding a title for a `ggplot` graph you use `ggtitle()`.
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = medv, y = crim, colour = as.factor(chas))) +
   geom_point() +
   ggtitle("Fig 1.Crime, Property Value and River Proximity of Boston Towns")
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-35-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-35-1.png) --> 
 
-If you don't like the default background theme for `ggplot` you can use a black and white background adding `theme_bw()` as a layer:
+If you don't like the default background theme for `ggplot` you can use a theme as discussed at the start, for example with creating a black and white background by adding `theme_bw()` as a layer:
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = medv, y = crim, colour = as.factor(chas))) +
   geom_point() +
   ggtitle("Fig 1.Crime, Property Value and River Proximity of Boston Towns") +
   theme_bw()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-36-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-36-1.png) --> 
 
 Using `labs()` you can change the text of axis labels (and the legend title), which may be handy if your variables have cryptic names. Equally you can manually name the labels in a legend. The value for "chas" are 0 and 1. This is not informative. We can change that.
 
 
-```r
+```{r}
 ggplot(Boston, aes(x = medv, y = crim, colour = as.factor(chas))) +
   geom_point() +
   ggtitle("Fig 1.Crime, Property Value and River Proximity of Boston Towns") +
@@ -573,12 +855,12 @@ ggplot(Boston, aes(x = medv, y = crim, colour = as.factor(chas))) +
   scale_colour_discrete(labels = c("No", "Yes"))
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-37-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-37-1.png) --> 
 
 Sometimes you may want to present several plots together. For this the `gridExtra` package is very good. You will first need to install it and then load it. You can then create several plots and put them all in the same image.
 
 
-```r
+```{r}
 #You may need to install first with install.packages("gridExtra")
 library(gridExtra)
 #Store your plots in various objects
@@ -589,44 +871,44 @@ p3 <- qplot(x=medv, data=Boston)
 grid.arrange(p1, p2, p3, ncol=3) #ncol tells R we want them side by side, if you want them one in top of the other try ncol=1, in this case, however ncol=2 would possibly be the better solution. Try it!
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-38-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-38-1.png) 
 
 There are packages that allow you to add new themes to ggplot2 graphics. The *ggthemes* package is one of them. You can install this package in the usual way. Check [here](https://cran.r-project.org/web/packages/ggthemes/vignettes/ggthemes.html) for details. There is also another one called *ggthemr* still in development. If you want to install the latter you would need to use the following code, but keep in mind that this package is still not too stable. You may prefer to way until it is available in the CRAN repository. 
 
 
-```r
+```{r}
 devtools::install_github("ggthemr", "cttobin")
 ```
 
 This is an example of the `dust` theme in this package. You can see other themes in the [github page for the package](https://github.com/cttobin/ggthemr).
 
-![themes](https://raw.githubusercontent.com/cttobin/ggthemr/master/figure/unnamed-chunk-10-1.png)
+![themes](https://raw.githubusercontent.com/cttobin/ggthemr/master/figure/unnamed-chunk-10-1.png) -->
 
-##2.9 Plotting categorical data: bar charts
+##2.11 Plotting categorical data: bar charts
 
 You may be wondering what about categorical data? So far we have only discussed various visualisations where at least one of your variables is quantitative. When your variable is categorical you can use bar plots (similar to histograms). We map the factor variable in the aesthetics and then use the `geom_bar()` function to ask for a bar chart.
 
 
-```r
+```{r}
 ggplot(BCS0708, aes(x=walkday)) +
   geom_bar()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-40-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-40-1.png) --> 
 
 Unfortunately, the levels in this factor are ordered by alphabetical order, which is confusing. We can modify this by reordering the factors levels first -click [here](http://www.cookbook-r.com/Manipulating_data/Changing_the_order_of_levels_of_a_factor/) for more details. You could do this within the ggplot function (just for the visualisation), but in real life you would want to sort out your factor levels in an appropriate manner more permanently. As discussed last week, this is the sort of thing you do as part of pre-processing your data. And then plot.
 
 
-```r
+```{r}
 #Print the original order
 print(levels(BCS0708$walkday))
 ```
 
-```
+<!--```
 ## [1] "a bit unsafe"   "fairly safe"    "or very unsafe" "very safe"
-```
+```-->
 
-```r
+```{r}
 #Reordering the factor levels from very safe to very unsafe (rather than by alphabet). Notice that I am creating a new variable, it is often not unwise to do this to avoid messing up your original data.
 BCS0708$walkdayR <- factor(BCS0708$walkday, levels=c('very safe',
   'fairly safe','a bit unsafe','or very unsafe'))
@@ -635,24 +917,24 @@ ggplot(subset(BCS0708, !is.na(walkdayR)), aes(x=walkdayR)) +
   geom_bar()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-41-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-41-1.png) --> 
 
 We can also map a second variable to the aesthetics, for example, let's look at victimisation in relation to feelings of safety. For this we produce a **stacked bar chart**.
 
 
-```r
+```{r}
 ggplot(subset(BCS0708, !is.na(walkdayR)), aes(x=walkdayR, fill=bcsvictim)) +
   geom_bar()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-42-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-42-1.png) --> 
 
 These sort of stacked bar charts are not terribly helpful if you are interested in understanding the relationship between these two variables. Instead what you want is a **proportional stacked bar chart**, that gives you the proportion of your "explanatory variable" (here victimisation in the past 12 months) within each of the levels of your "response variable" (here feelings of safety).
 
 First we need to scale the data to 100% within each stack and then plot. The code here is also more complex. Again, I'm not expecting you to fully understand all of it. In your early days of using R, you will find yourself cutting and pasting chunks of code that you will only fully understand with practice. 
 
 
-```r
+```{r}
 #First we create a subset with the relevant data
 .df1 <- data.frame(x = BCS0708$walkdayR, z = BCS0708$bcsvictim)
 #Then we compute the proportions within the stacks
@@ -667,9 +949,9 @@ stbcf <- ggplot(.df1, aes(x = x, y = Freq, fill = z)) +
 stbcf #autoprint the plot, notice how earlier rather than printing directly I stored the plot in the object with this name (the reason is that I want to use this plot later and don't want to rerun all the code again)
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-43-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-43-1.png) --> 
 
-```r
+```{r}
 rm(.df1) #to remove the data frame we created
 ```
 
@@ -678,12 +960,12 @@ Here we can see that the those that express less feelings of safety are more lik
 Sometimes, you may want to flip the axis, so that the bars are displayed horizontally. You can use the `coord_flip()` function for that.
 
 
-```r
+```{r}
 #First we invoke the plot we created and stored earlier and then we add an additional specification with coord_flip()
 stbcf + coord_flip()
 ```
 
-![](Week_2_Graphics_files/figure-html/unnamed-chunk-44-1.png) 
+<!-- ![](Week_2_Graphics_files/figure-html/unnamed-chunk-44-1.png) --> 
 
 You can also use `coord_flip()` with other `ggplot` plots (e.g., boxplots).
 
@@ -691,13 +973,15 @@ A particular type of bar chart is the divergent stacked bar chart, often used to
 
 Keep in mind that knowing *how* to get R to produce a particular visualisation is only half the job. The other half is knowing *when* to produce a particular kind of visualisation. [This blog](https://solomonmessing.wordpress.com/2014/10/11/when-to-use-stacked-barcharts/), for example, discusses some of the problems with stacked bar charts and the exceptional circumstances in which you may want to use them.
 
-There are other tools sometimes used for visualising categorical data. Pie charts is one of them. But don't use pie charts. They are evil. This is the only pie chart you will see in this course:
+There are other tools sometimes used for visualising categorical data. Pie charts is one of them. However, as mentioned at the beginning, many people advocate strongly against using pie charts, including Juanjo who wrote this course before me, and he explicitly stats that they are evil, and therefore this is the only pie chart you will see in this course:
 
 ![cute pie chart](https://pbs.twimg.com/media/BsymGJJCYAE-oTd.jpg)
 
 Also increasingly popular are **mosaic plots**. R is pretty good at doing them. However, we have covered already a lot of ground, plus I have some sympathy for [Stephen Few's arguments](http://www.perceptualedge.com/articles/visual_business_intelligence/are_mosaic_plots_worthwhile.pdf) against mosaic plots. 
 
-##2.10 Further resources
+What I would use instead are waffle charts. They're super easy to make with the "waffle" package but I don't think there's time for them at this point, but look into them [here](https://www.r-bloggers.com/making-waffle-charts-in-r-with-the-new-waffle-package/). 
+
+##2.12 Further resources
 
 By now you should know the path to data analysis wisdom will take time. The good news is that we live in a time where there are multiple (very often free) resources to help you along the way. The time where this knowledge was just the preserve of a few is long distant. If you are a motivated and disciplined person there is a lot that you can do to further consolidate and expand your data visualisation skills without spending money. I already recommended you the excellent ggplot2 online documentation. Here I just want to point you to a a few useful resources that you can pursue in the future. 
 
