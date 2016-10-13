@@ -68,3 +68,31 @@ ggplot(data = signAndVote, aes(x = region_name, y = signature_count)) +
 ggplot(data = signAndVote, aes(x = first_party, y = signature_count)) + 
   geom_boxplot() +            
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
+
+
+
+
+
+###########
+
+
+
+
+ggplot(data = signByCountry, aes(x = name, y = signature_count)) +
+  coord_cartesian(ylim = c(0, 500)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  geom_bar(stat = "identity") +
+  geom_point() +
+  geom_smooth(colour="red", size=1, se=FALSE)
+
+ggplot(data = cars, aes(x = speed, y = dist)) +
+  coord_cartesian(ylim = c(0, 500)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+ # geom_bar(stat = "identity") +
+  geom_point() +
+  geom_smooth(colour="red", size=1, se=FALSE)
+
+
+
+
+
