@@ -9,7 +9,7 @@
 #Q1 Visually explore the relationship of sex with age using some of the graphical tools we introduced in week 2.
 
 
-#Q2 Use error bars, as descirbed in week 3, to compare the treatment and no treatment group in real earnings in 1975.
+#Q2 Use error bars, as descirbed in week 3, to compare the age of male and female fatalities.
 
 
 #Q3 Use the t.test function to obtain the confidence intervals for the age of fatalities for each of these two groups (men and women).
