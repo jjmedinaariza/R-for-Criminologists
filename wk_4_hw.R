@@ -38,15 +38,17 @@ groupedData <- prisonDeaths %>%
 #Example: dataframe$newColumn <- ifelse(dataframe$otherColumn <= some number, "one value", "other value")
 #If you're confused, this stackoverflow question might help: http://stackoverflow.com/questions/16570302/how-to-add-a-factor-column-to-dataframe-based-on-a-conditional-statement-from-an
 
-#Q4: Is there a difference in the number of deaths in arrest or custody between the pre and post 2004 groups? Is this significant? Is it large or small? Discuss. 
-#Another hint: don't forget to think about whether the observations are linked
-
-#Q5: We might also be interested to see the difference in number of deaths by race. 
+#Q3: In a few questions, we will also be interested to see the difference in number of deaths by race. 
 #If we look at the data, we can see the race column has a lot of values with small counts. We just want to focus on the top three represented race categories here
 #Subset your dataframe so you only include cases where ethnicity is either "White" or "Black" or "Hispanic". 
 
-#Q6: Is there a relationship between ethnicity and number of deaths in arrest or custody? 
+#Now the data cleaning is done, let's get to analysis!
+
+#Q4: Is there a difference in the number of deaths in arrest or custody between the pre and post 2004 groups? Is this significant? Is it large or small? Discuss. 
+
+#Q5: Is there a relationship between ethnicity and number of deaths in arrest or custody? 
 #Ie: is there a difference in number of deaths between different race or ethnic groups? Is this difference significant? Is it large or small? 
 #Discuss & illustrate with visualisations. 
+
 
 

@@ -1,6 +1,6 @@
 ---
 title: "WEEK 4: STUDYING RELATIONSHIPS BETWEEN A CATEGORICAL AND A QUANTITATIVE VARIABLE"
-author: "Juanjo Medina"
+author: "Reka Solymosi building on the work of Juanjo Medina"
 output: 
   html_document:
     theme: cosmo
