@@ -6,11 +6,12 @@ output:
     theme: cosmo
     highlight: haddock
 ---
-[Section 5.1: Producing cross tabulations](#producing-cross-tabulations)
-[Section 5.2: Expected frequencies and Chi-Square](#expected-frequencies-and-chi-square)
-[Section 5.3: Residuals](#residuals)
-[Section 5.4: Gamma](#gamma)
-[Section 5.5: Odds and odd ratios](#odds-and-odd-ratios)
+
+- [Section 5.1: Producing cross tabulations](#producing-cross-tabulations)
+- [Section 5.2: Expected frequencies and Chi-Square](#expected-frequencies-and-chi-square)
+- [Section 5.3: Residuals](#residuals)
+- [Section 5.4: Gamma](#gamma)
+- [Section 5.5: Odds and odd ratios](#odds-and-odd-ratios)
 
 #5.1 Producing cross tabulations
 
