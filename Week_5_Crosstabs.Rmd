@@ -1,7 +1,6 @@
 ---
 title: "WEEK 5: STUDYING RELATIONSHIPS BETWEEN TWO FACTORS"
-author: "Juanjo Medina"
-date: "Tuesday, July 15, 2014"
+author: "Reka Solymosi based on the work of Juanjo Medina"
 output: 
   html_document:
     theme: cosmo
@@ -19,9 +18,18 @@ The first week we covered how to run frequency distributions. Cross tabulations,
 
 As we learned during the first week we can get results from R in a variety of ways. You can produce basic tables with some of the core functions in R. However, in order to produce the sort of cross-tabs  we will use, I suggest you install and load the package `gmodels`. This package allows you to produce cross tabulations in a format similar to the one used by commercial statistical packages SPSS and SAS. Since some of you may have some previous experience with SPSS we will use the SPSS format. Cross-tabs with this package are more useful for our purposes than the default you may get with the core R `table()` function.
 
-We will begin the session by loading again the BCS 2007/2008 data from previous weeks. By now, you should know how to do this. We will start by producing a cross tabulation of victimisation ("bcsvictim"), a categorical unordered variable, by whether the presence of rubbish in the streets is a problem in the area of residence ("rubbcomm"), another categorical unordered variable. Broken windows theory would argue we should see a relationship. We will use the following code:
+We will begin the session by loading again the BCS 2007/2008 data from previous weeks. 
 
-`r load("C:/Users/jjmedina/Documents/BCS0708.RData")`
+```{r}
+##R in Windows have some problems with https addresses, that's why we need to do this first:
+urlfile<-'https://raw.githubusercontent.com/jjmedinaariza/LAWS70821/master/BCS0708.csv'
+#We create a data frame object reading the data from the remote .csv file
+BCS0708<-read.csv(url(urlfile))
+
+```
+
+We will start by producing a cross tabulation of victimisation ("bcsvictim"), a categorical unordered variable, by whether the presence of rubbish in the streets is a problem in the area of residence ("rubbcomm"), another categorical unordered variable. Broken windows theory would argue we should see a relationship. We will use the following code:
+
 
 ```{r}
 library(gmodels)

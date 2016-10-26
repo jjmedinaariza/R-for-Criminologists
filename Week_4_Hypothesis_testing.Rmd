@@ -237,7 +237,7 @@ Let's start by discussing why we care about the spread of the groups. Remember t
 
 Look at the boxplots we produced. Does it look as if the spreads change systematically with the centres? Do the boxes with the bigger centres also have the wider spread? This sort of systematic trend may be more concerning than random differences in spread across the groups.
 
-<!--
+
 We can also run a test that will check the homogeneity of variance. This is the [Levene Test](http://en.wikipedia.org/wiki/Levene's_test). We can run this test with the `leveneTest()` function of the `car` package.
 
 ```{r, message=F, warning=F}
@@ -245,7 +245,7 @@ library(car)
 leveneTest(BCS0708$tcviolent, BCS0708$ethgrp2, center = median)
 ```
 
--->
+
 In this case, the test is significant suggesting that the variances are different in the population. However, you need to keep in mind that with the large samples of some of the groups this result is unsurprising.
 
 We can further explore this assumption plotting the results from the ANOVA model we already run. Plotting the results of this ANOVA model allows us to inspect some plots that are useful for diagnosing problems.
