@@ -1,6 +1,6 @@
 ---
 title: "WEEK 5: STUDYING RELATIONSHIPS BETWEEN TWO FACTORS"
-author: "Reka Solymosi based on the work of Juanjo Medina"
+author: "Juanjo Medina, updates by Reka Solymosi"
 output: 
   html_document:
     theme: cosmo

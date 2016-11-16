@@ -1,15 +1,16 @@
 ---
 title: "WEEK 4: STUDYING RELATIONSHIPS BETWEEN A CATEGORICAL AND A QUANTITATIVE VARIABLE"
-author: "Reka Solymosi building on the work of Juanjo Medina"
+author: "Juanjo Medina, updates by Reka Solymosi"
 output: 
   html_document:
     theme: cosmo
     highlight: haddock
 ---
 **Table of Contents**
-[Section 4.1: The logic of hypothesis testing](#the-logic-of-hypothesis-testing).
-[Section 4.2: Comparing means across two groups (the t test)](#comparing-means-across-two-groups-the-t- test).
-[Section 4.3: Comparing means across several groups (ANOVA)](#comparing-means-across-several-groups-anova).
+
+- [Section 4.1: The logic of hypothesis testing](#the-logic-of-hypothesis-testing).
+- [Section 4.2: Comparing means across two groups (the t test)](#comparing-means-across-two-groups-the-t- test).
+- [Section 4.3: Comparing means across several groups (ANOVA)](#comparing-means-across-several-groups-anova).
 
 #4.1 The logic of hypothesis testing
 

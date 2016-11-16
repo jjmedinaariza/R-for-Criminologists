@@ -1,6 +1,6 @@
 ---
 title: 'WEEK 3: FOUNDATIONS OF STATISTICAL INFERENCE: CONFIDENCE INTERVALS'
-author: "Reka Solymosi, based on the work of Juanjo Medina"
+author: "Juanjo Medina, updates by Reka Solymosi"
 output:
   html_document:
   includes:

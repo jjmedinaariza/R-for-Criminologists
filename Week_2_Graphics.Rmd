@@ -1,6 +1,6 @@
 ---
 title: 'Week 2 lab notes'
-author: "Reka Solymosi based on work of Juanjo Medina"
+author: "Juanjo Medina, updates by Reka Solymosi"
 date: "29 September 2016"
 logo: uomLogo.png
 output:
@@ -314,6 +314,10 @@ We'll now go through some examples of making graphs using ggplot package
 ##2.4 Histograms
 
 [Histograms](http://www.learner.org/courses/againstallodds/unitpages/unit03.html) are useful ways of representing quantitative variables visually. If you want a quick and dirty histogram you can use the `hist()` function from base graphics as we did last week. But in this course we are going to rely on `ggplot2`, so instead we will use the functions associated with this package. 
+
+```{r}
+library(ggplot2)
+```
 
 <!--
 To create a histogram with the `qplot` function is as simple as this:
