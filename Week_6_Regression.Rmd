@@ -1,22 +1,23 @@
 ---
 title: "WEEK 6: AN INTRODUCTION TO REGRESSION"
-author: "Juanjo Medina"
+author: "Juanjo Medina, updates by Reka Solymosi"
 output: html_document
 ---
 
 **Table of contents**
-[Section 6.1: Introduction](#introduction).
-[Section 6.2: Motivating regression](#motivating-regression)
-[Section 6.3: Fitting a simple regression model](#fitting-a-simple-regression-model)
-[Section 6.4: Residuals revisited: R square](#residuals-revisited-r-square)
-[Section 6.5: Inference with regression](#inference-with-regression)
-[Section 6.6: Fitting regression with categorical predictors](#fitting-regression-with-categorical-predictors)
-[Section 6.7: Motivating multiple regression](#motivating-multiple-regression)
-[Section 6.8: Fitting and interpreting a multiple regression model](#fittin-and-interpreting-a-multiple-regresssion-model)
-[Section 6.9: Presenting your regression results](#presenting-your-regression-results)
-[Section 6.10: Rescaling input variables to assist interpretation](#rescaling-input-variables-to-assist-interpretation)
-[Section 6.11: Testing conditional hypothesis: interactions](#testing-conditional-hypothesis-interactions)
-[Section 6.12: Model building and variable selection](#model-building-and-variable-selection)
+
+- [Section 6.1: Introduction](#introduction).
+- [Section 6.2: Motivating regression](#motivating-regression)
+- [Section 6.3: Fitting a simple regression model](#fitting-a-simple-regression-model)
+- [Section 6.4: Residuals revisited: R square](#residuals-revisited-r-square)
+- [Section 6.5: Inference with regression](#inference-with-regression)
+- [Section 6.6: Fitting regression with categorical predictors](#fitting-regression-with-categorical-predictors)
+- [Section 6.7: Motivating multiple regression](#motivating-multiple-regression)
+- [Section 6.8: Fitting and interpreting a multiple regression model](#fittin-and-interpreting-a-multiple-regresssion-model)
+- [Section 6.9: Presenting your regression results](#presenting-your-regression-results)
+- [Section 6.10: Rescaling input variables to assist interpretation](#rescaling-input-variables-to-assist-interpretation)
+- [Section 6.11: Testing conditional hypothesis: interactions](#testing-conditional-hypothesis-interactions)
+- [Section 6.12: Model building and variable selection](#model-building-and-variable-selection)
 
 ##6.1 Introduction
 
@@ -25,7 +26,13 @@ In this session we are going to cover regression analysis or, rather, we are beg
 Today we will cover something that is called linear regression or ordinary least squares regression (OLS), which is a technique that you use when you are interested in explaining variation in an interval level variable. First we will see how you can use regression analysis when you only have one input and then we will move to situations when we have several explanatory variables or inputs.
 
 We will return to the `BCS0708` data we used in previous sessions. 
-`r load("C:/Users/jjmedina/Documents/BCS0708.RData")`
+```{r}
+##R in Windows have some problems with https addresses, that's why we need to do this first:
+urlfile<-'https://raw.githubusercontent.com/jjmedinaariza/LAWS70821/master/BCS0708.csv'
+#We create a data frame object reading the data from the remote .csv file
+BCS0708<-read.csv(url(urlfile))
+
+```
 We are going to look at the relationship between fear of violent crime (`tcviolent`), high scores represent high fear, with a variable measuring perceptions on antisocial behaviour in the local area (`tcarea`), high scores represent the respondents perceive a good deal of antisocial behaviour[^1]:
 
 ```{r}
@@ -46,7 +53,7 @@ What do you think when looking at this scatterplot? Is there a relationship betw
 
 ##6.2 Motivating regression
 
-Now, imagine that we play a game. I get as many different balls in a bag as there are areas respondents in this survey. I get a ball out of the bag and you have to guess the level of fear ('crim') for that respondent. Imagine that I pay £150 to the student that gets the closest to the right value. What would you guess if you only have one guess and you knew (as we do) how fear of violent crime is distributed? 
+Now, imagine that we play a game. Imagine I have all the respondents waiting in a room, and I randomly call one of them to the stage. You're sitting in the audience, and you have to guess the level of fear ('tcviolent') for that respondent. Imagine that I pay Â£150 to the student that gets the closest to the right value. What would you guess if you only have one guess and you knew (as we do) how fear of violent crime is distributed? 
 
 ```{r}
 ggplot(BCS0708, aes(x = tcviolent)) + 
@@ -63,13 +70,13 @@ summary(BCS0708$tcviolent)
 
 If I only had one shot, I would go for the median (given the skew) but the mean would be your second best. Most of the areas here have values clustered around those values, which is another way of saying they are bound to be not too far from them.
 
-Imagine, however, that now when someone picks the ball from the bag, you are told the value of the `tcarea` variable for the individual that has been selected (for example 3). Imagine as well that you have the scatterplot that we produced earlier in front of you. Would you still go for the value of "zero" as your best guess for the value of the selected ball (area)? 
+Imagine, however, that now when someone is called to the stage, you are told their perception of antisocial behaviour in their neighbourhood - so the value of the `tcarea` variable for the individual that has been selected (for example 3). Imagine as well that you have the scatterplot that we produced earlier in front of you. Would you still go for the value of "zero" as your best guess for the value of the selected ball (area)? 
 
-I certainly would not go with the overall mean or median as my prediction anymore. If somebody said to me, the value 'tcarea' for the selected ball is 3, I would be more inclined to guess the mean value for the individuals with that level of perceptions of antisocial behaviour (the conditional mean), rather than the overall mean across all the individuals. Wouldn't you? 
+I certainly would not go with the overall mean or median as my prediction anymore. If somebody said to me, the value 'tcarea' for the selected respondent is 3, I would be more inclined to guess the mean value for the individuals with that level of perceptions of antisocial behaviour (the conditional mean), rather than the overall mean across all the individuals. Wouldn't you? 
 
 If we plot the conditional means we can see that the mean of fear of violent crime for individuals that report a value of 3 in `tcarea` is around 1.4. So you may be better off guessing that.
 
-```{r, echo = FALSE}
+```{r}
 library(grid)
 ggplot() +
   geom_point(data=BCS0708, aes(x = tcarea, y = tcviolent), alpha=.2) +
@@ -133,7 +140,7 @@ In order to fit the model we use the `lm()` function using the formula specifica
 fit_1 <- lm(tcviolent ~ tcarea, data = BCS0708)
 ```
 
-You will see in your R Studio global environment space that there is a new object called `fit_` with 13 elements on it and about 2.2 Mb of data. We can get a sense for what this object is and includes using the functions we introduced in Week 1:
+You will see in your R Studio global environment space that there is a new object called `fit_1` with 13 elements on it and about 2.2 Mb of data. We can get a sense for what this object is and includes using the functions we introduced in Week 1:
 
 ```{r}
 class(fit_1)
@@ -158,7 +165,7 @@ For now I just want you to focus on the numbers in the "Estimate" column. The va
 
 We then need the b1 regression coefficient for for our independent variable, the value that will shape the **slope** in this scenario. This value is 0.30921. This estimated regression coefficient for our independent variable has a convenient interpretation. When the value is positive, it tells us that *for every one unit increase in X there is a b1 increase on Y*. If the coefficient is negative then it represents a decrease on Y. Here, we can read it as "for every one unit increase in the perceptions of antisocial behaviour score, there is a 0.31 unit increase in the fear of violent crime score."
 
-Knowing these two parameters not only allows us to draw the line, we can also solve· for any given value of X. Let's go back to our gambling game. Imagine I tell you the perceptions of antisocial behaviour score is .23. What would be your best bet now? We can simply go back to our regression line equation and insert the estimated parameters:
+Knowing these two parameters not only allows us to draw the line, we can also solve for any given value of X. Let's go back to our guess-the-fear-of-crime game. Imagine I tell you the perceptions of antisocial behaviour score is .23. What would be your best bet now? We can simply go back to our regression line equation and insert the estimated parameters:
 
 y = b0 + b1x   
 y = 0.03 + 0.31 (.23)  
@@ -178,11 +185,11 @@ In the output above we saw there was something called the residuals. The residua
 
 ![drawing](http://www.shodor.org/media/M/T/l/mYzliZjY4ZDc0NjI3YWQ3YWVlM2MzZmUzN2MwOWY.jpg)
 
-Or this other simplified example:
+<!-- Or this other simplified example:
 
-![residuals](http://img851.imageshack.us/img851/1310/plotres.jpg)
+![residuals](http://img851.imageshack.us/img851/1310/plotres.jpg) -->
 
-We see here points indicating the observed values (the data points in our sample), red lines indicating the distance to the regression lines, and numerical values indicating the distance from each of the points to the regression line. Least square estimation essentially aims to reduce the squared average of all these distances: that's how it draws the line.
+You see that we have our line, which is our predicted values, and then we have the black dots which are our actually observed values. The distance between them is essentially the amount by which we were wrong, and all these distances between observed and predicted values are our residuals. Least square estimation essentially aims to reduce the squared average of all these distances: that's how it draws the line.
 
 Why do we have residuals? Well, think about it. The fact that the line is not a perfect representation of the cloud of points makes sense, doesn't it? You cannot predict perfectly what the value of Y is for every individual just by looking ONLY at their perceptions of antisocial behaviour! This line only uses information regarding perceptions of antisocial behaviour. This means that there's bound to be some difference between our predicted level of fear given our knowledge of these perceptions (the regression line) and the actual level of fear (the actual location of the points in the scatterplot). There are other things that matter not being taken into account by our model to predict the values of Y. There are other things that surely matter in terms of understanding fear of crime. And then, of course, we have measurement error and other forms of noise.
 
@@ -191,7 +198,7 @@ y = b0 + b1x + residuals
 
 The residuals capture how much variation is unexplained, how much we still have to learn if we want to understand variation in Y. A good model tries to maximise explained variation and reduce the magnitude of the residuals. 
 
-We can use information from the residuals to produce a measure of effect size, of how good our model is in predicting variation in our dependent variables. Remember our gambling game? If we did not have any information about X our best bet for Y would be the mean of Y. The regression line aims to improve that prediction. By knowing the values of X we can build a regression line that aims to get us closer to the actual values of Y (look at the Figure below). 
+We can use information from the residuals to produce a measure of effect size, of how good our model is in predicting variation in our dependent variables. Remember our game where we try to guess fear of crime (Y)? If we did not have any information about X our best bet for Y would be the mean of Y. The regression line aims to improve that prediction. By knowing the values of X we can build a regression line that aims to get us closer to the actual values of Y (look at the Figure below). 
 
 ![r squared](https://people.richland.edu/james/ictcm/2004/weight2.png)
 
@@ -235,8 +242,8 @@ summary(fit_1)$coefficients
 ```
 
 In our example, we can see that the coefficient for our predictor here is statistically significant[^4].
-
-![testing regression line](http://4.bp.blogspot.com/-Wml75h2MG_4/Ur8Kp0fFyKI/AAAAAAAAAxk/vV8igWnarAA/s320/SimpleLinearRegressionJags-ICON-ICON-FREQ.png "Image taken from John Kruscke blog http://doingbayesiandataanalysis.blogspot.co.uk/")
+<!--
+![testing regression line](http://4.bp.blogspot.com/-Wml75h2MG_4/Ur8Kp0fFyKI/AAAAAAAAAxk/vV8igWnarAA/s320/SimpleLinearRegressionJags-ICON-ICON-FREQ.png "Image taken from John Kruscke blog http://doingbayesiandataanalysis.blogspot.co.uk/") -->
 
 We can also obtain confidence intervals for the estimated coefficients using the `confint()` function:
 
@@ -246,7 +253,7 @@ confint(fit_1)
 
 ##6.6 Fitting regression with categorical predictors
 
-So far we have explained regression using a quantitative input. It turns out we can also use regression with categorical explanatory variables. It is quite straightforward to run it. 
+So far we have explained regression using a numeric input. It turns out we can also use regression with categorical explanatory variables. It is quite straightforward to run it. 
 
 Last week we saw that men and women seem to express different levels of fear of violent crime. We can also explore this relationship using regression and a regression line. This is how you would express the model:
 
@@ -256,7 +263,7 @@ fit_2 <- lm(tcviolent ~ sex, data=BCS0708)
 
 Notice that there is nothing different in how we ask for the model. And see below the regression line:
 
-```{r, echo = FALSE}
+```{r}
 ggplot(data=BCS0708, aes(x=sex, y=tcviolent)) +
   geom_point(alpha=.2, position="jitter", color="orange") +
   geom_abline(intercept = fit_2$coefficients[1],
@@ -270,7 +277,7 @@ Let's have a look at the results:
 summary(fit_2)
 ```
 
-As you will see the output does not look too different. But notice that in the print out you see how the row with the coefficient and other values for our input variable `sex` we see that R is printing `[T.male]`. What does this mean?
+As you will see the output does not look too different. But notice that in the print out you see how the row with the coefficient and other values for our input variable `sex` we see that R is printing `[sexmale]`. What does this mean?
 
 Remember week 5 and t tests? It turns out that a linear regression model with just one dichotomous categorical predictor is just the equivalent of a t test. When you only have one predictor the value of the intercept is the mean value of the **reference category** and the coefficient for the slope tells you how much higher (if it is positive) or how much lower (if it is negative) is the mean value for the other category in your factor.
 
@@ -336,7 +343,7 @@ We see that the coefficients for the predictors change very little, it goes up a
 
 Other interpretations are also possible and are more generalizable. Gelman and Hill (2007: p. 34) emphasise what they call the *predictive interpretation* that considers how "the outcome variable differs, on average, when comparing two groups of units that differ by 1 in the relevant predictor while being identical in all the other predictors". So [if you're regressing y on u and v, the coefficient of u is the average difference in y per difference in u, comparing pairs of items that differ in u but are identical in v](http://andrewgelman.com/2013/01/05/understanding-regression-models-and-regression-coefficients/).
 
-So, for example, in this case we could say that comparing respondents who have the same level of perceptions of antisocial behaviour but who differed in whether they are female or male, the model predicts a expected difference of -.59 in their fear of violent crime scores. And that respondents with the same gender, but that differ by one point in the perception of antisocial behaviour, we would expect to see a difference of 0.31 in their fear of violent crime score. So we are interpreting the regression slopes **as comparisons of individuals that differ in one predictor while being at the same levels of the oter predictors**.
+So, for example, in this case we could say that comparing respondents who have the same level of perceptions of antisocial behaviour but who differed in whether they are female or male, the model predicts a expected difference of -.59 in their fear of violent crime scores. And that respondents with the same gender, but that differ by one point in the perception of antisocial behaviour, we would expect to see a difference of 0.31 in their fear of violent crime score. So we are interpreting the regression slopes **as comparisons of individuals that differ in one predictor while being at the same levels of the other predictors**.
 
 As you can see, interpreting regression coefficients can be kind of tricky[^6]. The relationship between the response y and any one explanatory variable can change greatly depending on what other explanatory variables are present in the model. 
 
@@ -361,12 +368,12 @@ Let's try with a more complex example:
 
 ```{r}
 fit_4 <- lm(tcviolent ~ tcarea + sex + age + bcsvictim + rural2 + work +educat3, data=BCS0708)
-sjp.lm(fit_3, breakLabelsAt = 30)
+sjp.lm(fit_4, breakLabelsAt = 30)
 ```
 
-Be advised to use these plots judiciously. There may be other sort of plots that may be [more appropriate](http://www.carlislerainey.com/2012/07/06/why-i-dont-like-coefficient-plots/) for what you want to communicate to your audience than the coefficient plot.
+<!-- Be advised to use these plots judiciously. There may be other sort of plots that may be [more appropriate](http://www.carlislerainey.com/2012/07/06/why-i-dont-like-coefficient-plots/) for what you want to communicate to your audience than the coefficient plot.-->
 
-Visual display of the effects of the variables in the model are particularly helpful. The `effects` package allows us to produce plots to visualise these relationships (when adjusting for the other variables in the model):
+Visual display of the effects of the variables in the model are particularly helpful. The `effects` package allows us to produce plots to visualise these relationships (when adjusting for the other variables in the model). Here's an example going back to our model fit_3 which contained sex and tcarea predictor variables:
 
 ```{r}
 library(effects)

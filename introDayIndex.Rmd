@@ -1,0 +1,17 @@
+---
+title: "Intro day index"
+author: "Reka Solymosi"
+date: "12 September 2016"
+logo: uomLogo.png
+output:
+  html_document:
+  includes:
+      in_header: logo.html
+---
+<img src="uomLogo.png" alt="logo" height="100" width="150" style="position:absolute;top:10px;right:10px;" />
+
+###Intro day R session lab notes
+
+- [Getting started: Installation and opening up R & R Studio](https://rawgit.com/maczokni/R-for-Criminologists/master/Intro_day.html)
+- [Getting down with data: Some basic tasks to get your hands dirty](https://rawgit.com/maczokni/R-for-Criminologists/master/Intro_day_2.html)
+- [How to R markdown](https://rawgit.com/maczokni/R-for-Criminologists/master/Intro_day_howToRMkd.html)

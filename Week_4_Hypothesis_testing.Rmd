@@ -1,21 +1,22 @@
 ---
 title: "WEEK 4: STUDYING RELATIONSHIPS BETWEEN A CATEGORICAL AND A QUANTITATIVE VARIABLE"
-author: "Juanjo Medina"
+author: "Juanjo Medina, updates by Reka Solymosi"
 output: 
   html_document:
     theme: cosmo
     highlight: haddock
 ---
 **Table of Contents**
-[Section 4.1: The logic of hypothesis testing](#the-logic-of-hypothesis-testing).
-[Section 4.2: Comparing means across two groups (the t test)](#comparing-means-across-two-groups-the-t- test).
-[Section 4.3: Comparing means across several groups (ANOVA)](#comparing-means-across-several-groups-anova).
+
+- [Section 4.1: The logic of hypothesis testing](#the-logic-of-hypothesis-testing).
+- [Section 4.2: Comparing means across two groups (the t test)](#comparing-means-across-two-groups-the-t- test).
+- [Section 4.3: Comparing means across several groups (ANOVA)](#comparing-means-across-several-groups-anova).
 
 #4.1 The logic of hypothesis testing
 
 In the last unit we learned how to think about and build confidence intervals. We explained how we could use confidence intervals to deal with uncertainty when estimating population parameters. Confidence intervals as we will see are very commonly used in statistics. The other key inferential tool in data analysis is the hypothesis test. Today we will focus on this second tool. 
 
-Last week we saw how we could use confidence intervals as well to form a view about whether there are differences across groups in the population. In particular, we used confidence intervals to assess whether women declare more fear of violent crime than men. In particular we saw how we could construct a confidence interval for the difference of the mean value of fear of crime for men and women. And we also saw how we could do "inference by eye" by virtue of visually comparing the confidence interval for the estimated mean value of fear for men and the estimated mean value of fear for women. Now we are going to use a different approach to make inferences about the existence of these differences in the population: hypothesis testing.
+Last week we saw how we could use confidence intervals as well to form a view about whether there are differences across groups in the population. In particular, we used confidence intervals to assess whether there was a difference in age between men and women involved in fatal collisions. In particular we saw how we could construct a confidence interval for the difference of the mean value of age for men and women. And we also saw how we could do "inference by eye" by virtue of visually comparing the confidence interval for the estimated mean value of fear for men and the estimated mean value of fear for women. Now we are going to use a different approach to make inferences about the existence of these differences in the population: hypothesis testing.
 
 Wikipedia defines a statistical hypothesis test as "a method of making decisions using data from a scientific study". The logic of hypothesis testing is based in the work of a number of pioneers in the field of statistics, the British Ronald Fisher and Egon Pearson and the Polish Jerzy Neyman . This work is so important that [some people argue](http://simplystatistics.org/2012/03/07/r-a-fisher-is-the-most-influential-scientist-ever/) that Sir Ronald Fisher is one of the most influential academics in the history of science; not a small feat! 
 
@@ -85,7 +86,14 @@ This t test makes a number of assumptions:
 
 You may also want to check for outliers by plotting the data, for in some cases this may distort your results, particularly with smaller samples. So we are ok with 1 and 2, and are going to proceed as if 4 is met. What about normality? With large samples you can relax this assumption. However, you may want to also check if your sample data are normally distributed.
 
-`r load("C:/Users/jjmedina/Dropbox/1_Teaching/1 Manchester courses/70821 Data Analysis Using R and RStudio/R Materials/Course1415/BCS0708.RData")`
+
+```{r}
+##R in Windows have some problems with https addresses, that's why we need to do this first:
+urlfile<-'https://raw.githubusercontent.com/jjmedinaariza/LAWS70821/master/BCS0708.csv'
+#We create a data frame object reading the data from the remote .csv file
+BCS0708<-read.csv(url(urlfile))
+
+```
 
 ```{r}
 library(ggplot2,quietly=TRUE, warn.conflicts=FALSE)
@@ -230,12 +238,14 @@ Let's start by discussing why we care about the spread of the groups. Remember t
 
 Look at the boxplots we produced. Does it look as if the spreads change systematically with the centres? Do the boxes with the bigger centres also have the wider spread? This sort of systematic trend may be more concerning than random differences in spread across the groups.
 
+
 We can also run a test that will check the homogeneity of variance. This is the [Levene Test](http://en.wikipedia.org/wiki/Levene's_test). We can run this test with the `leveneTest()` function of the `car` package.
 
 ```{r, message=F, warning=F}
 library(car)
 leveneTest(BCS0708$tcviolent, BCS0708$ethgrp2, center = median)
 ```
+
 
 In this case, the test is significant suggesting that the variances are different in the population. However, you need to keep in mind that with the large samples of some of the groups this result is unsurprising.
 
@@ -298,6 +308,8 @@ As before, we are concerned here with clear departures from the red line. How do
 
 You may find [these examples](http://emp.byui.edu/BrownD/Stats-intro/dscrptv/graphs/qq-plot_egs.htm) of interpretation useful. We can see there are some at both ends.
 
+Also this [shiny app](https://xiongge.shinyapps.io/QQplots/) is an interactive way to get your head around interpreting Normal QQ plots. 
+
 The `qqPlot` function of the `car` package assists the interpretation by drawing a confidence interval around the expected values:
 
 ```{r}
@@ -344,7 +356,7 @@ Here I will discuss power transformations. We define a simple power transformati
 How do you select the right power transformation? Again, trial and error. The `symbox()` function in the `car` package is useful for finding a transformation to approximate symmetry by trial and error. The following code will produce a series of boxplots comparing the distribution of our variable (`ptcviolent`) for various power transformations.
 
 ```{r}
-symbox(~ptcviolent, data=BCS0708)
+symbox(BCS0708$ptcviolent, data=BCS0708)
 
 ```
 
@@ -372,12 +384,15 @@ If we were happy with our transformations we could then run ANOVA as if the data
 
 Wilcox (2005) describes a set of procedures for conducting robust ANOVA: ways of doing ANOVA when there are problems with its assumptions. When everything goes completely wrong with the assumptions, you may want to look at these options.
 
-For this we need to install the package that he has created for implementing these procedures in R. This package is not available in the standard way we have covered so far, from the CRAN repository. There are a couple of ways of installing the package as explained [here](http://dornsife.usc.edu/labs/rwilcox/software/). I used the second approach suggested by the author. After that you load in the standard way.
+For this we need to install the package that he has created for implementing these procedures in R. 
+
+<!--This package is not available in the standard way we have covered so far, from the CRAN repository. There are a couple of ways of installing the package as explained [here](http://dornsife.usc.edu/labs/rwilcox/software/). I used the second approach suggested by the author. After that you load in the standard way. -->
 
 ```{r, message=F, warning=F}
-library(WRS) 
+library(WRS2) 
 ```
 
+<!--
 The recommended reading discussed at greater length some of the various options you have with this package, as well as some background on robust statistics. One of the issues with this package is that many functions expect the data to be in different format to the one we have. In long format your data frame may look like this (fictitious data):
 
 | Cases | tcviolent  | ethnicity | 
@@ -404,10 +419,13 @@ fear_eth_w <- unstack(fear_eth, tcviolent ~ ethgrp2)
 
 ```
 
+-->
+
 We can now invoke the code. The following code will use ANOVA based on 5% trimmed mean with 599 bootstrap samples:
 
 ```{r}
-t1waybt(fear_eth_w, tr = .05, nboot = 599)
+library(WRS2)
+t1waybt(tcviolent ~ ethgrp2, data = BCS0708, tr = .05, nboot = 599)
 ```
 
 As with the standard ANOVA and the Welch version, we still get a significant result.

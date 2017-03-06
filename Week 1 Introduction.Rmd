@@ -1,28 +1,41 @@
 ---
 title: 'WEEK 1: INTRODUCTION TO R AND BASIC DESCRIPTION OF DATA'
-author: "Juanjo Medina"
+author: "Juanjo Medina, updates by Reka Solymosi"
 output:
+  html_document: default
   pdf_document:
-   latex_engine: xelatex
+    latex_engine: xelatex
 ---
+
 **Table of Contents**
-[Section 1.1: Introduction](#introduction).
-[Section 1.2: Interacting with R and creating objects](#interacting-with-r-and-creating-objects).
-[Section 1.3: Vectors, factors and data frames](#vectors-factors-and-data-frames).
-[Section 1.4: Data filtering](#data-filtering).
-[Section 1.5: Loading data and packages](#loading-data-and-packages).
-[Section 1.6: A first look at the data](#a-first-look-at-the-data).
-[Section 1.7: Numerical summaries of central tendency and variability](#numerical-summaries-of-central-tendency-and-variability).
-[Section 1.8: Summarising categorical variables](#summarising-categorical-variables).
-[Section 1.9: Saving your work and further resources](#saving-your-work-and-further-resources).
+
+- [Section 1.1: Introduction](#introduction).
+- [Section 1.2: Interacting with R and creating objects](#interacting-with-r-and-creating-objects).
+- [Section 1.3: Vectors, factors and data frames](#vectors-factors-and-data-frames).
+- [Section 1.4: Data filtering](#data-filtering).
+- [Section 1.5: Loading data and packages](#loading-data-and-packages).
+- [Section 1.6: A first look at the data](#a-first-look-at-the-data).
+- [Section 1.7: Numerical summaries of central tendency and variability](#numerical-summaries-of-central-tendency-and-variability).
+- [Section 1.8: Summarising categorical variables](#summarising-categorical-variables).
+- [Section 1.9: Saving your work and further resources](#saving-your-work-and-further-resources).
 
 ##1.1 Introduction
 
-This course provides an introduction to data analysis using R, a programming language and environment -or as some argue the [lingua franca of statistics](http://vimeo.com/52999628). You can learn more about the history of R clicking [here](https://www.youtube.com/watch?v=kzxHxFHW6hs&list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ) and if you Google "why r" you will find many answers to the question -such as [this](http://www.econometricsbysimulation.com/2014/03/why-use-r-five-reasons.html).
+This course provides an introduction to data analysis using R.
+<!-- , a programming language and environment -or as some argue the [lingua franca of statistics](http://vimeo.com/52999628). You can learn more about the history of R clicking [here](https://www.youtube.com/watch?v=kzxHxFHW6hs&list=PLjTlxb-wKvXNSDfcKPFH2gzHGyjpeCZmJ) and if you Google "why r" you will find many answers to the question -such as [this](http://www.econometricsbysimulation.com/2014/03/why-use-r-five-reasons.html). -->
 
 These handouts contains various hyper-links to videos that explain or expand some of the ideas and concepts introduced. It will be handy if you have speakers or headphones to listen to the videos.
+<!--
+###Installing R and R Studio
 
-In order to follow this handout at home you would need to install both R and R Studio in your local machine -click [here](https://www.youtube.com/watch?v=eD07NznguA4) for instructions using Windows or [here](https://www.youtube.com/watch?v=cX532N_XLIs&list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S) for instructions using a Mac. Alternatively, if you are a university student, your university is likely to have these programs already installed in the computers in their labs. 
+In order to follow this handout at home you would need to install both R and R Studio in your local machine 
+
+- click [here](https://www.youtube.com/watch?v=eD07NznguA4) for instructions using Windows or
+- [here](https://www.youtube.com/watch?v=cX532N_XLIs&list=PLqzoL9-eJTNDw71zWePXyHx3_cm_fMP8S) for instructions using a Mac. 
+
+Alternatively, if you are a university student, your university is likely to have these programs already installed in the computers in their labs. 
+
+###Tips from Juanjo
 
 In this session we are going to learn some of the basic grammar elements in R. Before we start there are four thoughts I want to share:
 
@@ -34,24 +47,50 @@ In this session we are going to learn some of the basic grammar elements in R. B
 
 + **Embrace frustration** You will get frustrated. But "frustration is not just natural, it's actually a positive thing that you should watch for. Frustration is your brain's way of being lazy; it's trying to get you to quit and go do something easy or fun. If you want to get physically fitter, you need to push your body even though it complains. If you want to get better at programming, you'll need to push your brain. *Recognise when you get frustrated and see it as a good thing; you're now stretching yourself*" (Wickham, 2014: vii-viii).
 
-+ **Don't aim to memorise everything.** There are over 5000 **packages** in R (modules that expand the functionality of R). Each of them create additional **functions** that allow you to do new cool stuff with your data. Nobody expects you to know by heart all of these functions and what they do. Memorising them would be as useless as memorising a dictionary. Instead, as you use R more and more your memory of basic functions (those you use the most) will improve. But in the day of searchable help files, Google, and resources such as [Quick-R](http://www.statmethods.net/) or the [R-Codebook](http://www.cookbook-r.com/) (providing quick "cheat-sheets" for common commands), the need to fill your memory with these functions is considerably reduced. 
++ **Don't aim to memorise everything.** There are over 5000 **packages** in R (modules that expand the functionality of R). Each of them create additional **functions** that allow you to do new cool stuff with your data. Nobody expects you to know by heart all of these functions and what they do. Memorising them would be as useless as memorising a dictionary. Instead, as you use R more and more your memory of basic functions (those you use the most) will improve. But in the day of searchable help files, Google, and resources such as [Quick-R](http://www.statmethods.net/) or the [R-Codebook](http://www.cookbook-r.com/) (providing quick "cheat-sheets" for common commands), the need to fill your memory with these functions is considerably reduced. -->
 
 ##1.2 Interacting with R and creating objects
 
 Unlike other programs for data analysis you may have used in the past (Excel, SPSS), you need to interact with R by means of writing down instructions and asking R to evaluate those instructions. R is an *interpreted* programming language.
 
-If you open the standard R interface you will be confronted with a command prompt in the main console. You can write the R language in the **command line** directly, but most typically you will write in a **script**, a text file, from which you can also run commands and that has the advantage that can be saved. 
+<!--If you open the standard R interface you will be confronted with a command prompt in the main console. You can write the R language in the **command line** directly, but most typically you will write in a **script**, a text file, from which you can also run commands and that has the advantage that can be saved. -->
 
 In these handouts you will see bits of these instructions (I will often refer to this as "code") inside greyed boxes and the result of executing those instructions in white boxes. If you are looking at this document and have an open session of R, you should be able to reproduce the results by cutting it and pasting it into your R console (or script). 
 
-At the R prompt in the main console we can type **expressions**. R expressions could be as simple as asking R to evaluate how much is 3+5.
+We'll be using R Studio in these sessions. As we practiced in the intro session, you type your code in the R Script window, which allows for you to save an re-run your code later. This way you can build up a "cookbook" of various bits of code that you have written.
+
+In this session we will interpret the code a bit more, in order to get you moving beyond copy and pasting code, and actually writing some of your own. 
+
+So let's have a look at some basic concepts.
+
+###Numbers
+
+R will always treat numbers as numbers. This sounds straighforward, but actually it is important to note, because, as discussed last week, we can name our variables anything. EXCEPT they cannot be numbers. Numbers are **protcted** by R. 1 will always mean 1. 
+
+If you want, give it a try. Try to create a variable called 12 and assign it the value "twelve". As we did last week, we can assign something a meaning by using the "<-" characters.
+
+```{r, error=TRUE}
+12 <- "twelve"
+```
+
+You get an error!
+
+12 remains 12. This means that with numbers, you can use R as a calculator. Give it a go.
+
+<!--At the R prompt in the main console we can type **expressions**. R expressions could be as simple as asking R to evaluate how much is 3+5.-->
 
 ```{r}
 3 + 5
-
 ```
 
-Once you press enter, the R engine will evaluate this expression and do something with it. In this case, it will tell you that the result of adding 3 and 5 is 8. Using R simply as a calculator would be akin to killing flies with nuclear missiles. Typically we want to do slightly more interesting things with it. 
+or
+
+```{r}
+7 * 4
+```
+
+
+<!--Once you press enter, the R engine will evaluate this expression and do something with it. In this case, it will tell you that the result of adding 3 and 5 is 8. Using R simply as a calculator would be akin to killing flies with nuclear missiles. Typically we want to do slightly more interesting things with it. 
 
 We use R for analysing and visualising data. And data in R is stored as **objects**. R is what we call an *object-oriented language*. **Everything that exists in R is an object**. 
 
@@ -59,7 +98,17 @@ If you are used to other programs such as Excel or SPSS the first mental barrier
 
 We can create objects in R by asking R to put things inside of named objects. For that we use the **assignment operator**. In R the `<-` symbol is the assignment operator (you could also use the `=` sign as an assignment operator and some people do, *but I would suggest you don't*). 
 
-This assignment operator is what assigns value to a symbol. So, for example, if we type the following expression in the prompt:
+This assignment operator is what assigns value to a symbol. So, for example, if we type the following expression in the prompt: -->
+
+###Objects
+
+Most of the time you will be using objects, not the numbers though (R is more than just a fancy calculator). Last week we created many objects. We created a data frame object, that was a table of crimes recorded by GMP in June. We can also create an object that holds only one bit of text, or a list of numbers. Objects have a name, and a value. Name is how you summon them, and the value is what it represents. 
+
+Technically R is an Object Oriented language. Object-oriented programming (OOP) is a programming language model organized around objects rather than "actions" and data rather than logic.
+
+To create an object, you have to give it a name, and then use the assignemtn operator (the `<-` symbol) to assign it some value. 
+
+For example, for the if we want to create an object that we name "x", and we want it to represent the value of 5, we write:
 
 ```{r}
 x <- 5
@@ -67,40 +116,140 @@ x <- 5
 
 We are simply telling R to create a *numeric object*, called `x`, with one element (5) or of length 1. It is numeric because we are putting a number inside this object. It may help you at this stage to think of objects as boxes, things where you store stuff and the assignment operator as the tool you use to tell R what goes inside.
 
-When a complete expression is entered at the prompt in the main console and we press *return*, this expression is then evaluated by the R engine and the result is returned. This result may be auto-printed in the main console or not (and the latter may take some get used to if you've used before something like SPSS). If you press return after entering the previous expression you won't see much happening in the main console (although if you are using R Studio you may have noticed that a new object, `x`, appears in the global environment window in R Studio).
+<!--When a complete expression is entered at the prompt in the main console and we press *return*, this expression is then evaluated by the R engine and the result is returned. This result may be auto-printed in the main console or not (and the latter may take some get used to if you've used before something like SPSS). If you press return after entering the previous expression you won't see much happening in the main console (although if you are using R Studio you may have noticed that a new object, `x`, appears in the global environment window in R Studio). -->
 
-However, you can see the content of the object `x` either by auto-printing by typing the following:
+You can see the content of the object `x` either by auto-printing by typing the following:
 
 ```{r}
 x
 ```
 
-Or alternatively, you can use a **function**. R uses functions to perform operations. **Everything you do in R is the result of running a function**. You can think of functions as preprogrammed routines that ask R to do a particular something. Here we can use the `print()` function to see what it is inside this object. 
+When writing expressions in R is very important you understand that **R is case sensitive**. This could drive you nuts if you are not careful. More often than not if you write an expression asking R to do something and R returns an error message, chances are that you have used lower case when upper case was needed (or vice-versa). So always check for the right spelling. For example, see what happens if I use a capital 'X':
+
+```{r, error = TRUE}
+X
+
+```
+
+You will get the following message: `"Error in print(X) : object 'X' not found"`. R is telling us that `X` does not exist. There isn't an object "
+`X` (upper case), but there is an object `x` (lower case). When you get an error message or implausible results, you want to look back at your code to figure out what is the problem. This process is called **debugging**. There are some proper systematic ways to write code that facilitate debugging, but we won't get into that here. R is very good with automatic error handling at the levels we'll be using it at. Very often the solution will simply involve correcting the spelling.
+
+###Functions
+Alternatively to just typing the name of the object to get its value in the console, you can use a **function**. R uses functions to perform operations. **Everything you do in R is the result of running a function**. You can think of functions as preprogrammed routines that ask R to do a particular something. Here we can use the `print()` function to see what it is inside this object. 
 
 ```{r}
 print(x)
 ```
 
-When writing expressions in R is very important you understand that **R is case sensitive**. This could drive you nuts if you are not careful. More often than not if you write an expression asking R to do something and R returns an error message, chances are that you have used lower case when upper case was needed (or vice-versa). So always check for the right spelling. For example, see what happens if I ask the following:
+A function is a bit of code that does something with the objects you pass it. These are called **arguments**. Basically the thing that you pass into the function is it's argument. You pass arguments into functions by placing them in the brackets(). We won't be writing functions in this course, but just to illustrate, I'll put a basic one here. I call it doubleThisNumber(), and I say that it will receive one argument in a bracket (call it x), and when it does, it will take x and times it by two. That is what it will return. 
 
-```{r, eval = FALSE}
-print(X)
-
+```{r}
+doubleThisNumber <- function(x){
+  x*2 
+}
 ```
 
-You will get the following message: `"Error in print(X) : object 'X' not found"`. R is telling us that `X` does not exist. There isn't an object "
-`X` (upper case), but there is an object `x` (lower case). When you get an error message or implausible results, you want to look back at your code to figure out what is the problem. This process is called **debugging**. Very often the solution will simply involve correcting the spelling.
+Now I can pass any number (or object that is numeric) to this function and it will take that, double it, and return it. 
 
-Let's look at another example. We are going to create another object `y` containing a sequence of integer values from 1 to 20.
+```{r}
+doubleThisNumber(4)
+```
+
+Generally functions are more useful than this. Another function we saw last week was `View()` which let us view a dataframe, and `plot()` which created a basic x,y plot for us. We'll be using loads of functions. Thing of them as a mechanism for taking your object, and doing something with them. To do so, you need the name of the function, and then put your object in the brackets which follow that function. 
+
+You can often pass parameters into functions, as well as the argument (the object you want it to run the function on). For example, last week we saw `sort()`. You can create a list in R, and use the `sort()` function to put it in order. 
+
+To demonstrate: 
+
+Step 1 create list: 
+```{r}
+listOfSomeNumbers <- c(2, 5, 23, 1, 7, 56, 109, 33, 21)
+```
+
+Step 2 sort list: 
+```{r}
+sort(listOfSomeNumbers)
+```
+
+But what if I want to sort it from largest to smallest (in decreasing order)?
+
+Well, the sort function allows you to specify this, by passing it the parameter `decreasing = TRUE`. 
+
+```{r}
+sort(listOfSomeNumbers, decreasing = TRUE)
+```
+
+To find out what parameters you can pass a function besides the object, you can use the help function. As discussed last week, to call the help on a function, you just put a question mark in front of it: 
+```{r, eval=FALSE}
+?sort()
+```
+And the details will appear in your help/ plot window of R Studio. 
+
+###Packages
+
+We also discussed last week the use of packages. Packages are bundles of code that someone else has written, and uploaded to a central repository (called CRAN) so that anyone can download and use them. These packages have lots and lots of functions in them, which we can use, and also sometimes some data sets. 
+
+Different packages are used for different things we want to achieve. For example, last week we used the `rmarkdown` package, in order to create a markdown document. 
+
+Packages need to be downloaded only once, but they need to be **called** every time you use them. 
+
+To download the package you use the `install.packages()` function. So to download the rmarkdown package for example we used
+
+```{r, eval=FALSE}
+install.packages("rmarkdown")
+```
+
+You only ever have to do this once on your computer. If you quit R and then start it up again a week later, the package should still be there. 
+
+Loading it on the other hand, you have to do every time you start a new R session. That just means if you close R Studio today, and open it back up in a week, and you want to run a function that comes from a package, you need to load that package into your current session first. 
+
+You do this by ysing the `library()` function. So to load rmarkdown into your session, you need to run:
+
+```{r, eval=FALSE}
+library(rmarkdown)
+```
+
+To see what packages you currently have loaded in your session, you use the `search()` function (you do not need to pass it any objects in this case)
+
+```{r}
+search()
+```
+
+
+To find out mode about packages see [here](http://www.statmethods.net/interface/packages.html).
+<!--Let's look at another example. We are going to create another object `y` containing a sequence of integer values from 1 to 20.
 
 ```{r}
 y <- 1:30 # The : operator is used to create integer sequences
 y #Auto printing of Y
 ```
 
-So here we now have an integer object with a length of 30, much longer than the one we created above. The first line has a 1 because that's the first element in this object, the second line starts with a number 24 because the first element in that line is the 24th element in the `y` object.
+So here we now have an integer object with a length of 30, much longer than the one we created above. The first line has a 1 because that's the first element in this object, the second line starts with a number 24 because the first element in that line is the 24th element in the `y` object. -->
 
-You must have noticed in the code that there was a number sign `#` followed by some text. Whenever the R engine sees the number sign it knows that what follows is not code to be executed. You can use this sign to include *annotations* when you are coding. These annotations are a helpful reminder to yourself (and others reading your code) of **what** the code is doing and (even more important) **why** you are doing it. It is good practice to often use annotations. You can use these annotations in your code to explain your reasoning and to create "scannable" headings in your code. That way after you save your script you will be able to share it with others or return to it at a later point and understand what you were doing when you first created it -see [here for further details on annotations and in how to save a script when working with the basic R interface](http://www.screenr.com/1VN8).
+###Comments
+
+We've also spoken a bit about comments in your code. As discussed, you should save bits of code that you write, and compile them into your own personal R cookbook. However once you have lots of bits of code, and some time has elapsed, you might forget what some bits of codes do. 
+
+Similarly if you want to share your code with someone, then it makes it easier for them to have comments to see what you are doing with that code, to better understand. 
+
+To create a comment you use the hashtag/ number sign `#` followed by some text. Whenever the R engine sees the number sign it knows that what follows is not code to be executed. You can use this sign to include *annotations* when you are coding. These annotations are a helpful reminder to yourself (and others reading your code) of **what** the code is doing and (even more important) **why** you are doing it. 
+
+It is good practice to often use annotations. You can use these annotations in your code to explain your reasoning and to create "scannable" headings in your code. That way after you save your script you will be able to share it with others or return to it at a later point and understand what you were doing when you first created it -see [here for further details on annotations and in how to save a script when working with the basic R interface](http://www.screenr.com/1VN8).
+
+So for example, if I wanted someone to be able to use my function I wrote earlier, I could write: 
+```{r}
+
+#this function will return the double of any number passed to it
+#to call the function type doubleThisNumber(), and inside the brackets enter a number
+doubleThisNumber <- function(x){
+  x*2 
+}
+
+```
+
+You need one `#` per line, and anything after that is a comment that is not executed by R. You can use spaces after (its not like a hashtag on twitter). 
+You do need a `#` for every line you have comments on. 
+
 
 In sum, everything that exist in R is an object and everything you do in R is the result of running a function. In fact, the numbers we used in the sum operation earlier are numeric objects (R does not uses scalars as other programming languages) and the sum operator is in fact a function for summation. If you don't believe try executing the following:
 
@@ -110,6 +259,8 @@ In sum, everything that exist in R is an object and everything you do in R is th
 
 
 ##1.3 Vectors, factors and data frames 
+
+###Vectors
 
 Most commonly, when you use variables in R, you create **vectors**. What is a vector? An atomic vector is simply a set of elements *of the same class* (typically: character, numeric, integer, or logical -as in True/False). It is the basic data structure in R. Typically you will use the `c()` function (c stands for concatenate) to create vectors.
 
@@ -162,6 +313,8 @@ class(my_8th_vector) #The class() function will tell us the class of the vector
 
 ```
 
+###Factors
+
 An important thing to understand in R is that categorical (ordered, also called ordinal, or unordered, also called nominal)[^1] data are typically encoded as **factors** .  A factor is simply an integer vector that can contain only predefined values, and is used to store categorical data. Factors are treated specially by many data analytic and visualisation functions. This makes sense because they are essentially different from quantitative variables.
 
 Although you can use numbers to represent categories, *using factors with labels is better than using integers to represent categories* because factors are self-describing (having a variable that has values "Male" and "Female" is better than a variable that has values "1" and "2"). When R reads data in other formats (e.g., comma separated), by default it will automatically convert all character variables into factors. If you rather keep these variables as simple character vectors you need to explicitly ask R to do so.
@@ -199,6 +352,8 @@ You may have noticed the various names I have used to designate objects (`my_1st
 
 + You want to follow consistent naming conventions. [R users are terrible about this](http://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf). But we could make it better if we all aim to follow similar conventions. In these handouts you will see I follow the `underscore_separated` convention -see [here](http://robinlovelace.net/r/2014/07/15/naming-conventions-r.html) for details.
 
+###Data frames
+
 One of the most common objects you will work with in this course are **data frames**. Data frames can be created with the `data.frame()` function. Data frames are multiple vectors of possibly different classes (e.g., numeric, factors), but of the same length (e.g., all vectors, or variables, have the same number of rows). This is what in other programmes for data analysis are represented as data sets, the tabular spreadsheets I was referring to earlier.
 
 ```{r}
@@ -228,7 +383,7 @@ attributes(mydata_1)
 
 By now you must have also noticed the common structure of **functions** in R. You can think of functions as executable commands that R will evaluate. You will have noticed functions have a name followed by a bracket and that you can pass *arguments* to the function by including them within the brackets. In the previous example we were using a function called *attributes* and we passed the argument `mydata_1`. 
 
-A function in R can take any number of arguments. You can obtain help about functions in R (and the specific arguments they can take) by using the `help()` function. This will give you access to the help files as a html file. These help files may look cryptic at first, but the more you use R the easier it gets to understand how they work. Don't underestimate the examples at the end of these files. As a beginner they may not mean much to you, but when you get more fluency with R executing those examples will help you in terms of understanding what the functions do.
+A function in R can take any number of arguments. You can obtain help about functions in R (and the specific arguments they can take) by using the ? as mentioned earlier <!-- `help()` function. This will give you access to the help files as a html file. These help files may look cryptic at first, but the more you use R the easier it gets to understand how they work. Don't underestimate the examples at the end of these files. As a beginner they may not mean much to you, but when you get more fluency with R executing those examples will help you in terms of understanding what the functions do.
 
 ```{r, eval=FALSE}
 help(attributes)
@@ -236,7 +391,7 @@ help(attributes)
 ?attributes
 
 ```
-
+-->
 A final word in code presentation and **coding conventions** before we carry on. Code is a form of communication and it is important that you write it in a way that others will read it clearly. As Hadley Wickham[^2]  has noted: "Good coding style is like using correct punctuation when writing: you can manage without it, but it sure makes things easier to read." Apart from using the "#" sign to make annotations, there are other basic conventions you should also follow:
 
 + Every comma should be followed by a space
@@ -254,9 +409,187 @@ You may want to look at the [style guide](http://google-styleguide.googlecode.co
 
 R capabilities for data manipulation are ridiculously rich. We could devote entire sessions just to discuss those. Here I am just going to introduce some very basic ones around filtering. For more detail (or if you want to do something I have not explained), look at: [the R Cookbook](http://www.cookbook-r.com/Manipulating_data/); [Quick R](http://www.statmethods.net/management/index.html); this [twotorial](http://www.screenr.com/CoS8); or [this guide](http://ateucher.github.io/rcourse_site/02-dplyr.html) to the fast and excellent `dplyr` package; and for even more detail (than you possibly want at this stage) you can consult [a preprint copy of Rob Muenchen's book](https://science.nature.nps.gov/im/datamgmt/statistics/R/documents/R_for_SAS_SPSS_users.pdf).
 
-**Filtering** allows you to extract a vector's element that satisfy certain condition. You will be commonly doing filtering, as statistical analysis often focuses on data that satisfies certain conditions. Going through some of these data manipulation commands now will help you to understand a bit better some of the code that we will be using during the course. Let's start by creating a small data frame:
+**Filtering** allows you to extract a vector's element that satisfy certain condition. You will be commonly doing filtering, as statistical analysis often focuses on data that satisfies certain conditions. Going through some of these data manipulation commands now will help you to understand a bit better some of the code that we will be using during the course. 
+
+As discussed R has many data sets built in for teaching with, one of which is the Titanic data about passengers and their fate. If you want to have a look at it, we can do so using the `View()` function. 
+
+```{r, eval=FALSE}
+View(Titanic)
+```
+
+You can see that it has a few variables. What are these?
+
+This is actually a table, so before we are able to work with this data, we have to turn it from a table into a dataframe. This is achieved with the `as.data.frame()` function. 
 
 ```{r}
+titanicDf <- as.data.frame(Titanic)
+```
+
+We now have a dataframe called titanicDf to play with. 
+
+To filter, or subset a dataframe, you can use a few approaches. Here I will introduce how you do this in base R, and then I will recommend some packages that are very good for data manipulation, which you can move on to if you are feeling more confident. 
+
+###Filtering in base R
+
+You normally want to filter based on some criteria. The syntax for filtering is to use the name of the dataframe (or vector, if you're filtering from that) followed by the square brackets. Inside the square brackets, you enter the criteria you want to filter for rows and columns, separated by a comma. Row criteria are always on the left of the comma, and column criteria are always on the right. If you leave either side of the comma blank, that indicates that you want all of those. 
+
+So to select all rows of the first two columns of the Titanic dataframe, you would type "titanicDf"+"["+" "+", "+"1:2"+"]". If you want to use this subset dataframe later, dont forget to assign it to an object! So to create a new dataframe that is the first two columns of the Titanic dataframe you type: 
+```{r}
+
+firstTwoColsOfTitanicDf <- titanicDf[ ,1:2]
+
+```
+
+You can have a look at the new dataframe you have created using `View()`. If all went well, it should be the class which each passenger travelled in, and their sex. 
+
+So similarly, if you wanted the first two rows of the data, then you would put your criteria on the left (row) side of the comma within the square brackets:
+
+```{r}
+
+firstTwoRowsOfTitanicDf <- titanicDf[1:2, ]
+
+```
+
+Again you can View() if you'd like, and hopefully you have all the columns, but only two rows of the dataframe. 
+
+Most of the time your crietria will be a little bit more complex however. You don't always know the number of the columns you want, and you usually want to select rows where a column meets a certain criteria. 
+
+For example, let's say we only want to see the outcomes for people who travelled in 1st class. So we want a dataframe where we have all the columns, but only the rows (observations) where Class value is 1st.
+
+If we were to say this in an equation, then we would say, we want all rowns, where Class equals 1st. It is not so different in R, as we want to select all rows, where the column that descibes class equals "1st". 
+
+If you remember from last week, you summon a column (or variable) from a dataframe by using the `$` operator. So to get the Class column from the titanicDf dataframe, we need to type:
+
+"titanicDf" + "$" + "Class"
+
+The equals operator in R is a double equals "==". This is because a single equals can be used to assign something a value (sort of like the "<-" operator). == instead asks a question, "does one value equal the other?".
+
+So for example 1 == 2 returns FALSE while 2 == 2 returns true. Try it!
+
+```{r}
+1==2
+2==2
+```
+
+So == is a way to test if some criteria is met. This is why we use that to select rows where a criteria is met. 
+
+So to test whether an observation (row) meets the criteria, we can test for each row whether the == returns true or false. In the subsetting, we get back all the rows where == returned TRUE. 
+
+So back to the exampe of selecting all rows where Class equals 1st (so all observations about 1st class passengers) the criteria can be written as
+
+`titanicDf$Class == "1st"`
+
+As you recall, we are filtering rows, and row criteria goes in the left half of the square brackets. We want all of the columns, so we leave the right hand side (column criteria) blank:
+
+```{r}
+
+firstClassOnly <- titanicDf[titanicDf$Class == "1st", ]
+
+```
+
+```{r, echo=FALSE}
+
+titanicDf[titanicDf$Class == "1st", ]
+
+```
+Now you have a subset dataframe which has only the information about 1st class passengers on the Titanic. Feel free to view it. 
+
+You can add multiple criteria to your selection. To do this you use the `and "&"` and `or "|"` operator. 
+
+So if you want to know only about 1st class children, your criteria would look like this: 
+
+`titanicDf$Class == "1st" & titanicDf$Age=="Child"`
+
+That is what you would place in the left side (row criteria) of the square bracket:
+
+```{r}
+
+firstClassChildOnly <- titanicDf[titanicDf$Class == "1st" & titanicDf$Age=="Child", ]
+
+```
+
+```{r, echo=FALSE}
+
+firstClassChildOnly
+
+```
+On the other hand if you wanted to know about both 1st and 2nd classes, then you need the "or" operator. That is because it is true either if the class is "1st" or if its "2nd".
+
+So your criteria will look like: 
+
+titanicDf$Class == "1st" | titanicDf$Class == "2nd"
+
+That is what you would place in the left side (row criteria) of the square bracket:
+
+```{r}
+
+firstOrSecondClass <- titanicDf[titanicDf$Class == "1st" | titanicDf$Class == "2nd", ]
+
+```
+
+```{r, echo=FALSE}
+
+firstOrSecondClass
+
+```
+You can also use things like greater than, lesser than, etc. A list of operators can be found [here](http://www.statmethods.net/management/operators.html).
+
+You can also filter with the `subset()` function. As arguments you need to specify the thing you are subsetting (eg: dataframe or vector) and then the filtering condition/ criteria. So something like this: 
+
+`subsetDf <- subset(nameOfOriginalDf, nameOfDf$columnName=="myCriteria")`
+
+So to return to the Titanic examples, to subset only the rows where class is 1st class, we would type: 
+
+```{r}
+firstClassOnly <- subset(titanicDf, titanicDf$Class=="1st") 
+```
+
+```{r, echo=FALSE}
+firstClassOnly
+```
+
+Or with the multiple criteria (both 1st and 2nd Class passengers)
+
+```{r}
+firstOrSecondClass <- subset(titanicDf, titanicDf$Class=="1st" | titanicDf$Class=="2nd") 
+```
+
+```{r, echo=FALSE}
+firstOrSecondClass 
+```
+
+When applied to vectors, the difference between this function and the ordinary filtering we have covered so far lies in the manner in which **missing** data is handled. 
+
+Let's see an example:
+
+```{r}
+z <- (c(6, 1:3, NA,12)) #This creates a vector with 6 values, one of which is NA. NA is the label R uses for unknown values.
+z
+
+```
+
+If we use ordinary filtering NA values (missing data) will be included in our selection:
+
+```{r}
+z[z > 5]
+
+```
+
+But if we use the `subset()` function the NA values are excluded from the selection.
+
+```{r}
+subset(z, z > 5) 
+
+```
+
+It is important to remember this difference for you may have particular reasons to exclude or include NA values in what you are planning to do.
+
+For other logical and arithmetic operators that you can use in R for filtering (and how to write them) in R please look [here](http://www.statmethods.net/management/operators.html). For further details you may also want to see [Roger Peng's video on subsetting](http://tinyurl.com/ot8cq96). The `dplyr` package is truly quite something if you are interested in filtering data frames. It uses more intuitive language and adds some very helpful functions, but in this section I thought it was important to cover the more traditional approach of filtering with R. In later sessions we will introduce some of the features of `dplyr`.
+
+<!--
+Let's start by creating a small data frame:
+
+```{r
 #First we create a numeric vector and a factor (notice they have the same lenght of 5)
 y <- c(89, 78, 75, 73, 72)
 x <- factor(c("Man City", "Liverpool", "Chelsea", "Arsenal", "Everton"))
@@ -282,7 +615,7 @@ y[c(1, 2, 4)] #For the 1st, 2nd and 4th elements of the y vector
 
 We can also look at specific rows and columns in a data frame:
 
-```{r}
+```{r, eval = FALSE}
 #This will return the first row and columns 1 to 2 of the named data frame (anything to the left of the comma refers to rows and to the right to the columns)
 Premiership13_14[1, 1:2]
 
@@ -290,7 +623,7 @@ Premiership13_14[1, 1:2]
 
 We can access a particular column in the data frame, typically our variables, using the **dollar sign operator**:
 
-```{r}
+```{r, eval=FALSE}
 #This will return all the values in the teams column that exist in the Premiership13_14 data frame
 Premiership13_14$teams
 
@@ -298,7 +631,7 @@ Premiership13_14$teams
 
 We can also subset by particular logic operations. Here it is an example. Suppose I want to identify all rows with a team name that equals to Man City. In that case we can use the variable name team and check using the `==` (which in R means equal) operator if the row equals to Man City. This particular vector will return true only when Man City appears:
 
-```{r}
+```{r, eval=FALSE}
 Premiership13_14[Premiership13_14$teams == "Man City", ] #We are asking for rows where the condition is met, which is why this appears before the comma within the brackets, we are not selecting particular columns -and thus don't specify an additional argument after the comma. If you don't specify any condition or list after the comma that means you will include all columns in your dataframe.
 ```
 
@@ -306,39 +639,19 @@ Since we did not excluded any column auto printing this object returns informati
 
 You can also perform other type of operations regarding numerical vectors. Say we want to subset the rows with less than 75 points gained through the footballing season last year (remember we only included the first 5 top teams!). Then you would write:
 
-```{r}
+```{r, eval=FALSE}
 Premiership13_14[Premiership13_14$points < 75, ]
 ```
 
 The number 4 and 5 that you see indicate that those are the respective row numbers for those two cases. You will have noticed again a comma within those square brackets, whatever you put after the comma deals with columns rather than rows. Since we don't specify anything there we get all the columns.
 
-You can also filter with the `subset()` function. When applied to vectors, the difference between this function and the ordinary filtering we have covered so far lies in the manner in which missing data is handled. Let's see an example:
+You can also filter with the `subset()` function. When applied to vectors, the difference between this function and the ordinary filtering we have covered so far lies in the manner in which missing data is handled. 
 
-```{r}
-z <- (c(6, 1:3, NA,12)) #This creates a vector with 6 values, one of which is NA. NA is the label R uses for unknown values.
-z
+-->
 
-```
+##1.5: Loading data
 
-If we use ordinary filtering NA values (missing data) will be included in our selection:
-
-```{r}
-z[z > 5]
-
-```
-
-But if we use the `subset()` function the NA values are excluded from the selection:
-
-```{r}
-subset(z, z > 5) #As arguments you need to specify the vector (z) and then the filtering condition (z > 5)
-
-```
-
-It is important to remember this difference for you may have particular reasons to exclude or include NA values in what you are planning to do.
-
-For other logical and arithmetic operators that you can use in R for filtering (and how to write them) in R please look [here](http://www.statmethods.net/management/operators.html). For further details you may also want to see [Roger Peng's video on subsetting](http://tinyurl.com/ot8cq96). The `dplyr` package is truly quite something if you are interested in filtering data frames. It uses more intuitive language and adds some very helpful functions, but in this section I thought it was important to cover the more traditional approach of filtering with R. In later sessions we will introduce some of the features of `dplyr`.
-
-##1.5: Loading data and packages
+We did this a bit last week, but here's a more comprehensive guide for reading in data. 
 
 You can then, as we have seen, create data into R in a variety of ways. In data analysis, however, it is very common that you will work with data already formatted (and collected by somebody else: government, a professional survey organisation you may have contracted for fieldwork, other researchers, etc.). We live in a time where data is everywhere; some people call it the ["data revolution that will change the way we live"](http://www.amazon.co.uk/Big-Data-Revolution-Transform-Think/dp/1848547927). And there are, indeed, a variety of places where you can obtain datasets for secondary analysis such as the UK Data Archive or the ICPSR website (feel free to Google these, they may give you ideas for your MA dissertation or future PhD research). 
 
@@ -352,7 +665,7 @@ Data may come in a variety of formats (Excel files, comma separated, tab separat
 
 In particular, we are going to read a dataset which is a Teaching Unrestricted version of the *British Crime Survey for 2007-2008*. The codebook with information about this dataset is [here](http://doc.ukdataservice.ac.uk/doc/6891/mrdoc/pdf/6891_user_guide.pdf). This file is in comma separated format and therefore we will be using the `read.csv()` function.
 
-```{r, eval = FALSE}
+```{r}
 ##R in Windows have some problems with https addresses, that's why we need to do this first:
 urlfile<-'https://raw.githubusercontent.com/jjmedinaariza/LAWS70821/master/BCS0708.csv'
 #We create a data frame object reading the data from the remote .csv file
@@ -369,9 +682,22 @@ download.file('https://raw.githubusercontent.com/jjmedinaariza/LAWS70821/master/
 BCS0708 <- read.csv("BCS0708.csv")
 ```
 
-Once in your computer you can load the file into your working environment every time you need it for a different project using the `load()` function.
+Or for ultimate simplicity, you can do what we did in the half day session last week, and download the .csv file into your working directory, and then read it in with either specifying the file path, or with the simple `file.choose()` function. 
 
-```{r, echo = FALSE}
+```{r, eval = FALSE}
+BCS0708 <- read.csv(file.choose())
+```
+
+For some resources on how to read other file types into R see: 
+
+- [For excel](https://www.r-bloggers.com/read-excel-files-from-r/) 
+- [For SPSS](https://www.r-bloggers.com/how-to-open-an-spss-file-into-r/)
+- [For JSON](http://stackoverflow.com/questions/2617600/importing-data-from-a-json-file-into-r) 
+
+
+<!-- Once in your computer you can load the file into your working environment every time you need it for a different project using the `load()` function.
+
+```{r, echo = FALSE, eval = FALSE}
 load("C:/Users/jjmedina/Documents/BCS0708.RData")
 
 ```
@@ -396,7 +722,7 @@ Packages typically include collections of new functions, but often also include 
 
 The first of this is the `Boston` dataset from the `MASS` package that is part of the base installation of R (you do not need to install it). To get the data from a package in your global environment you will see often people may load the package (if it's not already loaded) using the `library()` function and then use the `data()` function. But you don't need to do that, you could instead specify the package where the data is stored as an argument in your `data()` function.
 
-```{r}
+```{r, eval = FALSE}
 data(Boston, package="MASS")
 ```
 
@@ -415,6 +741,7 @@ data()
 ```
 
 This will list data frames that are part of R base installation or loaded packages, not other data frames that you may have created or loaded. For the latter you need to use the `ls()` function as we explained earlier.
+-->
 
 ##1.6: A first look at the data
 
@@ -422,7 +749,9 @@ We are going to work with the British Crime Survey data for the remainder of thi
 
 Data are often too big to look at the whole thing. It is almost always impossible to eyeball the entire dataset and see what you have in terms of interesting patterns or potential problems. It is often a case of information overload and we want to be able to extract what is relevant and important about it. Summarising the data is the first step in any analysis and it is also used for finding out potential problems with the data. Regarding the latter you want to look out for: missing values; values outside the expected range (e.g., someone aged 200 years); values that seem to be in the wrong units; mislabelled variables; or variables that seem to be the wrong class (e.g., a quantitative variable encoded as a factor).
 
-If you simply type the name of the new dataset BCS0708 and press return for auto-printing, you will see why we need data summaries. It is hard to eyeball large datasets like this trying to see the whole thing. So lets start by the basic things you always look first in a datasets. First you ask for the dimensions, the number of rows and columns, using the `dim()` function:
+If you simply type the name of the new dataset BCS0708 and press return for auto-printing, you will see why we need data summaries. It is hard to eyeball large datasets like this trying to see the whole thing. So lets start by the basic things you always look first in a datasets. 
+
+You can see in the Environment window that BCS0708 has 11676 observations (rows) of 35 variables (columns). You can also obtain this information using code. Here you want the  **DIM**ensions of the dataframe (the number of rows and columns) so you use the `dim()` function:
 
 ```{r}
 dim(BCS0708)
@@ -437,16 +766,43 @@ names(BCS0708)
 
 As you may notice, these names are hard to interpret. You need to look at the codebook to figure out what each of those variables is actually measuring. The bad news is that real life datasets in social science are much larger than this and have many more variables (hundreds or more). The good news is that typically you will only need a small handful of them and will only require to deeply familiarise yourself with that smaller subset.
 
-Then you may want to look at the class of each individual column. You can do this using the following code. It is a tricky way of doing it, we are using the `sapply()` function to ask to the class of the first row of all the columns and then inferring the class from this first row (which will be the same class in all rows, remember what we said about coercion earlier on):
+Then you may want to look at the class of each individual column. As discussed, class of the variable lets us know if its an integer (number) or factor. 
+
+To get the class of one variable, you pass it to the `class()` function. For example
 
 ```{r}
+class(BCS0708$age)
+
+class(BCS0708$work)
+```
+
+There is a way that you can apply a function to all elements of a vector (list or dataframe). You can use the functions `sapply()`, `lapply()`, and `mapply()`  . To find out more about when to use each one see [here](https://www.r-bloggers.com/using-apply-sapply-lapply-in-r/). 
+
+For example, we can use the `lapply()` function to look at each column and get its class. To do so, we have to pass two arguments to the `lapply()` function, the first is the name of the dataframe, to tell it what to look through, and the second is the function we want it to apply to every column of that function. 
+
+So we want to type "lapply(" + "name of dataframe" + "," + "name of function " + ")" 
+
+Which is: 
+
+```{r}
+lapply(BCS0708, class)
+```
+
+<!--
+Here we can use the `sapply()` function to ask to the class of the first row of all the columns and then inferring the class from this first row:
+
+```{r, eval = FALSE}
 sapply(BCS0708[1, ], class)
 ```
+-->
 
 As you can see many variables are classed as factors. This is common with survey data. Many of the questions in social surveys measure the answers as categorical variables (e.g., these are nominal or ordinal level measures) which are then encoded as factors in R. You should know that the default options for `read.csv()` will encode any character attribute in your file as a factor.
 
-Another useful function is `str()`, which will return: the name of the variable; the class of each column; the number of levels or categories (if it is a factor); and the values for the first few cases in the dataset. You can also use the `head()` function if you just want to visualise the values for the first few cases in your dataset. The next code for example ask for the values for the first two cases.
-
+Another useful function is `str()`, which will return: the name of the variable; the class of each column; the number of levels or categories (if it is a factor); and the values for the first few cases in the dataset. 
+```{r}
+str(BCS0708$wburgl)
+```
+You can also use the `head()` function if you just want to visualise the values for the first few cases in your dataset. The next code for example ask for the values for the first two cases.
 
 ```{r}
 head(BCS0708, 2)
@@ -454,13 +810,13 @@ head(BCS0708, 2)
 
 In the same way you could look at the last two cases in your dataset using `tail()`:
 
-```{r, eval = FALSE}
+```{r}
 tail(BCS0708, 2)
 ```
 
 It is good practice to do this to ensure R has read the data correctly and there's nothing terribly wrong with your dataset. It can also give you a first impression for what the data looks like. If you are used to spreadsheet-like views of data, you can use the `View()` function, which should open this view in R Studio.
 
-```{r, eval = FALSE}
+```{r, eval=FALSE}
 View(BCS0708)
 
 ```
@@ -475,9 +831,11 @@ is.na(BCS0708$educat3[1:10])
 R is telling me that none of those elements are missing. More typically, you can ask the count of NA values for a particular variable:
 
 ```{r}
-sum(is.na(BCS0708$educat3)) #This is asking R to sum how many cases are TRUE NA in this variable. When reading a logical vector as the one we are creating, R will treat the FALSE elements as 0s and the TRUE elements as 1s. So basically the sum() function will count the number of TRUE cases returned by the is.na() function.
+sum(is.na(BCS0708$educat3)) 
 
 ```
+This is asking R to sum how many cases are TRUE NA in this variable. When reading a logical vector as the one we are creating, R will treat the FALSE elements as 0s and the TRUE elements as 1s. So basically the sum() function will count the number of TRUE cases returned by the is.na() function.
+
 
 You can use a bit of a hack to get the proportion of missing cases instead of the count:
 
@@ -522,7 +880,7 @@ mean(BCS0708$age, na.rm = TRUE) #Specifying this argument will ensure that only 
 
 Another function you may want to use with numeric variables is `summary()`:
 
-```{r}
+```{r, eval = FALSE}
 summary(BCS0708$age)
 ```
 
@@ -534,7 +892,9 @@ Once installed you can activate packages with either the `library()` or the `req
 
 You could use `favstats()` function from the [mosaic](http://cran.r-project.org/web/packages/mosaic/index.html) package:
 
-```{r, message=F, warning=F}
+To do this you have to first install and then load up the mosaic package. (Hint: if you've not used it before, you'll need to run `install.packages()`, and after that, `library()` )
+
+```{r, warning=FALSE}
 library(mosaic)
 favstats(~age, data = BCS0708) #five number summary, mean, standard deviation, and number of cases
 
@@ -542,21 +902,21 @@ favstats(~age, data = BCS0708) #five number summary, mean, standard deviation, a
 
 The `describe()` function from the [Hmisc](http://cran.r-project.org/web/packages/Hmisc/index.html) package:
 
-```{r, message = F, warning=F}
+```{r, warning=FALSE}
 library(Hmisc)
 describe(BCS0708$age) #n,missing, mean, various percentiles, the 5 lowest and highest values
 ```
 
 The `stat.desc()` function from the [pastecs](http://cran.r-project.org/web/packages/pastecs/index.html) package:
 
-```{r, message=F, warning=F}
+```{r, warning=FALSE}
 library(pastecs)
 stat.desc(BCS0708$age) #Which gives you among other things the standard error, standard deviation, and 95% confidence interval (if you specify norm=TRUE as an argument you will get test for normality of the distribution, but it will only work in data sets size 3 to 5000 -so we cannot use it here). Specifying basic=FALSE as an argument will also exluce some of the descriptives.
 ```
 
 Or the `describe()` function from the [psych](http://cran.r-project.org/web/packages/psych/index.html) package: 
 
-```{r}
+```{r, warning=FALSE}
 library(psych)
 describe(BCS0708$age) #Which gives you a trimmed mean, as well as measures of skew and kurtosis
 ```
@@ -587,7 +947,7 @@ describeBy(british_crime_survey_2007_2008$age, british_crime_survey_2007_2008$li
 
 Yet, even if you have use a short name to designate your objects, you may still have to do more typing that your, let's face it, lazy nature will want. If you have to use as inputs various variables and the function require that you use the `name_of_dataset$name_of_variable` formulation as a way to identify your variables, it can be a bit tedious to do so. An incredibly helpful way of getting around that is using the `with()` function.
 
-```{r}
+```{r, eval = FALSE}
 #Ok, we don't save so much typing with this example, but imagine you have 10 variables!
 with(BCS0708, describeBy(age, livharm1))
 
@@ -626,17 +986,18 @@ remove(.Table) ##removes this object from working memory
 
 When producing frequency distribution tables, it is particularly useful (if you want to save yourself the work of formatting the tables in a nice way) to use the [sjPlot](http://cran.r-project.org/web/packages/sjPlot/index.html) package. You can use the `sjt.frq()` function for this. This [online tutorial](http://rpubs.com/sjPlot/sjtfrq) explains some of the features of this function in greater detail.
 
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 library(sjPlot)
-sjt.frq(BCS0708$walkdark, variableLabels = c("How safe you feel walking alone at dark?"))
+sjt.frq(BCS0708$walkdark, var.labels = c("How safe you feel walking alone at dark?"))
 ```
-
-`r library(sjPlot)`
-`r sjt.frq(BCS0708$walkdark, variableLabels=c("How safe you feel walking alone at dark?"), no.output=TRUE)$knitr`
+<!--
+`library(sjPlot)`
+`sjt.frq(BCS0708$walkdark, variableLabels=c("How safe you feel walking alone at dark?"), no.output=TRUE)$knitr`
+-->
 
 ##1.9 Saving your work and further resources
 
-After you spend some time working with R you may want to save your progress. Equally if you create, alter or obtain data (e.g., from an external repository) you may want to store the data in a file saved in either your P: drive, a USB memory stick (whichever you prefer to work from). 
+After you spend some time working with R you may want to save your progress. Equally if you create, alter or obtain data (e.g., from an external repository) you may want to store the data in a file saved in either your P: drive, a USB memory stick, dropbox, etc (whichever you prefer to work from). 
 
 The first thing you want to do is to create a folder in either your P: drive, the hard drive of your home computer, or a USB drive for these datasets and the exercises that you will be performing for this course. You may call this folder "R Exercises" or something like that. In future you may want to have a folder for every research project you are working on.
 
@@ -644,24 +1005,25 @@ Whatever folder or location you use for the materials of this course, it is conv
 
 To find out what working directory you are currently working from, you can use the following code:
 
-```{r, eval = FALSE}
+```{r}
 getwd()
-
 ```
 
 In order to use a more convenient directory (like the one you may want to create for this course), you can use the `setwd()` function. This is how I set the working directory for my R related teaching materials for this course:
 
 ```{r, eval = FALSE}
-setwd("C:/Users/jjmedina/Dropbox/Teaching/1 Manchester courses/70821 Intro to Statistics/R Materials/RStudio/Course1415")
+setwd("~/Desktop/R-for-Criminologists/demo") #Path to your working directory goes here
 
 ```
+
+Or as described in the intro session you can navigate there manually by clicking on Session > Set working directory > choose directory ([see here](https://rawgit.com/maczokni/R-for-Criminologists/master/Intro_day_2.html))
 
 The argument, what you find between parentheses, is simply the particular location that *in my case* I want to use as such. You will have to adapt this to whatever location you want to work from. In order for R to find and save in the right place your data and any programs ("scripts"), or graphics that you produce *it is important that you start any R session setting up this working directory*. 
 
 Once you have created a folder and have set it up as the working directory you can save your progress. You can do this using the following code:
 
-```{r}
-save.image("FirstWeek.RData")
+```{r, eval = FALSE}
+save.image("firstWeek.RData")
 ```
 
 This will create an **image** with all the various objects that are in your workspace in the named file. You can use other name rather than "FirstWeek", but it is important that you make sure you specify that this is a .RData type of file. This will tell R this file is a workspace file. In any case, if you close your R Studio session you will be automatically asked whether you want to save the current workspace image. Watch [this video](https://www.youtube.com/watch?v=OJ4WBjV5o1I) if any of this is not clear.
@@ -670,18 +1032,21 @@ You can also save particular objects in your working space, say one of your data
 
 
 ```{r, eval = FALSE}
-save("BCS0708", file = "C:/Users/jjmedina/Documents/BCS0708.RData")
-
+save("BCS0708", file = "BCS0708.RData")
 ```
 
 Once the file is saved as a .RData file you can then load it simply with the `load()` function.
 
 ```{r, eval = FALSE}
-load("C:/Users/jjmedina/Documents/BCS0708.RData")
+load("BCS0708.RData")
 
 ```
 
 However, some people would advise to save data files as such. So rather than creating a .RData file a preferable option may be to use the `write.csv()` option, which will create a comma separated file with your data frame. See [this](http://www.screenr.com/lPS8) for details.
+
+```{r, eval = FALSE}
+write.csv(BCS0708, file="BCS0708.csv")
+```
 
 If you want to write your data frame into a different format, there are a number of ways for doing so. I won't be expecting you to do so, but you can learn how to do it: ; [for dbf, SPSS, SAS, STATA](http://www.screenr.com/DXd8); and [for Excel](http://www.screenr.com/1Xd8).
 
@@ -706,12 +1071,12 @@ Also, in order to consolidate what we have covered today, you may also want to w
 Alternatively you may find as helpful reference [the online handouts](http://ateucher.github.io/rcourse_site/index.html) produced by Andy Teucher. They are more parsimonious than this handout and can be used as a cheat-sheet for the type of functions we introduced today. If you want further practice you may enjoy the interactive modules in [Try R](http://tryr.codeschool.com/). And for further documentation, the [Beginner's Guide to R guide](http://www.computerworld.com/article/2497464/business-intelligence/business-intelligence-60-r-resources-to-improve-your-data-skills.html) of Computerworld magazine, is pretty handy and you will find there as well a very comprehensive annotated list of additional learning resources for R.
 
 **Important terms introduced today** (if you are not clear about them, please read the document again or ask me about their meaning: 
+
 + Code
 + Object-oriented language
-+ Expressions
 + Assignment operator
 + Debugging
-+ Annotations
++ Annotations (commenting your code)
 + Functions
 + Arguments
 + Vectors
@@ -720,7 +1085,7 @@ Alternatively you may find as helpful reference [the online handouts](http://ate
 + Global environment
 + Coding conventions
 + Sub-setting
-+ Logical operators
++ Logical operators (and/ or)
 + Codebook
 + Metadata
 + Data munging
@@ -728,11 +1093,11 @@ Alternatively you may find as helpful reference [the online handouts](http://ate
 + Summary statistics
 + Central tendency
 + Variability
-+ Mean, Median, Mode
-+ Standard Deviation
-+ Range
-+ Quantiles
-+ Interquartile range
++ Mean, Median, Mode(for more details see [here](https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics/mean-and-median/v/statistics-intro-mean-median-and-mode))
++ [Standard Deviation]()
++ Range (for more details see [here](http://www.mathsteacher.com.au/year9/ch17_statistics/05_data/analyse.htm#range))
++ Quantiles (for more details see [here](http://www.mathsteacher.com.au/year9/ch17_statistics/06_quartiles/quartiles.htm))
++ Interquartile range (for more details see [here](https://www.youtube.com/watch?v=DGAXeX42eoE))
 + Quantitative variables
 + Categorical variables
 + Frequency table

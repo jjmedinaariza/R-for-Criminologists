@@ -1,11 +1,13 @@
 ---
 title: 'WEEK 3: FOUNDATIONS OF STATISTICAL INFERENCE: CONFIDENCE INTERVALS'
-author: "Juanjo Medina"
-output: 
+author: "Juanjo Medina, updates by Reka Solymosi"
+output:
   html_document:
-    theme: cosmo
-    highlight: haddock
+  includes:
+      in_header: logo.html
 ---
+<img src="uomLogo.png" alt="logo" height="100" width="150" style="position:absolute;top:10px;right:10px;" />
+
 **Table of Contents**
 [Section 3.1: Introduction](#introduction).
 [Section 3.2: Generating random data](#generating-random-data).
@@ -37,14 +39,16 @@ Unlike in previous and future sessions, the focus today will be less applied and
 
 For the purpose of today's session we are going to generate some fictitious data. We use real data in all other sessions but it is convenient for this session to have some randomly generated fake data (actually technically speaking pseudo-random data)[^1]. 
 
-So that all of us gets the same results (otherwise there would be random differences!), we need to use the `set.seed()`. Doing this guarantees that all of us get the same randomly generated numbers:
+So that all of us gets the same results (otherwise there would be random differences!), we need to use the `set.seed()`. Basically your numbers are pseudorandom because they're calculated by a number generating algorithm, and setting the seed gives it a number to "grow"" these pseudorandom numbers out of. If you start with the same seed, you get the same set of random numbers. 
+
+So to guarantee that all of us get the same randomly generated numbers, set your seed to 100:
 
 ```{r}
-set.seed(100) #You can set the seed at any value, but if you want to get the same data that I do, it would be convenient you use this value.
+set.seed(100) 
 
 ```
 
-We are going to generate an object with skewed data. As I said las week, often we work with severely skewed data in criminology. For generating this type of data I am going to use the `rnbinom()` for something called negative binomial distributions.
+We are going to generate an object with skewed data. We often work with severely skewed data in criminology. For example, we saw with crimes in neighbourhoods in last week and the week before that number of crimes is not evenly distributed, instead the distribution is skewed. For generating this type of data I am going to use the `rnbinom()` for something called negative binomial distributions.
 
 ```{r}
 skewed <- rnbinom(100000, mu = 1, size = 0.3) #Creates a negative binomial distribution, don't worry too much about the other parameters at this stage, but if curious look at ?rnbinom
@@ -56,7 +60,7 @@ mean(skewed)
 sd(skewed)
 ```
 
-And we can also see how it looks like:
+And we can also see what it looks like:
 
 ```{r, message=F, warning=F}
 library(ggplot2)
@@ -212,10 +216,11 @@ Notice the differences between these sampling distributions? As the sample size 
 Let's look closer to the summary statistics using `favstats()` from the loaded `mosaic` package:
 
 ```{r}
-favstats(result, data = sampd_IQ_30)
-favstats(result, data = sampd_IQ_100)
-favstats(result, data = sampd_IQ_1000)
+favstats(~with, data = sampd_IQ_30)
+favstats(~with, data = sampd_IQ_100)
+favstats(~with, data = sampd_IQ_1000)
 ```
+
 
 As you can see the mean of the sampling distributions is pretty much the same regardless of sample size, though since we only did 50000 samples there's still some variability. But notice how the **range** (the difference between the smaller and larger value) is much larger when we use smaller samples. When I run this code I get one sample of size 30 with a sample mean as low as 83 and another as high as 110. But when I use a sample size of a 1000 the smallest sample mean I get is 95 and the largest sample size I get is 99. *When the sample size is smaller the range of possible means is wider and you are more likely to get sample means that are wide off from the expected value.*
 
@@ -223,22 +228,34 @@ This variability is also captured by the standard deviation of the sampling dist
 
 We can see that the precision of our guess or estimate improves as we increase the sample size. Using the sample mean as a estimate (we call it a **point estimate** because it is a single value, a single guess) of the population mean is not a bad thing to do if your sample size is large enough and the variable can be assumed to be normally distributed in the population. More often than not this guess won't be too far off in those circumstances.
 
-But what about variables that are not normally distributed. What about "crime""? We saw this variable was quite skewed. Let's take numerous samples, compute the mean of "crime", and plot its distribution.
+But what about variables that are not normally distributed. What about "crime"? We saw this variable was quite skewed. Let's take numerous samples, compute the mean of "crime", and plot its distribution.
 
 ```{r}
 sampd_CR_30 <- do(50000) * with(sample(fake_population, 30), mean(crime))
 sampd_CR_100 <- do(50000) * with(sample(fake_population, 100), mean(crime))
 sampd_CR_1000 <- do(50000) * with(sample(fake_population, 1000), mean(crime))
-#Plot the results, notice how we have changed the aesthetics. We are definig them within each geom because we are using different data stored in different dataframes.
+#Plot the results, notice how we have changed the aesthetics. We are definig them within each geom because we are using different data stored in different dataframes
+
+```
+
+```{r, echo=FALSE}
+
+colnames(sampd_CR_30) <- "result"
+colnames(sampd_CR_100) <- "result"
+colnames(sampd_CR_1000) <- "result"
+
+```
+
+```{r}
 ggplot() + 
     geom_density(data=sampd_CR_1000, aes(x = result, fill = "1000"), position = "identity", alpha = 0.4) +
    geom_density(data=sampd_CR_100, aes(x = result, fill = "100"), position = "identity", alpha = 0.4) +
    geom_density(data=sampd_CR_30, aes(x = result, fill = "30"), position = "identity", alpha = 0.4) +
   labs(fill = "Sample size") + #This will change the title of the legend
   scale_fill_discrete(limits = c("1000", "100", "30")) #This will ensure the order of the items in the legend is correct
-favstats(result, data = sampd_CR_30)
-favstats(result, data = sampd_CR_100)
-favstats(result, data = sampd_CR_1000)
+favstats(~result, data = sampd_CR_30)
+favstats(~result, data = sampd_CR_100)
+favstats(~result, data = sampd_CR_1000)
 mean(fake_population$crime)
 
 ```
@@ -251,6 +268,8 @@ How is this helpful? Well, it tells us we need large samples if we want to use s
 
 If you want to further consolidate some of these concepts you may find [these videos](https://www.khanacademy.org/math/probability/statistics-inferential/sampling_distribution/v/central-limit-theorem) on sampling distributions from Khan Academy useful.
 
+In terms of optimal sample sizes, in the first lecture we discussed a possibility of diminishing returns on increasing sample sizes. Basically, the greater the sample size, the more likely you are to find a smaller effect *statistically* significant. We'll talk about this later, when we discuss effect sizes and power calculations, but if you're interested to read ahead, the main reference paper here (which you can tell by it being cited over 21 THOUSAND times) is Cohen's [Power Primer](http://neuron4.psych.ubc.ca/~schaller/528Readings/Cohen1992.pdf)
+
 #3.5 The normal distribution and confidence intervals with known standard errors
 
 While the sample mean may be the best single number to use as an estimate of the population mean, particularly with large samples, each sample mean will continue to come with some sample error (with some distance from the population mean). How can we take into account the uncertainty in estimating the population mean that derives from this fact?
@@ -259,17 +278,22 @@ The key to solving the problem relies in the fact that the sampling distribution
 
 One of the peculiarities of the standard normal distribution is that we know the proportion of cases that fall within standard deviation units away from the mean. In the graphic below you can see the percentage of cases that fall within one and two standard deviations from the mean in the standard normal distribution:
 
-![Normal Distribution](http://upload.wikimedia.org/wikipedia/commons/8/8c/Standard_deviation_diagram.svg)
+![Normal Distribution](normpdf.jpg)
 
 We know that the sampling distribution of the means can be assumed with large samples to have a shape like this. We saw that running our sampling experiment. You can think of the sampling distribution of the means as the distribution of sampling error. Most sample means fall fairly close to the *expected value* (i.e., the population mean) and so have small sampling error; many fall a moderate distance away; and just a few fall in the tails of the sampling distribution, which signals large estimation errors. So although working with sample data we don’t have a precise distance, we have a model that tells us how that distance behaves (i.e., it follows a normal distribution). Let this sink in for a few seconds. 
 
-This is very useful because then we can use this knowledge to generate the **margin of error**.  The margin of error is simply *the largest likely sampling error*. In social science we typically choose likely to imply 95%, so that there is a 95% chance that the sampling error is less than the margin of error. By extension this means that there is only a 5% chance that the sampling error will be bigger: that we have been very unlucky and our sample mean falls in one of the tails of the sampling distribution. 
+This is very useful because then we can use this knowledge to generate the **margin of error**. 
+
+The margin of error is simply *the largest likely sampling error*. In social science we
+typically choose likely to imply 95%, so that there is a 95% chance that the sampling error is less than the margin of error. By extension this means that there is only a 5% chance that the sampling error will be bigger: that we have been very unlucky and our sample mean falls in one of the tails of the sampling distribution. 
 
 Looking at the standard normal distribution we know that about 95% of the cases fall within 2 standard deviations on either side of the mean. We know then that 95% of the sample means (95.46% to be more precise) will fall within two standard errors  of the expected value (e.g., the mean of the sampling distribution). So we can say that the margin of error, the largest likely estimation error, equals 2 standard errors. More accurately, the margin of error equals 1.96 standard errors (1.96 corresponds to 95% whereas the value 2 corresponds to 95.46%).
 
 This may be clearer with an example. Let’s focus in our variable “IQ”. Look at the standard error (the standard deviation of the collection of sample means) for the sampling distribution of “IQ” when we took samples of 100 cases. We produced this earlier on.  
 
-`r se_sampd_IQ_100 <- favstats(result, data=sampd_IQ_100)`
+```{r} 
+se_sampd_IQ_100 <- favstats(~with, data=sampd_IQ_100)
+```
 
 The standard error was `r se_sampd_IQ_100$sd`. If we multiply `r se_sampd_IQ_100$sd` times 1.96 we obtain `r se_sampd_IQ_100$sd * 1.96`. This means that 95% of the cases in this sampling distribution will have an error that won’t be bigger than that. They will only at most differ from the mean of the sampling distribution by (plus and minus) `r se_sampd_IQ_100$sd * 1.96`. However, 5% of the samples will have a margin of error bigger than that (in absolute terms).
 
@@ -298,7 +322,7 @@ samp_IQ_100 <- sampd_IQ_100[1:100, ]
 ci_IQ <- data.frame(meanofIQ = samp_IQ_100)
 #We are now going to create the lower and the upper limit for the confidence interval
 #First we obtain the margin of error. To do this I will compute the summary statistics for the sampling distribution and then multiply the standard error (e.g., the standard deviation of the sampling distribution) times 1.96.
-se_sampd_IQ_100 <- favstats(result, data=sampd_IQ_100)
+se_sampd_IQ_100 <- favstats(~with, data=sampd_IQ_100)
 me_IQ_100 <- se_sampd_IQ_100$sd * 1.96 #sd is the name of the variable returned from favstats() that includes the information about the standard deviation of the distribution we were exploring. Notice how one of the beauties of R is that it allows you to extract content from the objects it creates so that then you use them for whatever purpose you want. Here we compute the margin of error by multiplying this times 1.96.
 #Then I will create two numerical vectors with the upper and the lower limit and then add them to the data frame we created
 ci_IQ$LowerLimit <- samp_IQ_100 - me_IQ_100
@@ -308,13 +332,13 @@ ci_IQ$UpperLimit <- samp_IQ_100 + me_IQ_100
 
 You may want to use the `View()` function to see inside the `ci_IQ` data frame that we have created. Every row represents a sample and for each sample we have the mean and the limits of the confidence interval. We can now query how many of these confidence intervals include the mean of the variable crime in our fake population data.
 
-```{r, eval=FALSE}
+```{r}
 ci_IQ$indx <- (ci_IQ$LowerLimit <= mean(fake_population$IQ)) & 
   (ci_IQ$UpperLimit >= mean(fake_population$IQ))
 sum(ci_IQ$indx)
 
 ```
-`r ci_IQ$indx <- (ci_IQ$LowerLimit <= mean(fake_population$IQ)) & (ci_IQ$UpperLimit >= mean(fake_population$IQ))`
+<!--`r ci_IQ$indx <- (ci_IQ$LowerLimit <= mean(fake_population$IQ)) & (ci_IQ$UpperLimit >= mean(fake_population$IQ))`-->
 
 Thus `r sum(ci_IQ$indx)` intervals contain the true population mean. If you feel playful (and curious) you may want to modify the code we have use above to check how many of a 100 or of 200 samples for example would contain the true population mean. It should be roughly around 95% of them. Pretty cool, isn't it?
 
@@ -324,9 +348,9 @@ We can also plot these confidence intervals:
 #First I am going to create an ID variable to identify each sample (I will need this as an input in the plot I will create). I will use the row name (that list the samples from 1 to 1 100) as my ID variable.
 ci_IQ$id <- rownames(ci_IQ)
 #We are going to use a new geom we have not covered so far that allows you to create lines with a point in the middle. You need to tell R where the line begins and ends, as well as where to locate the point in the middle. The point in the middle is our mean and the lines range from the lower limit and upper limit. In this sense each line represents the confidence interval. We will use the ID variable so that R plots one line for each of the samples. Finally I am asking R to use the "indx" variable we create so that we can distinguish clearly the confidence intervals that cover the population mean.
-ggplot(ci_IQ, aes(x = id, y = meanofIQ, ymin = LowerLimit, ymax = UpperLimit, colour = indx)) +
-  geom_hline(y = mean(fake_population$IQ), colour = "red", size = 1) + #This will create a horizontal line representing the population mean, so that we can clearly see it
-  geom_pointrange() +
+ggplot(ci_IQ, aes(x = id, y = meanofIQ, ymin = LowerLimit, ymax = UpperLimit, group= indx, color = indx)) +
+  geom_hline(yintercept  = mean(fake_population$IQ), colour = "red", size = 1) + #This will create a horizontal line representing the population mean, so that we can clearly see it
+  geom_pointrange(aes(ymin = LowerLimit, ymax = UpperLimit)) +
   theme_bw() +
   ggtitle("Confidence intervals for the mean (100 samples of size 100)") +
   labs(colour="Covers μ?", x = "", y ="Mean of IQ") +
@@ -337,13 +361,21 @@ ggplot(ci_IQ, aes(x = id, y = meanofIQ, ymin = LowerLimit, ymax = UpperLimit, co
 As you can see most of the confidence intervals cover the population mean, but some times this does not happen. If you know the population mean, then you can see whether that happens or not. But in real life we run samples because we don't know the population parameters. So, unfortunately, when you do a sample you can never be sure whether your estimated confidence interval is one of the red or the green ones.  The truth is we will never know whether our confidence interval captures the population parameter or not, *we can only say that under certain assumptions if we had repeated the procedure many times it will include it 95% of the time*. This is one of the reasons why in statistics when making inferences we cannot provide definitive answers[^2]. 
 
 It is, however, better to report your confidence intervals than your point estimates. Why?  
+
 + First, because you are being explicit about the fact you are just guessing. Point estimates such as the mean create a false impression of precision.  
-+ But beware the CI can also be misleading! 95% of the times you may get the true parameter, but that’s not the same than to say that 95% of the time your mean will lie between your upper and lower boundaries for your confidence interval. [This is a common interpretative mistake made by researchers and, even, teachers](http://link.springer.com/article/10.3758%2Fs13423-013-0572-3). **A confidence interval can only be used to evaluate the procedure not a specific estimated interval**.   
++ But beware the CI can also be misleading! 95% of the times you may get the true parameter, but that’s not the same than to say that 95% of the time your mean will lie between your upper and lower boundaries for your confidence interval. [This is a common interpretative mistake made by researchers and, even, teachers](http://link.springer.com/article/10.3758%2Fs13423-013-0572-3).
+**A confidence interval can only be used to evaluate the procedure not a specific estimated interval**.  
+
+So to reiterate:  
+
+- FALSE INTERPRETATION: “There is a 95% chance that the mean IQ is between 89.7 and 104.7 minutes”. This is a very common misconception! It seems very close to true, but it isn’t because the population mean value is fixed. So, it is either in the interval or not. This is subtle but important.
+- What is correct? **95% of the time, when we calculate a confidence interval in this way, the true mean will be between the two values. 5% of the time, it will not.** Because the true mean (population mean) is an unknown value, we don’t know if we are in the 5% or the 95%. BUT 95% is pretty good. So we say something like “We are 95% confident that the mean IQ for all people in our fake population is between 89.7 and 104.7.” This is a common shorthand for the idea that the calculations “work” 95% of the time.
+- Remember that we can’t have a 100% confidence interval. By definition, the population mean is not known . If we could calculate it exactly we would! But that would mean that we need a census of our population with is often not possible or feasible.
 + Finally, because if the range of values that you give me for your CI is smaller or bigger I will know that your estimate is more or less precise respectively. That is, with the CI you are giving me a measure of your uncertainty. The bigger the CI the more uncertain we are about the true population parameter.
 
 #3.6 Asymptotic confidence intervals for means and proportions using R
 
-You may have spotted a big problem in what came before. How did we compute the confidence interval? We multiplied 1.96 times the standard error. Remember: the standard error is the standard deviation of the sampling distribution of the mean. And… well, at least you are willing to repeat a survey thousands of times with the same population you won’t know what the standard error is! The population mean is unknown and we want to estimate it. *But the standard error that we need for constructing our confidence interval is also unknown!*. You may be thinking that I just sold you snake oil then.
+You may have spotted a big problem in what came before. How did we compute the confidence interval? We multiplied 1.96 times the standard error. Remember: the standard error is the standard deviation of the sampling distribution of the mean. And… well, at least you are willing to repeat a survey thousands of times with the same population you won’t know what the standard error is! The population mean is unknown and we want to estimate it. *But the standard error that we need for constructing our confidence interval is also unknown!*. 
 
 If you are working with proportions there is an obvious way to estimate the standard error only with sample data (for details see the required reading). But with means this is not possible. There is, however, a solution. You can use *the standard deviation of your sample* as an estimate for the standard error . You would also need to make some adjustments to the formula for the confidence interval (you divide the sample standard deviation by the square root of the sample mean). You don't need to worry to much about the mathematics of it. In practice we will rely on R to apply these formulas and compute the confidence intervals. 
 
@@ -377,7 +409,7 @@ table(sample_1$offender)
 We can use the `prop.test()` function in these cases:
 
 ```{r}
-prop.test(sample_1$offender=="Yes") #We want to estimate the proportion of respondents who are offenders, which is why we specifically ask for those classigied as "Yes"
+prop.test(sample_1$offender=="Yes") #We want to estimate the proportion of respondents who are offenders, which is why we specifically ask for those classified as "Yes"
 ```
 
 You can also specify a different confidence level:
@@ -401,7 +433,7 @@ Remember that confidence intervals may be easy to construct (just one line of co
 
 We have seen how theoretically the sampling distribution reflects variation from random samples. We also discussed how in practice we only have one sample. In the previous sections we also saw how we can some times use theoretical probability distributions (such as the normal or the t distribution) provided we are willing to make some assumptions. And we could then use these distributions to build our confidence intervals. 
 
-Another way of building confidence intervals is called **bootstrapping**. This comes from the phrase: "He pulled himself up by his own trousers", which is said of someone who improves himself without help. Essentially what we are doing is estimating the properties of the sampling distribution from our single sample. How? By means of taking repeated samples (with replacement) *from our own sample*. These samples are called **resamples**. Essentially the sample is "used as a stand-in for the population and new samples are drawn from the sample" (Kaplan, 2012). Noticed I said we use sampling with replacement. Every time we select a case from the sample, the case is put back so that we can select it again.
+Another way of building confidence intervals is called **bootstrapping**. This comes from the phrase: "He pulled himself up by his own trousers", which is said of someone who improves himself without help. Essentially what we are doing is estimating the properties of the sampling distribution from our single sample. How? By means of taking repeated samples (with replacement) *from our own sample*. These samples are called **resamples**. Essentially the sample is "used as a stand-in for the population and new samples are drawn from the sample" (Kaplan, 2012). Notice I said we use sampling *with* replacement. Every time we select a case from the sample, the case is put back so that we can select it again.
 
 
 ```{r}
@@ -422,8 +454,14 @@ resampling_IQ_30_1 <- do(1000) * mean(resample(sample_3))
 
 Then we can use the Mosaic `qdata()` function to extract the 95% coverage intervals:
 
+<!--
 ```{r}
-qdata(c(.025,.975), resampling_IQ_30_1$result) #"result" is the name of the vector in our object containing the means of each resample
+#qdata(c(.025,.975), resampling_IQ_30_1$result) #"result" is the name of the vector in our object containing the means of each resample
+```
+-->
+
+```{r}
+qdata(~mean, p = c(.025, .975), resampling_IQ_30_1)
 
 ```
 
@@ -439,7 +477,7 @@ What if the sample size was larger?
 ```{r}
 sample_4 <- sample(fake_population$IQ, 100)
 resampling_IQ_100_1 <- do(1000) * mean(resample(sample_4))
-qdata(c(.025,.975), resampling_IQ_100_1$result)
+qdata(~mean, p = c(.025, .975), resampling_IQ_100_1)
 t.test(sample_4)
 ```
 
@@ -447,14 +485,20 @@ As you can see as the sample size grows the differences between the bootstrap co
 
 Before we conclude this section, it is important to remember that the *resampling* distributions won't construct the sampling distribution. What they do is to show you how the sampling distribution may look like *if the population looked like your sample*. The center of the resampling distribution is generally not aligned with the center of the sampling distribution, although in practice the width of the re-sampling distribution in practice tends to match the width of the sampling distribution. The following figure shows you how three resampling distributions compare to the sampling distribution of IQ for samples of size 30.
 
-`r resampling_IQ_30_2 <- do(1000) * mean(resample(sample_3))`
-`r resampling_IQ_30_3 <- do(1000) * mean(resample(sample_3))`
+```{r} 
+resampling_IQ_30_2 <- do(1000) * mean(resample(sample_3))
+```
+
+```{r}  
+resampling_IQ_30_3 <- do(1000) * mean(resample(sample_3))
+```
 
 ```{r, echo = FALSE}
 ggplot() + 
-geom_density(data = sampd_IQ_30, aes(x = result, fill = "Sampling Dist."), position = "identity", alpha = 0.4) +  geom_density(data = resampling_IQ_30_1, aes(x = result, fill = "Resampling 1"), position = "identity", alpha = 0.4) +
-geom_density(data = resampling_IQ_30_2, aes(x = result, fill = "Resampling 2"), position = "identity", alpha = 0.4) +   
-geom_density(data = resampling_IQ_30_3, aes(x = result, fill = "Resampling 3"), position = "identity", alpha = 0.4)  +
+geom_density(data = sampd_IQ_30, aes(x = with, fill = "Sampling Dist.", position = "identity", alpha = 0.4)) +  
+  geom_density(data = resampling_IQ_30_1, aes(x = mean, fill = "Resampling 1", position = "identity", alpha = 0.4)) +
+geom_density(data = resampling_IQ_30_2, aes(x = mean, fill = "Resampling 2", position = "identity", alpha = 0.4)) +   
+geom_density(data = resampling_IQ_30_3, aes(x = mean, fill = "Resampling 3", position = "identity", alpha = 0.4))  +
   labs(fill = "") + #This will change the title of the legend
   xlab("Sampling versus resampling distribution of IQ (n=30")
 ```
@@ -466,7 +510,16 @@ So far we have seen how we can use confidence intervals to quantify the unavoida
 
 Imagine that we want to know whether there is a difference in the level of fear experienced by males and females. Suppose we want to compare the average level of fear of violent crime across the two genders. We could use the data from the British Crime Survey we have been using so far (please load the data if you don't have it in your global environment from previous weeks). But we also need to take into account sampling variability. The estimated mean for fear of crime for males will be subject to some sampling error. The same for females. And the same for the difference between the two means.
 
-`r load("C:/Users/jjmedina/Dropbox/Teaching/1 Manchester courses/70821 Intro to Statistics/R Materials/Course1415/BCS0708.RData")`
+<!--
+load("C:/Users/jjmedina/Dropbox/Teaching/1 Manchester courses/70821 Intro to Statistics/R Materials/Course1415/BCS0708.RData")
+-->
+```{r}
+##R in Windows have some problems with https addresses, that's why we need to do this first:
+urlfile<-'https://raw.githubusercontent.com/jjmedinaariza/LAWS70821/master/BCS0708.csv'
+#We create a data frame object reading the data from the remote .csv file
+BCS0708<-read.csv(url(urlfile))
+
+```
 
 ```{r, message=F, warning=F}
 library(psych)
@@ -484,7 +537,7 @@ How do we deal with this? Again,  we can make assumptions about the sampling dis
 
 Now we are trying to work out two different population parameters (the population meam of fear for males and females), which are unknown, based on our observed sample estimates. If we were to take repeated samples from the same populations these sample-based estimates of the means would vary and so would the difference between them. But we know that if we were to take large repeated samples of men the sampling distribution of the means for fear of crime in the long run would follow a normal distribution. Equally, if we were to take repeated samples of women the same would happen. However, now we are not only interested in these two quantities (the mean for each group) we are also interested in the difference between them, the difference in the mean score of fear for females and males.
 
-In essence, however, the same principles apply.  If we were to plot the distribution of the difference between these two quantities, the means for the mean and the women for every single sample of repeated samples, we would also have a sampling distribution: the sampling distribution of the differences of the means as shown in the figure above. Here, as earlier, we could invoke the central limit theorem that, in this case, states that with large random samples the sampling distribution of the difference of the means will be normal. We can also apply a variation of this (Gosset’s theorem) that states that with small samples of normally distributed variables we can use the t-student distribution. We could then construct a 95% confidence interval for the difference of the means that would give us the range of plausible values from the same population. 
+In essence, however, the same principles apply.  If we were to plot the distribution of the difference between these two quantities, the means for the men and the women for every single sample of repeated samples, we would also have a sampling distribution: the sampling distribution of the differences of the means as shown in the figure above. Here, as earlier, we could invoke the central limit theorem that, in this case, states that with large random samples the sampling distribution of the difference of the means will be normal. We can also apply a variation of this (Gosset’s theorem) that states that with small samples of normally distributed variables we can use the t-student distribution. We could then construct a 95% confidence interval for the difference of the means that would give us the range of plausible values from the same population. 
 
 Remember how we construct confidence intervals for the mean by adding the mean to the standard error of the sampling distribution of the mean. Also remember how we used the standard deviation of the sample mean as a proxy for the standard error. The computation of the confidence interval for the difference of two means works in a similar way but we need to account for the fact that now we have two different variances (i.e., in our example the variance for men and for women). Otherwise, the logic for constructing the confidence interval remains the same. For details on computation and formula see appropriate textbooks.
 
@@ -518,7 +571,7 @@ ggplot(BCS0708, aes(x = sex, y = tcviolent)) +
 
 ```
 
-The point in the error bar represents the mean value forfear of crime for each of the groups and the error bars represent the upper and lower bound for the confidence interval for the mean fear of crime score for each of those two groups. Notice how *the confidence intervals do not overlap*. These confidence intervals provide a range of plausible values for the population parameters, the mean score of fear for males and females in the population. The fact that the CI do not overlap is another way of showing that there may be a difference in the population parameters for these two groups. Lack of any overlap is strong suggestion of a significant difference in the population.
+The point in the error bar represents the mean value for fear of crime for each of the groups and the error bars represent the upper and lower bound for the confidence interval for the mean fear of crime score for each of those two groups. Notice how *the confidence intervals do not overlap*. These confidence intervals provide a range of plausible values for the population parameters, the mean score of fear for males and females in the population. The fact that the CI do not overlap is another way of showing that there may be a difference in the population parameters for these two groups. Lack of any overlap is strong suggestion of a significant difference in the population.
 
 If they were overlapping this would be indicating that some of the plausible values for the mean fear of crime score for males in the population would also be plausible values for the mean fear of crime for females in the population. In this case, when there is some overlap, it is less intuitive to interpret the confidence intervals. *You can have some overlap even if there is a real difference across the population means*. However, the greater the overlap the smaller the chance that there is a difference between the two means in the population. In particular, if the overlap is greater than about 50% for the length of the bar either side of the mean then you will be, roughly speaking, "very confident" that there is no real difference in the population. [This](http://www.apastyle.org/manual/related/cumming-and-finch.pdf) is a good guide about how to interpret error bars in this type of scenarios.
 

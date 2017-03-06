@@ -1,0 +1,155 @@
+---
+title: "Homework 2"
+author: "Reka Solymosi"
+date: "26 September 2016"
+output: html_document
+---
+
+##Question 1: Read in data
+There is lots of very interesting data online. One example is data on football banning orders, which is collected by the Home Office, and is available [here](https://data.gov.uk/dataset/football-banning-orders). As most data, it's a bit messy, so I've done some of the cleaning for you. So you can download a .csv of some clean data that you should use for this part of the homework from Blackboard, avilable [here](). 
+
+Download this data set, and read this dataset into R.
+
+Enter the code you used for this below (don't forget to annotate): 
+
+```{r, eval=FALSE}
+
+#enter your code here
+
+
+
+
+```
+*(Hint: remember to give your data object a memorable name)*
+
+##Question 2: Describe the dataset
+
+**How many variables and cases does this dataset have?** 
+Paste the code used to get the answers below: 
+
+```{r, eval=FALSE}
+
+#enter your code here
+
+
+
+
+```
+And the answer is: 
+*(Hint: check its DIMensions)*
+
+**What are the variables in this dataset? What class are they?**
+
+Paste the code used to get the answers below: 
+
+```{r, eval=FALSE}
+
+#enter your code here
+
+
+
+
+```
+And the answer is: 
+*(Hint: you can apply a function of checking class to the whole dataframe)*
+
+
+**What are the names of the variables?** 
+Paste the code used to get the answers below: 
+
+```{r, eval=FALSE}
+
+#enter your code here
+
+
+
+
+```
+And the answer is: 
+*(Hint: you want the names())*
+
+## Question 3: Mean
+
+**What is the average (mean) number of banning orders accross supporters of all clubs in the dataset?**
+
+Paste the code used to get the answers below: 
+
+```{r, eval=FALSE}
+
+#enter your code here
+
+
+
+
+```
+
+And the answer is: 
+
+##Question 4: Filter 
+
+Use filtering to answer the following questions: 
+
+**What is the average (mean) number of banning orders accross only supporters of Premier league clubs?**
+
+Paste the code used to get the answers below: 
+
+```{r, eval=FALSE}
+
+#enter your code here
+
+
+
+
+```
+
+And the answer is:
+
+**What is the average (mean) number of banning orders accross only supporters of League Two clubs?**
+
+Paste the code used to get the answers below: 
+
+```{r, eval=FALSE}
+
+#enter your code here
+
+
+
+
+```
+
+And the answer is:
+
+##Question 5: Discussion
+
+**Produce a simple histogram of the Banning.Orders variable. **
+
+*(Hint: HISTogram)*
+
+Any discernible patterns? Discuss.
+
+Any code goes here: 
+```{r, eval=FALSE}
+
+#enter your code here
+
+
+
+
+```
+
+**Produce summary statistics of the Banning.Orders variable by League.of.the.Club.Supported. **
+
+*(Hint: you want to DESCRIBE banning orders BY leage)*
+
+Any discernible patterns? Discuss.
+
+Any code goes here: 
+```{r, eval=FALSE}
+
+#enter your code here
+
+
+
+
+```
+
