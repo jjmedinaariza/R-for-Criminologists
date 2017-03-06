@@ -1,6 +1,6 @@
 ---
 title: "WEEK 8: LOGISTIC REGRESSION"
-author: "Reka Solymosi based on work of Juanjo Medina"
+author: "Juanjo Medina, updates by Reka Solymosi"
 output: html_document
 ---
 
