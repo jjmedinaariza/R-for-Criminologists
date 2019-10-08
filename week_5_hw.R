@@ -4,13 +4,13 @@
 #The transcripts of these data are available from the data science challenge site kaggle
 #You can see here if interested: 
 
-#I downloaded this data, and created a few dichotomous variables using text processing. 
+#I downloaded this data, and created a few dichotomous variables using regex (text processing). 
 #Here is my codebook: 
-#candidatesOnly$Text = what the candidate said in that line
-#candidatesOnly$Speaker = the candidate who said that linet
-#candidatesOnly$interrupted = whether that line was interrupted or not (Yes/No) (denoted by '...' in the text)
-#candidatesOnly$jobs = whether in that line jobs were mentioned or not (Yes/No)
-#candidatesOnly$women = whether in that line women were mentioned or not (Yes/No)
+#candidatesOnly$Text = what the candidate said transcribed 
+#candidatesOnly$Speaker = the candidate who said that bit of text
+#candidatesOnly$interrupted = score 1 for the sentence being interrupted, 0 if not (denoted by '...' in the text)
+#candidatesOnly$jobs = score 1 for the word job mentioned in that sentence, 0 if not
+#candidatesOnly$women = score 1 for the word women or woman mentioned in that sentence, 0 if not
 
 #The debates are meant to serve as a sample of the candidates' approach to presidency. 
 #Based on this sample, answer the following questions: 
@@ -44,14 +44,3 @@ csew1112 <- read.table("csew1112.tab", sep="\t", header=TRUE)
 
 #For both above questions, discuss and aim to interpret your findings in a way that is consistent with theory and common sense.
 
-usDebateData <- read.csv(file.choose())
-usDebateData$womenreordered <- factor(usDebateData$women, levels = c('Yes','No'))
-print(levels(usDebateData$womenreordered))
-table(usDebateData$womenreordered)
-
-
-
-csew1112$BCSVictimR <- factor(csew1112$bcsvictim, levels = c('1','0'))
-csew1112$BCSSexR <- factor(csew1112$sex, levels = c('1', '2'))
-
-with(csew1112, CrossTable(BCSSexR, BCSVictimR, prop.c = FALSE, prop.t = FALSE, expected = TRUE, format = c("SPSS")))
