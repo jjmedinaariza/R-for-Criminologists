@@ -33,7 +33,9 @@ View(gapminder)
 
 #Q4: Produce a scatterplot with a smoothed line to examine the relationship between life expectancy and GDP per capita. Discuss.
 library(ggplot2)
-ggplot(gapminder, aes(x=lifeExp, y=gdpPercap)) +
+gapminder$year <- as.factor(gapminder$year)
+
+ggplot(gapminder, aes(x=lifeExp, y=gdpPercap, group=year, color=year)) +
   geom_point() + 
   geom_smooth()
 
@@ -41,4 +43,43 @@ ggplot(gapminder, aes(x=lifeExp, y=gdpPercap)) +
 
 pairs(gapminder[,4:6])
 
+pairs(gapminder[,4:6], pch=".", #Produces smaller points to make it easier to see
+      upper.panel=panel.smooth, #Adds for smoothed lines to be added to the lower panel scatterplots 
+      lower.panel=panel.cor, #Ask for correlation coeffients in the upper panel using our customised functions (the size of the numer is bigger is the correlation is bigger, but notice that the coefficient does not include the sign, whether is positve or negative, you need to infer that from the scatterplot)
+      diag.panel=panel.hist) 
 
+
+
+#####
+gapminder_year <- gapminder[gapminder$lifeExp & gapminder$gdpPercap & gapminder$pop & gapminder$year=="2007",]
+
+View(gapminder_year)
+gapminderdf <-as.data.frame(gapminder)
+
+gapminder_SM <-subset(gapminder2007, select = c(lifeExp, gdpPercap, pop))
+
+pairs(gapminder_SM)
+
+ggplot(gapminder, aes(x=country, y=pop)) + geom_boxplot()
+
+gapminder2007 <- gapminder[gapminder$year=="2007",]
+
+casualtiesdf <- casualties
+
+
+
+
+ggplot(data = casualtiesdf, aes(x = Age_of_Casualty)) + 
+  geom_density() + 
+  facet_wrap(~Casualty_Severity)
+
+casualtiesdf$Casualty_Severity[casualtiesdf$Casualty_Severity == 1] <- "Fatal"
+casualtiesdf$Casualty_Severity[casualtiesdf$Casualty_Severity == 2] <- "Serious"
+casualtiesdf$Casualty_Severity[casualtiesdf$Casualty_Severity == 3] <- "Slight"
+casualtiesdf$Casualty_Severity <- as.factor(casualtiesdf$Casualty_Severity)
+
+View(casualtiesdf)
+
+
+ggplot(data = casualtiesdf, aes(x = Casualty_Severity, y = Age_of_Casualty)) +
+  geom_boxplot()
