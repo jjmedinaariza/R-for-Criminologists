@@ -15,3 +15,4 @@ output:
 - [Getting started: Installation and opening up R & R Studio](https://rawgit.com/maczokni/R-for-Criminologists/master/Intro_day.html)
 - [Getting down with data: Some basic tasks to get your hands dirty](https://rawgit.com/maczokni/R-for-Criminologists/master/Intro_day_2.html)
 - [How to R markdown](https://rawgit.com/maczokni/R-for-Criminologists/master/Intro_day_howToRMkd.html)
+- [Download the markdown template here](https://www.dropbox.com/s/f4jp6arzs16np2a/HomeworkTemplate.Rmd?dl=1)
